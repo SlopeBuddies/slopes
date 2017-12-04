@@ -86,4 +86,9 @@ app.get('/auth/logout', (req,res) => {
 })
 
 
+const path = require('path')
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+})
+
 app.listen( port, () => console.log(`server is listening on port: ${port}`))
