@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { test } from './ducks/reducer'
+import { test } from './ducks/reducer';
+import Login from './components/Login';
 
 
 
