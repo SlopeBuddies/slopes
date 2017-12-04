@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
-import './App.css';
-import { connect } from 'react-redux';
-import { test } from './ducks/reducer'
+import { BrowserRouter, Route } from 'react-router-dom';
+import Login from './components/Login';
+import Home from './components/Home';
 
 
 
 class App extends Component {
 
-componentDidMount(){
-    this.props.test()
+render() {
+    return (
+        <BrowserRouter >
+            <div>
+                <Route path='/login' component={Login} />
+                <Route exact path='/' component={Home} />
+            </div>
+        </BrowserRouter>
+    );
+    }
 }
 
- render() {
-   return (
-     <div>
-         {this.props.init}
-     </div>
-   );
- }
-}
 
-function mapStateToProps(state) {
-    return state
-}
-
-export default connect(mapStateToProps, {test})(App);
+export default App;
