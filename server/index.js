@@ -39,7 +39,7 @@ passport.use( new Auth0Strategy({
     console.log(userData)
     db.find_user([userData.identities[0].user_id]).then( user => {
         if(user[0]) {
-            return done(null, user[0].id)
+            return done(null, user[0])
         } else {
             console.log(userData)
             db.create_user([
@@ -51,7 +51,7 @@ passport.use( new Auth0Strategy({
                 userData.email
             ]).then( user => {
                 console.log(user)
-                return done(null, user[0].id)
+                return done(null, user[0].user_id)
                 
             })
         }
@@ -62,14 +62,14 @@ passport.serializeUser( function(id, done) {
     done(null, id)
 });
 passport.deserializeUser( function(id, done) {
-    app.get('db').find_session_user([id]).then(user => {
+    app.get('db').find_session_user([user_id]).then(user => {
         done(null, user[0])
     })
 })
 
 app.get('/auth', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect:'http://localhost:3000/',
+    successRedirect:'http://localhost:3000',
     failureRedirect:'/auth'
 }))
 app.get('/auth/me', (req,res) => {
