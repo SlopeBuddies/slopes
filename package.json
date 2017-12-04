@@ -5,7 +5,6 @@
   "dependencies": {
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
-    "build-css": "node-sass-chokidar src/ -o src/",
     "cors": "^2.8.4",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
@@ -21,10 +20,11 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
-    "redux-promise-middleware": "^5.0.0",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
+    "redux-promise-middleware": "^5.0.0"
   },
   "scripts": {
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "build-css": "node-sass-chokidar src/ -o src/",    
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",

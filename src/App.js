@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
-import Router from './Router'
+import { connect } from 'react-redux';
+import { test } from './ducks/reducer'
+
 
 
 class App extends Component {
 
+componentDidMount(){
+    this.props.test()
+}
+
  render() {
    return (
-     <div className="App">
-
-       <Router />
+     <div>
+         {this.props.init}
      </div>
    );
  }
 }
 
-export default App;
+function mapStateToProps(state) {
+    return state
+}
+
+export default connect(mapStateToProps, {test})(App);
