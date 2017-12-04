@@ -1,5 +1,6 @@
 {
   "name": "slopes",
+  "main": "./server/index",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -30,5 +31,6 @@
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy": "http://localhost:3030"
 }
