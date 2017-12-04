@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { test } from './ducks/reducer'
+import { test } from './ducks/reducer';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Login from './components/Login';
 
 
 
@@ -11,13 +13,15 @@ componentDidMount(){
     this.props.test()
 }
 
- render() {
-   return (
-     <div>
-         {this.props.init}
-     </div>
-   );
- }
+render() {
+    return (
+        <BrowserRouter >
+            <div>
+                <Route path='/login' component={Login} />
+            </div>
+        </BrowserRouter>
+    );
+    }
 }
 
 function mapStateToProps(state) {
