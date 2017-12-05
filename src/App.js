@@ -5,14 +5,21 @@ import Home from './components/Home';
 
 
 
+
 class App extends Component {
 
 render() {
     return (
         <BrowserRouter >
             <div>
+
+
+                
                 <Route path='/login' component={Login} />
                 <Route exact path='/' component={Home} />
+
+                
+
             </div>
         </BrowserRouter>
     );

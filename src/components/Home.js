@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { test } from '../ducks/reducer';
+import { getUserInfo } from '../ducks/reducer';
+import { Link } from 'react-router-dom';
+import Header from './Header';
+import Nav from './Nav';
 
 class Home extends Component {
 
     componentDidMount(){
-        this.props.test();
+        this.props.getUserInfo();
     }
 
     render() {
+
+console.log(this.props.user)
+
         return (
             <div>
-                {this.props.init}
+                <Header />
+                <div>
+
+                </div>
+
+                <Nav />
             </div>
         )
     }
@@ -19,7 +30,10 @@ class Home extends Component {
 
 
 function mapStateToProps(state) {
-    return state
+    console.log(state)
+    return {
+        user: state.user
+    }
 }
 
-export default connect(mapStateToProps, {test})(Home);
+export default connect(mapStateToProps, {getUserInfo})(Home);

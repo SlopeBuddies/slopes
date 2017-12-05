@@ -40,3 +40,59 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  color: white;
+  width: 100%;
+  height: 70px;
+  text-decoration: none; }
+
+.header a {
+  font-size: 1.5em;
+  margin-right: 20px;
+  color: white;
+  text-decoration: none; }
+
+.headerimg img {
+  width: 70px;
+  height: 70px; }
+
+.nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: gray; }
+
+.homebtn {
+  font-size: 1.25em;
+  border: 1px solid black;
+  width: 50%;
+  height: 100%; }
+
+.settingsbtn {
+  font-size: 1.25em;
+  border: 1px solid black;
+  width: 50%;
+  height: 100%; }
+
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: lightblue; }
+
+.loginBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  height: 200px;
+  width: 200px;
+  background: gray; }
