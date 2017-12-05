@@ -61,3 +61,52 @@
     width: 200px;
     background: gray;
 }
+
+// Profile
+
+.profile_container {
+    @include flex;
+    flex-direction: column;
+    margin-top: 25px;
+    background-color: lightgray;
+}
+
+.profile_image {
+    height: 200px;
+    width: 200px;
+    background: blue;
+    // border-radius: 50%
+}
+
+.profile_text_container {
+    width: 75%;
+    display: none;
+}
+
+.profile_input {
+    height: 40px;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 35px;
+}
+
+.profile_display {
+    width: 75%;
+    font-size: 35px;
+
+    h3 {
+        margin-top: 15px;    
+    }
+}
+
+.profile_edit {
+
+}
+
+.profile_disabled {
+    display: none;
+}
+
+.profile_save {
+
+}
