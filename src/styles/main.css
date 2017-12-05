@@ -127,11 +127,11 @@ table {
 .profile_image {
   height: 200px;
   width: 200px;
-  background: blue; }
+  background: blue;
+  border-radius: 50%; }
 
 .profile_text_container {
-  width: 75%;
-  display: none; }
+  width: 75%; }
 
 .profile_input {
   height: 40px;

@@ -97,6 +97,13 @@ app.get("/auth/logout", (req, res) => {
   res.redirect("http://localhost:3000/login");
 });
 
+//profile endpoints
+
+app.get('/user/:id', ctrl.getUser )
+
+app.get('/checkuser', ctrl.checkUser)
+
+app.put('/users/:id', ctrl.updateUser)
 
 app.get('/friends/all/:id', ctrl.getAllFriends)
 
