@@ -147,3 +147,14 @@ table {
 
 .profile_disabled {
   display: none; }
+
+.friendsAvatar {
+  width: 100%;
+  display: flex;
+  align-items: center; }
+
+.friendsAvatar img {
+  margin-right: 15px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%; }
