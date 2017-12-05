@@ -9,6 +9,7 @@ const initialState = {
 const GET_USER_INFO = 'GET_USER_INFO'
 const GET_PROFILE = 'GET_PROFILE'
 const CHECK_USER = 'CHECK_USER'
+const UPDATE_PROFILE = 'UPDATE_PROFILE'
 
 
 
@@ -44,6 +45,15 @@ export function checkUser(){
   }
 }
 
+export function updateProfile(id, user) {
+  const update = axios.put(`/users/${id}`, user).then(res => res.data[0]);
+
+  return {   
+    type: UPDATE_PROFILE,
+    payload: update
+  }
+}
+
 
 
 export default (state = initialState, action) => {
@@ -57,6 +67,9 @@ export default (state = initialState, action) => {
 
   case CHECK_USER + '_FULLFILLED':
     return Object.assign({},state, {userLogged: action.payload})
+
+  case UPDATE_PROFILE + "_FULFILLED":
+    return Object.assign({}, state, {profile: action.payload});
 
   default:
     return state

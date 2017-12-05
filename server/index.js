@@ -103,6 +103,8 @@ app.get('/user/:id', ctrls.getUser )
 
 app.get('/checkuser', ctrls.checkUser)
 
+app.put('/users/:id', ctrls.updateUser)
+
 const path = require("path");
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
