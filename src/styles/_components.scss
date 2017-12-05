@@ -4,7 +4,7 @@
     @include flex(space-between);
     background: black;
     color: white;
-    width: 100%;
+    width: 100vw;
     height: 70px;
     text-decoration: none;
 }
@@ -22,6 +22,21 @@
 }
 
 // Home css
+
+.homecontainer {
+    width: 414px;
+    @include flex;
+    height: calc(100vh - 170px);
+    flex-direction: column;
+}
+
+.homecontainer button {
+    margin-bottom: 30px;
+    height: 50px;
+    width: 75%;
+    background: gray;
+    font-size: 1.5em;
+}
 
 // Nav css
 
@@ -61,3 +76,11 @@
     width: 200px;
     background: gray;
 }
+
+// Search
+
+.searchContainer img {
+    width: 25px;
+    height: 25px;
+}
+
