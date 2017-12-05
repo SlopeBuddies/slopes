@@ -23,7 +23,11 @@ export class Friends extends Component {
     console.log(this.state);
     if(this.props.allhomies.length > 0) {
     var AllFriends = this.props.allhomies.map((e, i) => {
-      return <div key={i}>{e.first_name} {e.last_name} </div>;
+      return <div key={i}> 
+      <div className='friendsAvatar'>
+      <div><img src={e.profile_picture} /></div><div> {e.first_name} {e.last_name} </div>
+      </div>
+      </div>;
     })} else {
       AllFriends = 'You Have No Friends'
     };
