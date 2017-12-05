@@ -59,7 +59,7 @@ console.log(this.props.user)
                     <button style= {this.state.messagesToggle ? {display: 'none'}  : null} 
                             onClick={()=>{this.messagesToggle()}}> MESSAGES </button>
 
-                    {this.state.searchToggle && this.state.messagesToggle  ? <Friends/> : null}
+                    {this.state.searchToggle && this.state.messagesToggle  ? <Friends id={this.props.user.user_id}/> : null}
                     {this.state.messagesToggle && this.state.friendsToggle  ? <Search/> : null}
                     {this.state.friendsToggle && this.state.searchToggle  ? <Messages/> : null}
                     
