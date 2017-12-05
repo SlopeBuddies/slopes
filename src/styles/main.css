@@ -115,3 +115,35 @@ table {
 .searchContainer img {
   width: 25px;
   height: 25px; }
+  
+.profile_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 25px;
+  background-color: lightgray; }
+
+.profile_image {
+  height: 200px;
+  width: 200px;
+  background: blue; }
+
+.profile_text_container {
+  width: 75%;
+  display: none; }
+
+.profile_input {
+  height: 40px;
+  width: 100%;
+  margin-top: 15px;
+  font-size: 35px; }
+
+.profile_display {
+  width: 75%;
+  font-size: 35px; }
+  .profile_display h3 {
+    margin-top: 15px; }
+
+.profile_disabled {
+  display: none; }
