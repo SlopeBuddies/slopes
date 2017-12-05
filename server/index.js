@@ -5,7 +5,8 @@ const express = require("express"),
   session = require("express-session"),
   passport = require("passport"),
   Auth0Strategy = require("passport-auth0"),
-  massive = require("massive");
+  massive = require("massive"),
+  ctrls = require('./controllers')
 
 const port = 3030;
 
@@ -95,6 +96,12 @@ app.get("/auth/logout", (req, res) => {
   req.logOut(); //built in method that destroys the session
   res.redirect("http://localhost:3000/login");
 });
+
+//profile endpoints
+
+app.get('/user/:id', ctrls.getUser )
+
+app.get('/checkuser', ctrls.checkUser)
 
 const path = require("path");
 app.get("*", (req, res) => {
