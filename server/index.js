@@ -45,7 +45,6 @@ passport.use(
         if (user[0]) {
           return done(null, user[0].user_id);
         } else {
-          console.log(userData);
           db
             .create_user([
               userData.given_name,
@@ -56,16 +55,15 @@ passport.use(
               userData.identities[0].user_id
             ])
             .then(user => {
-              console.log(user);
-              return done(null, user[0].auth_id);
-            });
+              done(null, user[0].user_id);
+            })
+            .catch( (error) => console.log('errrr', error))
         }
       });
     }
   )
 );
 passport.serializeUser(function(id, done) {
-  console.log("hi");
   done(null, id);
 });
 passport.deserializeUser(function(id, done) {
@@ -121,7 +119,13 @@ app.get('/checkuser', ctrl.checkUser)
 
 app.put('/users/:id', ctrl.updateUser)
 
+//Friends Endpoints
+
 app.get('/friends/all/:id', ctrl.getAllFriends)
+
+//GEOLOCATION
+// app.put('/user/location/initial', ctrl.initialLocation)
+app.put('/user/location', ctrl.updateUserLocation)
 
 const path = require("path");
 app.get("*", (req, res) => {
