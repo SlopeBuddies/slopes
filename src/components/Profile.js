@@ -78,7 +78,7 @@ class Profile extends Component {
                 </h3>
                 <h3> {this.props.profile.last_name}</h3>
               </div>
-              <h3>Nickname: {this.props.profile.nickname} </h3>
+              <h3>{this.props.profile.nickname} </h3>
               <h3>Home Mountain:</h3>
             </div>
           </div>
