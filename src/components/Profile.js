@@ -35,6 +35,7 @@ class Profile extends Component {
     console.log(this.props.userLogged);
     console.log(this.props.match.params.id);
     console.log(this.props.user);
+    console.log('profile', this.props.profile)
     // const user = {
     //     nickname: this.refs.nickname.value,
     //     first: this.refs.first.value,
@@ -73,13 +74,11 @@ class Profile extends Component {
 
             <div>
               <div className="profileName">
-                <h3>
-                   {this.props.profile.first_name}
-                </h3>
-                <h3> {this.props.profile.last_name}</h3>
+                <h3>{  this.props.profile.first_name} &nbsp;   </h3>
+                <h3>   {this.props.profile.last_name}</h3>
               </div>
               <h3>{this.props.profile.nickname} </h3>
-              <h3>Home Mountain:</h3>
+              <h3> {this.props.profile.home_mountain}</h3>
             </div>
           </div>
           <div
@@ -108,7 +107,7 @@ class Profile extends Component {
                   nickname: this.refs.nickname.value,
                   first: this.refs.first.value,
                   last: this.refs.last.value,
-                  homeMountain: this.refs.homeMountain.value
+                  home_mountain: this.refs.homeMountain.value
                 });
                 this.setState({ editable: true });
               }}
@@ -125,7 +124,7 @@ class Profile extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log("mpst:", state);
+
   return state;
 }
 export default connect(mapStateToProps, {
