@@ -4,7 +4,7 @@
     @include flex(space-between);
     background: black;
     color: white;
-    width: 100%;
+    width: 100vw;
     height: 70px;
     text-decoration: none;
 }
@@ -20,8 +20,29 @@
     width: 70px;
     height: 70px;
 }
+//Search css
+
+.searchContainer img {
+    height: 25px;
+    width: 25px;
+}
 
 // Home css
+
+.homecontainer {
+    width: 414px;
+    @include flex;
+    height: calc(100vh - 170px);
+    flex-direction: column;
+}
+
+.homecontainer button {
+    margin-bottom: 30px;
+    height: 50px;
+    width: 75%;
+    background: gray;
+    font-size: 1.5em;
+}
 
 // Nav css
 
@@ -75,12 +96,11 @@
     height: 200px;
     width: 200px;
     background: blue;
-    // border-radius: 50%
+    border-radius: 50%;
 }
 
 .profile_text_container {
     width: 75%;
-    display: none;
 }
 
 .profile_input {
@@ -110,3 +130,21 @@
 .profile_save {
 
 }
+<<<<<<< HEAD
+=======
+
+.friendsAvatar {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+    // margin-right: 10px;
+}
+.friendsAvatar img {
+    margin-right: 15px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+>>>>>>> dcfb6b13877ece17f57395bf999c10ee2bf015f3

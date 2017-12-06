@@ -6,6 +6,7 @@ const express = require("express"),
   passport = require("passport"),
   Auth0Strategy = require("passport-auth0"),
   massive = require("massive");
+  ctrl = require('./controllers')
 
 const port = 3030;
 
@@ -51,7 +52,7 @@ passport.use(
               userData.email,
               userData.picture,
               userData.nickname,
-              userData.identities[0].user_id,
+              userData.identities[0].user_id
             ])
             .then(user => {
               console.log(user);
@@ -95,6 +96,16 @@ app.get("/auth/logout", (req, res) => {
   req.logOut(); //built in method that destroys the session
   res.redirect("http://localhost:3000/login");
 });
+
+//profile endpoints
+
+app.get('/user/:id', ctrl.getUser )
+
+app.get('/checkuser', ctrl.checkUser)
+
+app.put('/users/:id', ctrl.updateUser)
+
+app.get('/friends/all/:id', ctrl.getAllFriends)
 
 const path = require("path");
 app.get("*", (req, res) => {
