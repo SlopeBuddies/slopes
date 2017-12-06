@@ -205,3 +205,27 @@ table {
 
 .friendsName {
   font-size: 1.25em; }
+
+.chatContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  background: gray;
+  height: calc(100vh - 170px);
+  width: 100%; }
+
+.inputBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.chatInput {
+  width: 80%;
+  height: 20px; }
+
+.chatBtn {
+  width: 20%;
+  background: red;
+  height: 27px; }
