@@ -12,7 +12,6 @@ const GET_PROFILE = "GET_PROFILE";
 const CHECK_USER = "CHECK_USER";
 const UPDATE_PROFILE = "UPDATE_PROFILE";
 
-const GET_USER_INFO = "GET_USER_INFO";
 const GET_ALL_FRIENDS = "GET_ALL_FRIENDS";
 
 export function getUserInfo() {

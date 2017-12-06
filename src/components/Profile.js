@@ -16,7 +16,12 @@ class Profile extends Component {
 
     componentDidMount(){
         console.log(this.props.match.params.id)
-        this.props.getProfile(this.props.match.params.id)
+        this.props.getProfile(this.props.match.params.id).then( () => {
+            this.refs.nickname.value = this.props.profile.nickname
+            this.refs.first.value = this.props.profile.first_name
+            this.refs.last.value = this.props.profile.last_name
+            this.refs.homeMountain.value = this.props.profile.home_mountain
+        })
         this.props.checkUser();
         this.props.getUserInfo();
     }
@@ -38,12 +43,12 @@ class Profile extends Component {
                 <div className='profile_container'>
                 <div ><img src={this.props.profile.profile_picture} className='profile_image' /></div> 
                 <div className={this.state.editable ? 'profile_disabled' : 'profile_text_container'}>
-                    <input ref='nickname' type='text' placeholder={this.props.profile.nickname} className='profile_input'/>
+                    <input ref='nickname' type='text' className='profile_input'/>
                     <div>
-                    <input ref='first' type='text' placeholder={this.props.profile.first_name} className='profile_input'/>
-                    <input ref='last' type='text' placeholder={this.props.profile.last_name} className='profile_input'/>
+                    <input ref='first' type='text'  className='profile_input'/>
+                    <input ref='last' type='text'  className='profile_input'/>
                     </div>
-                    <input ref='homeMountain' type='text' placeholder='home mountain' className='profile_input'/>
+                    <input ref='homeMountain' type='text'  className='profile_input'/>
                 </div>
                     <div className={this.state.editable ? 'profile_display' :'profile_disabled'}>
                         <h3 className=''>Nickname: {this.props.profile.nickname} </h3>
