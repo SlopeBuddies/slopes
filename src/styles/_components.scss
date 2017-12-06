@@ -130,3 +130,29 @@
 .profile_save {
 
 }
+
+// Chat css
+
+.chatContainer {
+    @include flex(flex-end, flex-end);
+    flex-direction: column;
+    background: gray;
+    height: calc(100vh - 170px);
+    width: 100%;
+}
+
+.inputBtn {
+    width: 100%;
+    @include flex;
+}
+
+.chatInput {
+    width: 80%;
+    height: 20px;
+}
+
+.chatBtn {
+    width: 20%;
+    background: red;
+    height: 27px;    
+}
