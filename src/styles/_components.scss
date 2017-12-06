@@ -1,132 +1,190 @@
 // Header css
 
 .header {
-    @include flex(space-between);
-    background: black;
-    color: white;
-    width: 100vw;
-    height: 70px;
-    text-decoration: none;
+  @include flex(space-between);
+  background: #3c4163;
+  color: white;
+  width: 100vw;
+  height: 70px;
+  text-decoration: none;
 }
 
 .header a {
-    font-size: 1.5em;
-    margin-right: 20px;
-    color: white;
-    text-decoration: none;
+  font-size: 1.5em;
+  margin-right: 20px;
+  color: #70aeff;
+  text-decoration: none;
 }
 
-.headerimg img{
-    width: 70px;
-    height: 70px;
+.headerimg img {
+  width: 70px;
+  height: 70px;
 }
 //Search css
 
 .searchContainer img {
-    height: 25px;
-    width: 25px;
+  height: 25px;
+  width: 25px;
 }
 
 // Home css
 
 .homecontainer {
-    width: 414px;
-    @include flex;
-    height: calc(100vh - 170px);
-    flex-direction: column;
+  background: #fffafa;
+  width: 414px;
+  @include flex;
+  height: calc(100vh - 170px);
+  flex-direction: column;
 }
 
 .homecontainer button {
-    margin-bottom: 30px;
-    height: 50px;
-    width: 75%;
-    background: gray;
-    font-size: 1.5em;
+  outline: none;
+  border: none;
+  color: #3c4163;
+  border-radius: 5px;
+  background: #70aeff;
+  margin-bottom: 30px;
+  height: 50px;
+  width: 75%;
+  font-size: 1.5em;
 }
 
 // Nav css
 
 .nav {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100px;
-    background: gray;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: #3c4163;
 }
 .homebtn {
-    font-size: 1.25em;
-    border: 1px solid black;
-    width: 50%;
-    height: 100%;
+  outline: none;
+  background: #3c4163;
+  font-size: 1.25em;
+  color: #70aeff;
+  border: 1px solid black;
+  width: 50%;
+  height: 100%;
 }
 
 .settingsbtn {
-    font-size: 1.25em;
-    border: 1px solid black;
-    width: 50%;
-    height: 100%;
+  outline: none;
+  background: #3c4163;
+  font-size: 1.25em;
+  color: #70aeff;
+  border: 1px solid black;
+  width: 50%;
+  height: 100%;
 }
 
 // Login css
 .loginContainer {
-    @include flex;
-    width: 100%;
-    height: 100vh;
-    background: lightblue;
+  @include flex;
+  width: 100%;
+  height: 100vh;
+  background: lightblue;
 }
 
 .loginBox {
-    @include flex;
-    border-radius: 8px;
-    height: 200px;
-    width: 200px;
-    background: gray;
+  @include flex;
+  border-radius: 8px;
+  height: 200px;
+  width: 200px;
+  background: gray;
 }
 
 // Profile
 
 .profile_container {
-    @include flex;
-    flex-direction: column;
-    margin-top: 25px;
-    background-color: lightgray;
+  @include flex(center, center);
+  height: calc(100vh - 170px);
+  flex-direction: column;
+  background-color: #fffafa;
+}
+
+.profile_container div {
+  margin: auto;
 }
 
 .profile_image {
-    height: 200px;
-    width: 200px;
-    background: blue;
-    border-radius: 50%;
+  padding-top: 15px;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
 }
 
 .profile_text_container {
-    width: 75%;
+  height: calc(100vh - 170px);
+  margin: auto;
+  width: 50%;
 }
 
+.profile_text_container div {
+  margin: auto;
+  display: flex;
+}
+
+.profileName {
+  display: flex;
+  width: 100%;
+}
+
+
 .profile_input {
-    height: 40px;
-    width: 100%;
-    margin-top: 15px;
-    font-size: 35px;
+  @include flex;
+  outline: none;
+  height: 35px;
+  width: 100%;
+  margin-top: 15px;
+  font-size: 1.25em;
+  border-radius: 5px;
+  background: #bfbbbb17;
+}
+.profile_display div {
 }
 
 .profile_display {
-    width: 75%;
-    font-size: 35px;
-
-    h3 {
-        margin-top: 15px;    
-    }
+  margin: auto;
+  height: calc(100vh - 170px);
+  font-size: 1.5em;
+  h3 {
+    margin: auto;
+    margin-top: 15px;
+  }
 }
 
 .profile_edit {
-
+  border: none;
+  width: 75px;
+  height: 30px;
+  background: rgb(141, 170, 212);
 }
 
 .profile_disabled {
-    display: none;
+  display: none;
 }
 
 .profile_save {
+    border: none;
+    width: 75px;
+    height: 30px;
+    background: rgb(141, 170, 212);
+}
 
+.friendsAvatar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.friendsAvatar img {
+  margin-right: 15px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.friendsName {
+  font-size: 1.25em;
 }

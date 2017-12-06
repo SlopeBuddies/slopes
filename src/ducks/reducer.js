@@ -4,13 +4,16 @@ const initialState = {
   user: {},
   profile: {},
   userLogged: false,
-  allhomies: {}
+  allhomies: {},
+  position: {}
 };
 
 const GET_USER_INFO = "GET_USER_INFO";
 const GET_PROFILE = "GET_PROFILE";
 const CHECK_USER = "CHECK_USER";
 const UPDATE_PROFILE = "UPDATE_PROFILE";
+const GET_USER_LOCATION = "GET_USER_LOCATION";
+
 
 const GET_ALL_FRIENDS = "GET_ALL_FRIENDS";
 
@@ -18,6 +21,17 @@ export function getUserInfo() {
   return {
     type: GET_USER_INFO,
     payload: axios.get("/auth/me")
+  };
+}
+
+export function getUserLocation(position) {
+
+  return {
+    type: GET_USER_LOCATION,
+    payload: axios.put(`/user/location`, {
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude
+    })
   };
 }
 
@@ -47,7 +61,6 @@ export function checkUser() {
 
 export function updateProfile(id, user) {
   const update = axios.put(`/users/${id}`, user).then(res => res.data[0]);
-
   return {
     type: UPDATE_PROFILE,
     payload: update
@@ -79,9 +92,14 @@ export default (state = initialState, action) => {
 
     case UPDATE_PROFILE + "_FULFILLED":
       return Object.assign({}, state, { profile: action.payload });
+
     case GET_ALL_FRIENDS + "_FULFILLED":
       console.log(action.payload);
       return Object.assign({}, state, { allhomies: action.payload });
+
+    case GET_USER_LOCATION + "_FULFILLED":
+      console.log("pstnpayload:", action.payload);
+      return Object.assign({}, state, { position: action.payload });
 
     default:
       return state;

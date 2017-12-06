@@ -25,7 +25,7 @@ export class Friends extends Component {
     var AllFriends = this.props.allhomies.map((e, i) => {
       return <div key={i}> 
       <div className='friendsAvatar'>
-      <div><img src={e.profile_picture} /></div><div> {e.first_name} {e.last_name} </div>
+      <div><img src={e.profile_picture} /></div><div className='friendsName'> {e.first_name} {e.last_name} </div>
       </div>
       </div>;
     })} else {
