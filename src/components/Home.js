@@ -23,7 +23,6 @@ class Home extends Component {
     componentDidMount(){
         this.props.getUserInfo();
     }
-
     friendsToggle() {
         this.setState({
         searchToggle: !this.state.searchToggle,
@@ -44,9 +43,6 @@ class Home extends Component {
 
 
     render() {
-console.log(this.state)
-console.log(this.props.user)
-
         return (
             <div>
                 <Header />

@@ -5,7 +5,6 @@ module.exports = {
         })
     },
     checkUser: (req, res)=>{
-        console.log(req.session.user)
         if (req.session.user){
             res.status(200).send(true);
         } else {
@@ -13,9 +12,8 @@ module.exports = {
         }
     },
     updateUser: (req, res, next) => {
-        console.log(req.body);
-        req.app.get('db').update_profile([req.body.nickname, req.body.first, req.body.last, req.params.id]).then(user => {
-            console.log(user);
+        req.app.get('db').update_profile([req.body.nickname, req.body.first, req.body.last, req.body.home_mountain, req.params.id])
+        .then(user => {
             res.status(200).send(user)
         });
     },
@@ -25,8 +23,18 @@ module.exports = {
 
         dbInstance.get_all_friends([req.params.id])
         .then( (response) => res.status(200).send(response))
-        .catch( (response) => res.status(400).send(error))
+        .catch( (error) => res.status(400).send(error))
+    },
+    updateUserLocation: (req,res,next) => {
+        const dbInstance = req.app.get('db');
+
+        dbInstance.update_user_location([ req.body.latitude, req.body.longitude, req.user.user_id])
+        .then( (response) => {
+
+        res.status(200).send(response)})
+        .catch( (error) => res.status(400).send(error))
     }
+
 }
     
 
