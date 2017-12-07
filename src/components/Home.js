@@ -7,8 +7,14 @@ import Nav from './Nav';
 import Search from './Search';
 import Friends from './Friends';
 import Messages from './Messages';
+import turf from 'turf'
 
 class Home extends Component {
+
+
+      
+
+
     constructor() {
         super()
 
@@ -20,8 +26,11 @@ class Home extends Component {
         this.friendsToggle = this.friendsToggle.bind(this)
     }
 
+    
+
+
     componentDidMount(){
-        this.props.getUserInfo();
+        this.props.getUserInfo()
     }
     friendsToggle() {
         this.setState({
