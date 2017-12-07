@@ -46,7 +46,13 @@ class Home extends Component {
         return (
             <div>
                 <Header />
-                <div className='homecontainer'>
+                <div>
+                <div className='home_profile_container'>
+                    <img className='home_profile_image' src={this.props.user.profile_picture}/>
+                    <span className='home_profile_name'>{this.props.user.nickname}</span>
+                    <Link to={`/profile/${this.props.user.user_id}`}><button type='' className='see_profile_button'>Profile</button></Link>
+                </div> 
+                   <div className='homecontainer'>
                 
                     <button style= {this.state.friendsToggle ? {display: 'none'}  : null} 
                             onClick={()=>{this.friendsToggle()}}> FRIENDS </button>
@@ -58,7 +64,7 @@ class Home extends Component {
                     {this.state.searchToggle && this.state.messagesToggle  ? <Friends id={this.props.user.user_id}/> : null}
                     {this.state.messagesToggle && this.state.friendsToggle  ? <Search/> : null}
                     {this.state.friendsToggle && this.state.searchToggle  ? <Messages/> : null}
-                    
+                    </div>
                 </div>
                 <Nav />
             </div>
@@ -70,7 +76,7 @@ class Home extends Component {
 function mapStateToProps(state) {
     console.log(state)
     return {
-        user: state.user
+        user: state.user,
     }
 }
 

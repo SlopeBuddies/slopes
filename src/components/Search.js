@@ -5,7 +5,7 @@ export class Search extends Component {
   render() {
     return (
       <div className='searchContainer'>
-        <img src={searchIcon}/><input />
+        <img alt='' src={searchIcon}/><input />
       </div>
     )
   }
