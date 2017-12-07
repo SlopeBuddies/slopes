@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
 export class Login extends Component {
+
+  
   render() {
     return (
       <div className='loginContainer'>
@@ -9,6 +11,8 @@ export class Login extends Component {
         <button> LOGIN </button>
         </a>
         </div>
+
+        
       </div>
     )
   }
