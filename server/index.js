@@ -7,7 +7,8 @@ const express = require("express"),
   Auth0Strategy = require("passport-auth0"),
   massive = require("massive"),
   ctrl = require('./controllers'),
-  fence = require('./fence_controllers');
+  fence = require('./fence_controllers'),
+  socket = require('socket.io');
 
   const port = 3030;
   
@@ -97,6 +98,21 @@ app.get("/auth/logout", (req, res) => {
   res.redirect("http://localhost:3000/login");
 });
 
+// Socket io
+
+const io = socket(app.listen(port, () => console.log(`Server listening on port, ${port}`)));
+
+io.on('connection', socket =>{
+  console.log('User Connected')
+
+  socket.on('message sent', data => {
+    console.log(data, socket);
+    io.emit('chat', data.message)
+  })
+
+});
+
+
 //profile endpoints
 
 app.get('/user/:id', ctrl.getUser )
@@ -120,4 +136,4 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
 });
 
-app.listen(port, () => console.log(`server is listening on port: ${port}`));
+// app.listen(port, () => console.log(`server is listening on port: ${port}`));

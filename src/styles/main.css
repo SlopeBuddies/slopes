@@ -65,13 +65,56 @@ table {
   height: 25px;
   width: 25px; }
 
+.home_profile_container {
+  width: 100%;
+  height: 230px;
+  background: #fffafa;
+  border-bottom: 3px solid #3c4163;
+  display: grid;
+  grid-template-columns: repeat(8, 12.5%);
+  grid-template-rows: repeat(8, 12.5%); }
+
+.home_profile_image {
+  padding-top: 15px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  grid-column: 2;
+  grid-row: 2; }
+
+.home_profile_name {
+  font-size: 40px;
+  margin-left: 20px;
+  color: #3c4163;
+  grid-column: 5;
+  grid-row: 4; }
+
+.see_profile_button {
+  outline: none;
+  border: none;
+  color: #70aeff;
+  border-radius: 5px;
+  background: #3c4163;
+  height: 30px;
+  width: 60px;
+  font-size: 15px;
+  border-radius: 3px;
+  position: absolute;
+  right: 20px;
+  top: 250px;
+  transition: .5s ease-in-out; }
+
+.see_profile_button:hover {
+  transform: scale(1.1);
+  text-decoration: underline; }
+
 .homecontainer {
   background: #fffafa;
   width: 414px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 170px);
+  height: calc(100vh - 400px);
   flex-direction: column; }
 
 .homecontainer button {
@@ -83,7 +126,11 @@ table {
   margin-bottom: 30px;
   height: 50px;
   width: 75%;
-  font-size: 1.5em; }
+  font-size: 1.5em;
+  transition: 1s ease-in-out; }
+
+.homecontainer button:active {
+  transform: scale(1.5); }
 
 .nav {
   position: absolute;
@@ -205,3 +252,27 @@ table {
 
 .friendsName {
   font-size: 1.25em; }
+
+.chatContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  background: gray;
+  height: calc(100vh - 170px);
+  width: 100%; }
+
+.inputBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.chatInput {
+  width: 80%;
+  height: 20px; }
+
+.chatBtn {
+  width: 20%;
+  background: red;
+  height: 27px; }
