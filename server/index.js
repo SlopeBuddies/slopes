@@ -78,7 +78,7 @@ app.get("/auth", passport.authenticate("auth0"));
 app.get(
   "/auth/callback",
   passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000",
+    successRedirect: process.env.AUTH_SUCCESS,
     failureRedirect: "/auth"
   })
 );
@@ -92,7 +92,7 @@ app.get("/auth/me", (req, res) => {
 
 app.get("/auth/logout", (req, res) => {
   req.logOut(); //built in method that destroys the session
-  res.redirect("http://localhost:3000/login");
+  res.redirect(process.env.AUTH_LOGIN);
 });
 
 // Socket io
