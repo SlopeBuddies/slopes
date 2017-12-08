@@ -63,6 +63,9 @@ class Chat extends Component {
 
     dispatchMessage = () => {
         this.props.sendChatMessage({message: this.state.input, roomid: this.state.roomid})
+        this.setState({
+            input: ''
+        })
     }
 
     render(){

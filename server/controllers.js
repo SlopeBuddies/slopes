@@ -59,9 +59,32 @@ module.exports = {
         
                 res.status(200).send(response)})
                 .catch( (error) => res.status(400).send(error))
+    },
+
+    createChatRequest: (req, res, next) => {
+        const dbInstance = req.app.get('db');
+        const {roomid, room_name, request_type, request_to, request_from} = req.body;
+
+        dbInstance.create_chat_request([request_type, request_to, request_from, roomid, room_name])
+        .then((response) => {
+            res.status(200).send(response)});
+    },
+
+    getRequest: (req, res, next) => {
+        const db = req.app.get('db');
+
+        db.get_request([req.params.user_id]).then(response => res.status(200).send(response));
     }
 
 }
+
+
+
+// insert into request (request_type, pending, request_to, request_from)
+// values($1, true, $2, $3);
+
+// insert into rooms (room_id, room_name, room_private)
+// values($4, $5, true);
     
 
     

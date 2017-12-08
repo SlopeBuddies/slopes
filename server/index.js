@@ -181,6 +181,10 @@ app.put('/get/user/location', fence.check_fences)
 //Chat Endpoints
 app.get('/chat/messages/:room_id', ctrl.getRoomMessages);
 
+app.post('/chat/request', ctrl.createChatRequest);
+
+app.get('/notifications/:user_id', ctrl.getRequest)
+
 const path = require("path");
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
