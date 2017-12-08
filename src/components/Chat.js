@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Nav from './Nav';
 import Header from './Header';
-import io from 'socket.io-client'
+import io from 'socket.io-client';
+import { joinChat, sendChatMessage } from "./../ducks/reducer";
 
-const socket = io();
+
 
 class Chat extends Component {
     constructor(){
@@ -14,58 +15,73 @@ class Chat extends Component {
             input: '',
             message: '',
             messages: [],
-            room: 0,
-            joined: false
+            roomid: 0,
+            userid: 0
         };
 
-        this.updateMessage = this.updateMessage.bind(this);
-        this.sendMessages = this.sendMessages.bind(this);
-        this.handleDown = this.handleDown.bind(this)
+        // this.updateMessage = this.updateMessage.bind(this);
+        // this.sendMessages = this.sendMessages.bind(this);
+        // this.handleDown = this.handleDown.bind(this)
     };
     
 
     componentDidMount() {
-        socket.on('chat', data => {
-            this.updateMessage(data)
-        });
-    };
-
-    updateMessage(message) {
-        let newMessages = this.state.messages.slice()
-        newMessages.push(message)
+        console.log(this.props.match.params);
+        this.props.joinChat(this.props.match.params.chatid)
         this.setState({
-            messages: newMessages
+            roomid: this.props.match.params.chatid
         })
     };
+    
+    // updateMessage(message) {
+    //     let newMessages = this.state.messages.slice()
+    //     newMessages.push(message)
+    //     this.setState({
+    //         messages: newMessages
+    //     })
+    // };
 
-    sendMessages() {
-        socket.emit('message sent', {
-            message: this.state.input
+    // sendMessages() {
+    //     this.socket.emit('message sent', {
+    //         message: this.state.input
+    //     })
+    //     this.setState({
+    //         input: ''
+    //     })
+    // };
+
+    handleInput = (e) => {
+        this.setState({
+            input: e.target.value
         })
-    };
+    }
 
-    handleDown(e) {
-        if (e.keyCode === 13) this.sendMessages()
+    handleDown = (e) => {
+        if (e.keyCode === 13) this.dispatchMessage()
+    }
+
+    dispatchMessage = () => {
+        this.props.sendChatMessage({message: this.state.input, roomid: this.state.roomid})
     }
 
     render(){
-        console.log(this.state.messages)
+        console.log(this.props.currentChat)
         return(
             <div>
                 <Header/>
                 
                 <div className='chatContainer'>
-                    {this.state.messages.map((e,i) =>{
+                    {this.props.currentChat.map((e,i) =>{
                        return <div key={i}>
-                                    <h1>{e}</h1>
+                                    <h1>{e.chat_message}</h1>
                               </div>
                     })}
                     <div className='inputBtn'>
                     <input className='chatInput' type="text"
                            value={this.state.input}
-                           onChange={e => this.setState({input: e.target.value})}
-                           onKeyDown={(e) => this.handleDown(e)}/>
-                    <button className='chatBtn' onClick={this.sendMessages} >Send</button>
+                           onChange={this.handleInput}
+                           onKeyDown={this.handleDown}/>
+                    <button className='chatBtn' onClick={this.dispatchMessage} >Send</button>
                     </div>
                 </div>
 
@@ -81,4 +97,4 @@ function mapStateToProps(state) {
     return state
 }
 
-export default connect(mapStateToProps)(Chat);
+export default connect(mapStateToProps, { joinChat, sendChatMessage })(Chat);
