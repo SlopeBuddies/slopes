@@ -10,7 +10,6 @@ export class Friends extends Component {
     super();
 
     this.state = {
-      allFriends: [],
       roomid: ''
     };
   }
@@ -49,7 +48,7 @@ export class Friends extends Component {
 
   render() {
     console.log('props',this.props)
-    console.log(this.state);
+    console.log('friendddds',this.state);
     if(this.props.allhomies.length > 0) {
     var AllFriends = this.props.allhomies.map((e, i) => {
       return <div key={i}> 
@@ -60,9 +59,14 @@ export class Friends extends Component {
         <div className='friendsName'> 
           {e.first_name} {e.last_name} 
         </div>
+        <div>
+          {e.current_mtn}
+        </div>
+        <div>
         <Link to={`/chat/${this.state.roomid}`}>
           <button onClick={() => this.handleClickCreateChat(e.first_name, e.user_id)} className='friendMessagebtn' >Send Message</button>
         </Link>
+        </div>
       </div>
       </div>;
     })} else {

@@ -50,8 +50,11 @@ module.exports = {
       } 
     }
     if(resort) {
-        return res.status(200).send(resort)
+        req.app.get('db').update_current_mtn([resort, req.user.user_id])
+        return res.status(200).send(resort);
+
     } else {
+        req.app.get('db').update_current_mtn([null, req.user.user_id])
         return res.status(200).send('NOT IN FENCE')
     }
   }
