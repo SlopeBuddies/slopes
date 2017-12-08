@@ -8,7 +8,8 @@ const initialState = {
   position: {},
   messageData: [],
   currentChat: [],
-  resort: ''
+  resort: '',
+  requests: []
 };
 
 const GET_USER_INFO = "GET_USER_INFO";
@@ -17,9 +18,10 @@ const CHECK_USER = "CHECK_USER";
 const UPDATE_PROFILE = "UPDATE_PROFILE";
 const GET_USER_LOCATION = "GET_USER_LOCATION";
 const CHECK_RESORT = "CHECK_RESORT"
-
+const GET_ROOM_MESSAGES = 'GET_ROOM_MESSAGES'
 const FIND_USERS = "FIND_USERS"
 const GET_ALL_FRIENDS = "GET_ALL_FRIENDS";
+const GET_REQUEST = 'GET_REQUEST';
 
 export function getUserInfo() {
   return {
@@ -97,6 +99,19 @@ export function getAllFriends(id) {
   };
 }
 
+export function getRequest(user_id) {
+  console.log(user_id);
+  const getRequestNotification = axios.get(`/notifications/${user_id}`).then(response=> {
+    console.log(response)
+    return response.data});
+
+  
+  return {
+    type: GET_REQUEST,
+    payload: getRequestNotification
+  }
+}
+
 
 //------------------------- Socket io -------------------------------//
 
@@ -121,6 +136,7 @@ export function sendChatMessage(chatData) {
     payload: chatData
   }
 }
+
 
 
 export default (state = initialState, action) => {
@@ -151,6 +167,12 @@ export default (state = initialState, action) => {
     case 'SEND_CHAT_MESSAGE':
       return Object.assign({}, state, { currentChat: [...state.currentChat, action.payload]})
 
+    case GET_ROOM_MESSAGES:
+      return Object.assign({}, state, {currentChat: [...state.currentChat, ...action.payload]})
+
+      case GET_REQUEST + "_FULFILLED":
+      console.log('request test')
+      return Object.assign({}, state, {requests: action.payload});
     default:
       return state;
   }

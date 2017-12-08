@@ -4,6 +4,7 @@ import Nav from './Nav';
 import Header from './Header';
 import io from 'socket.io-client';
 import { joinChat, sendChatMessage } from "./../ducks/reducer";
+import axios from 'axios';
 
 
 
@@ -62,6 +63,9 @@ class Chat extends Component {
 
     dispatchMessage = () => {
         this.props.sendChatMessage({message: this.state.input, roomid: this.state.roomid})
+        this.setState({
+            input: ''
+        })
     }
 
     render(){
