@@ -66,6 +66,7 @@ class Home extends Component {
                 <div className='home_profile_container'>
                     <img className='home_profile_image' src={this.props.user.profile_picture}/>
                     <span className='home_profile_name'>{this.props.user.nickname}</span>
+                    <span className='home_profile_mountain'> {this.props.user.home_mountain}</span>
                     <Link to={`/profile/${this.props.user.user_id}`}><button type='' className='see_profile_button'>Profile</button></Link>
                 </div> 
                    <div className='homecontainer'>
