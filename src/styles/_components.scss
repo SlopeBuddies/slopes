@@ -44,6 +44,7 @@
 }
 
 .usersList {
+  margin-bottom: 15px;
   overflow: scroll;
   width: 100%;
   display: flex;
@@ -52,7 +53,13 @@
   align-items: center;
   font-size:  1.25em;
 }
+.usersList div button {
+  margin-left: 10px !important;
+  height: 100% !important;
+  width: 1em;
+  margin: auto;
 
+}
 .usersList img {
   margin-right: 15px;
   height: 50px;
@@ -125,7 +132,7 @@
 
 .homecontainer {
   background: #fffafa;
-  width: 414px;
+  width: 100%;
   @include flex;
   height: calc(100vh - 400px);
   flex-direction: column;
@@ -283,6 +290,7 @@
 }
 
 .friendsAvatar {
+  margin-bottom: 15px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -296,14 +304,21 @@
   border-radius: 50%;
 }
 
+.friendsAvatar button {
+  margin: auto;
+  margin-left: 15px;
+}
 .friendsName {
   font-size: 1.25em;
+  margin-right: 15px;
 }
 
-.friendMessagebtn {
+.friendMessagebtn  {
+  font-weight: 500;
+  font-size: .75em !important;
     width: 100px;
     height: 40px;
-    background: #70aeff;
+    // background: #70aeff;
     margin-left: 15px;
 }
 

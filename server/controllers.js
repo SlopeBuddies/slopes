@@ -36,6 +36,11 @@ module.exports = {
         .catch( (error) => res.status(400).send(error))
     },
 
+    friendRequest: (req,res,next) =>{
+        const dbInstance = req.app.get('db');
+        console.log('params', req.params)
+        dbInstance.friend_request([req.params.requestfrom, req.params.requestto])
+    },
     updateUserLocation: (req,res,next) => {
         const dbInstance = req.app.get('db');
 

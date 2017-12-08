@@ -165,6 +165,8 @@ app.get('/checkuser', ctrl.checkUser)
 app.put('/users/:id', ctrl.updateUser)
 
 //Friends Endpoints
+app.post('/send/friend/request/:requestfrom/:requestto', ctrl.friendRequest)
+
 app.get('/find/users/:id', ctrl.findUsers)
 
 app.get('/friends/all/:id', ctrl.getAllFriends)
