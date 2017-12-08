@@ -135,6 +135,16 @@ table {
 
 .homecontainer button:active {
   transform: scale(1.5); }
+  .homecontainer button:active .homecontainerButton {
+    outline: none;
+    border: none;
+    color: #3c4163;
+    border-radius: 5px;
+    background: #70aeff;
+    margin-bottom: 30px;
+    height: 50px;
+    width: 75%;
+    font-size: 1.5em; }
 
 .nav {
   position: absolute;
@@ -246,6 +256,7 @@ table {
 .friendsAvatar {
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center; }
 
 .friendsAvatar img {
@@ -257,12 +268,18 @@ table {
 .friendsName {
   font-size: 1.25em; }
 
+.friendMessagebtn {
+  width: 100px;
+  height: 40px;
+  background: #70aeff;
+  margin-left: 15px; }
+
 .chatContainer {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
-  background: gray;
+  background: #fffafa;
   height: calc(100vh - 170px);
   width: 100%; }
 
@@ -270,13 +287,18 @@ table {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  background: #70aeff; }
 
 .chatInput {
   width: 80%;
-  height: 20px; }
+  height: 20px;
+  border: solid #70aeff;
+  outline: none; }
 
 .chatBtn {
   width: 20%;
-  background: red;
-  height: 27px; }
+  background: #70aeff;
+  height: 27px;
+  border: none;
+  outline: none; }

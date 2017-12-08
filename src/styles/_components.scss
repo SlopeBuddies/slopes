@@ -88,7 +88,6 @@
   height: calc(100vh - 400px);
   flex-direction: column;
 }
-
 .homecontainer button {
   outline: none;
   border: none;
@@ -104,8 +103,20 @@
 
 .homecontainer button:active {
     transform: scale(1.5);
-}
 
+
+    .homecontainerButton {
+    outline: none;
+    border: none;
+    color: #3c4163;
+    border-radius: 5px;
+    background: #70aeff;
+    margin-bottom: 30px;
+    height: 50px;
+    width: 75%;
+    font-size: 1.5em;
+    }
+}
 // Nav css
 
 .nav {
@@ -232,6 +243,7 @@
 .friendsAvatar {
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -246,12 +258,19 @@
   font-size: 1.25em;
 }
 
+.friendMessagebtn {
+    width: 100px;
+    height: 40px;
+    background: #70aeff;
+    margin-left: 15px;
+}
+
 // Chat css
 
 .chatContainer {
     @include flex(flex-end, flex-end);
     flex-direction: column;
-    background: gray;
+    background: #fffafa;
     height: calc(100vh - 170px);
     width: 100%;
 }
@@ -259,15 +278,21 @@
 .inputBtn {
     width: 100%;
     @include flex;
+    background: #70aeff;
+    
 }
 
 .chatInput {
     width: 80%;
     height: 20px;
+    border: solid #70aeff;
+    outline: none;
 }
 
 .chatBtn {
     width: 20%;
-    background: red;
+    background: #70aeff;
     height: 27px;    
+    border: none;
+    outline: none;    
 }
