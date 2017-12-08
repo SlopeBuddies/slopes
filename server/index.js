@@ -164,6 +164,7 @@ app.get('/checkuser', ctrl.checkUser)
 
 app.put('/users/:id', ctrl.updateUser)
 
+
 //Friends Endpoints
 app.get('/find/users/', ctrl.findUsers)
 
