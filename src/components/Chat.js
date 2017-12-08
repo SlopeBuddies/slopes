@@ -4,6 +4,7 @@ import Nav from './Nav';
 import Header from './Header';
 import io from 'socket.io-client';
 import { joinChat, sendChatMessage } from "./../ducks/reducer";
+import axios from 'axios';
 
 
 

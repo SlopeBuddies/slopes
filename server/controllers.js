@@ -49,6 +49,16 @@ module.exports = {
 
         res.status(200).send(response)})
         .catch( (error) => res.status(400).send(error))
+    },
+
+    getRoomMessages: (req, res, next) => {
+        const dbInstance = req.app.get('db');
+        
+                dbInstance.get_room_messages([ req.params.room_id])
+                .then( (response) => {
+        
+                res.status(200).send(response)})
+                .catch( (error) => res.status(400).send(error))
     }
 
 }

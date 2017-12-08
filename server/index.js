@@ -142,6 +142,9 @@ const addListeners = (io, db) => {
           case 'server/ join chat' :
             console.log(socket.id, ' joined room ', action.payload)
             socket.join(action.payload)
+            db.get_room_messages([action.payload]).then(res => {
+              io.to(action.payload).emit('action', {type: 'GET_ROOM_MESSAGES', payload: res});
+            })
             break;
           case 'server/ chat send message' :
             console.log(action.payload, 'user: ', socket.user)
@@ -174,6 +177,9 @@ app.get('/friends/all/:id', ctrl.getAllFriends)
 app.put('/user/location', ctrl.updateUserLocation)
 
 app.put('/get/user/location', fence.check_fences)
+
+//Chat Endpoints
+app.get('/chat/messages/:room_id', ctrl.getRoomMessages);
 
 const path = require("path");
 app.get("*", (req, res) => {

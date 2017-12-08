@@ -17,7 +17,7 @@ const CHECK_USER = "CHECK_USER";
 const UPDATE_PROFILE = "UPDATE_PROFILE";
 const GET_USER_LOCATION = "GET_USER_LOCATION";
 const CHECK_RESORT = "CHECK_RESORT"
-
+const GET_ROOM_MESSAGES = 'GET_ROOM_MESSAGES'
 const FIND_USERS = "FIND_USERS"
 const GET_ALL_FRIENDS = "GET_ALL_FRIENDS";
 
@@ -123,6 +123,7 @@ export function sendChatMessage(chatData) {
 }
 
 
+
 export default (state = initialState, action) => {
   console.log('reducer actions: ', action.type);
   switch (action.type) {
@@ -150,6 +151,9 @@ export default (state = initialState, action) => {
 
     case 'SEND_CHAT_MESSAGE':
       return Object.assign({}, state, { currentChat: [...state.currentChat, action.payload]})
+
+    case GET_ROOM_MESSAGES:
+      return Object.assign({}, state, {currentChat: [...state.currentChat, ...action.payload]})
 
     default:
       return state;
