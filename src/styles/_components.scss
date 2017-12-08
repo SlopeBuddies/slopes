@@ -17,8 +17,12 @@
 }
 
 .headerimg img {
-  width: 70px;
-  height: 70px;
+  max-height: 60px;
+  height: auto;
+  max-width: 75px;
+  width: auto;
+  margin-left: 10px;
+  margin-top: 7px;
 }
 
 //Search css
