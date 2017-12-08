@@ -18,6 +18,7 @@ const UPDATE_PROFILE = "UPDATE_PROFILE";
 const GET_USER_LOCATION = "GET_USER_LOCATION";
 const CHECK_RESORT = "CHECK_RESORT"
 
+const FIND_USERS = "FIND_USERS"
 const GET_ALL_FRIENDS = "GET_ALL_FRIENDS";
 
 export function getUserInfo() {
@@ -59,6 +60,10 @@ export function getProfile(id) {
     type: GET_PROFILE,
     payload: profile
   };
+}
+
+export function findUsers() {
+
 }
 
 export function checkUser() {
