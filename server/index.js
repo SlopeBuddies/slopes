@@ -8,10 +8,12 @@ const express = require("express"),
   ctrl = require('./controllers'),
   socket = require('socket.io'),
   sharedSession = require('express-socket.io-session');
+  fence = require('./fence_controllers');
 
-const port = 3030;
-
-const app = express();
+  const port = 3030;
+  
+  const app = express();
+  app.use(express.static('build'))
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -167,8 +169,10 @@ app.put('/users/:id', ctrl.updateUser)
 app.get('/friends/all/:id', ctrl.getAllFriends)
 
 //GEOLOCATION
-// app.put('/user/location/initial', ctrl.initialLocation)
+
 app.put('/user/location', ctrl.updateUserLocation)
+
+app.put('/get/user/location', fence.check_fences)
 
 const path = require("path");
 app.get("*", (req, res) => {

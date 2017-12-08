@@ -7,7 +7,8 @@ const initialState = {
   allhomies: {},
   position: {},
   messageData: [],
-  currentChat: []
+  currentChat: [],
+  resort: ''
 };
 
 const GET_USER_INFO = "GET_USER_INFO";
@@ -15,7 +16,7 @@ const GET_PROFILE = "GET_PROFILE";
 const CHECK_USER = "CHECK_USER";
 const UPDATE_PROFILE = "UPDATE_PROFILE";
 const GET_USER_LOCATION = "GET_USER_LOCATION";
-
+const CHECK_RESORT = "CHECK_RESORT"
 
 const GET_ALL_FRIENDS = "GET_ALL_FRIENDS";
 
@@ -35,6 +36,16 @@ export function getUserLocation(position) {
       longitude: position.coords.longitude
     })
   };
+}
+
+export function checkResort(position) {
+  return {
+    type: CHECK_RESORT,
+    payload: axios.put('/get/user/location', {
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude
+    })
+  }
 }
 
 export function getProfile(id) {
@@ -123,12 +134,14 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, { profile: action.payload });
 
     case GET_ALL_FRIENDS + "_FULFILLED":
-      console.log(action.payload);
       return Object.assign({}, state, { allhomies: action.payload });
 
     case GET_USER_LOCATION + "_FULFILLED":
-      console.log("pstnpayload:", action.payload);
       return Object.assign({}, state, { position: action.payload });
+      
+    case CHECK_RESORT + "_FULFILLED":
+    console.log('checkresort', action.payload);
+    return Object.assign({}, state, {resort: action.payload})  
 
     case 'SEND_CHAT_MESSAGE':
       return Object.assign({}, state, { currentChat: [...state.currentChat, action.payload]})
