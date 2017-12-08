@@ -11,7 +11,7 @@ export class Header extends Component {
           <img src={logo2} />
         </div>
         <div>
-            <a href='http://localhost:3030/auth/logout'> logout </a>
+            <a href={process.env.REACT_APP_LOGOUT}> logout </a>
         </div>
       </div>
     );
