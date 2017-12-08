@@ -7,6 +7,7 @@ import Nav from './Nav';
 import Search from './Search';
 import Friends from './Friends';
 import Messages from './Messages';
+import io from 'socket.io-client';
 import turf from 'turf'
 
 class Home extends Component {
@@ -32,11 +33,15 @@ class Home extends Component {
     componentDidMount(){
         this.props.getUserInfo()
     }
+
+
     friendsToggle() {
         this.setState({
         searchToggle: !this.state.searchToggle,
-        messagesToggle: !this.state.messagesToggle
+        messagesToggle: !this.state.messagesToggle,
     })
+    // this.socket.id = this.props.user.user_id
+    // console.log(this.socket)
     }
     searchToggle() {
         this.setState({
@@ -48,10 +53,12 @@ class Home extends Component {
         this.setState({
             friendsToggle: !this.state.friendsToggle,
             searchToggle: !this.state.searchToggle})
+            
     }
 
 
     render() {
+        
         return (
             <div>
                 <Header />
@@ -63,14 +70,14 @@ class Home extends Component {
                 </div> 
                    <div className='homecontainer'>
                 
-                    <button style= {this.state.friendsToggle ? {display: 'none'}  : null} 
+                    <button className='homecontainerButton' style= {this.state.friendsToggle ? {display: 'none'}  : null} 
                             onClick={()=>{this.friendsToggle()}}> FRIENDS </button>
-                    <button style= {this.state.searchToggle ? {display: 'none'}  : null} 
+                    <button className='homecontainerButton' style= {this.state.searchToggle ? {display: 'none'}  : null} 
                             onClick={()=>{this.searchToggle()}}> SEARCH </button>
-                    <button style= {this.state.messagesToggle ? {display: 'none'}  : null} 
+                    <button className='homecontainerButton' style= {this.state.messagesToggle ? {display: 'none'}  : null} 
                             onClick={()=>{this.messagesToggle()}}> MESSAGES </button>
 
-                    {this.state.searchToggle && this.state.messagesToggle  ? <Friends id={this.props.user.user_id}/> : null}
+                    {this.state.searchToggle && this.state.messagesToggle  ? <Friends socket={this.socket} id={this.props.user.user_id}/> : null}
                     {this.state.messagesToggle && this.state.friendsToggle  ? <Search/> : null}
                     {this.state.friendsToggle && this.state.searchToggle  ? <Messages/> : null}
                     </div>

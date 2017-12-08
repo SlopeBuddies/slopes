@@ -6,6 +6,8 @@ const initialState = {
   userLogged: false,
   allhomies: {},
   position: {},
+  messageData: [],
+  currentChat: [],
   resort: ''
 };
 
@@ -90,7 +92,34 @@ export function getAllFriends(id) {
   };
 }
 
+
+//------------------------- Socket io -------------------------------//
+
+export function createNewChat(chatData) {
+  return {
+    type: 'server/ new chat',
+    payload: chatData
+  }
+}
+
+export function joinChat(roomid) {
+  return {
+    type: 'server/ join chat',
+    payload: roomid
+  }
+}
+
+
+export function sendChatMessage(chatData) {
+  return {
+    type: 'server/ chat send message',
+    payload: chatData
+  }
+}
+
+
 export default (state = initialState, action) => {
+  console.log('reducer actions: ', action.type);
   switch (action.type) {
     case GET_USER_INFO + "_FULFILLED":
       return Object.assign({}, state, { user: action.payload.data });
@@ -113,6 +142,9 @@ export default (state = initialState, action) => {
     case CHECK_RESORT + "_FULFILLED":
     console.log('checkresort', action.payload);
     return Object.assign({}, state, {resort: action.payload})  
+
+    case 'SEND_CHAT_MESSAGE':
+      return Object.assign({}, state, { currentChat: [...state.currentChat, action.payload]})
 
     default:
       return state;

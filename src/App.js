@@ -18,7 +18,7 @@ render() {
                 
                 <Route path='/login' component={Login} />
                 <Route exact path='/' component={Home} />
-                <Route path='/chat/:id' component={Chat} />
+                <Route path='/chat/:chatid' component={Chat} />
                 <Route path='/profile/:id' component={Profile} />
 
                 
