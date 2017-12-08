@@ -41,6 +41,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+.App {
+  background: #fffafa;
+  background: fill;
+  height: fill; }
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -80,6 +85,7 @@ table {
   width: 90px !important; }
 
 .usersList {
+  margin-bottom: 15px;
   overflow: scroll;
   width: 100%;
   display: flex;
@@ -87,6 +93,12 @@ table {
   align-content: center;
   align-items: center;
   font-size: 1.25em; }
+
+.usersList div button {
+  margin-left: 10px !important;
+  height: 100% !important;
+  width: 1em;
+  margin: auto; }
 
 .usersList img {
   margin-right: 15px;
@@ -152,7 +164,7 @@ table {
 
 .homecontainer {
   background: #fffafa;
-  width: 414px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -292,6 +304,7 @@ table {
   background: #8daad4; }
 
 .friendsAvatar {
+  margin-bottom: 15px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -303,13 +316,19 @@ table {
   width: 50px;
   border-radius: 50%; }
 
+.friendsAvatar button {
+  margin: auto;
+  margin-left: 15px; }
+
 .friendsName {
-  font-size: 1.25em; }
+  font-size: 1.25em;
+  margin-right: 15px; }
 
 .friendMessagebtn {
+  font-weight: 500;
+  font-size: .75em !important;
   width: 100px;
   height: 40px;
-  background: #70aeff;
   margin-left: 15px; }
 
 .profile-upload {

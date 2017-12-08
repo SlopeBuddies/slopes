@@ -10,7 +10,6 @@ export class Friends extends Component {
     super();
 
     this.state = {
-      allFriends: [],
       roomid: ''
     };
   }
@@ -22,9 +21,20 @@ export class Friends extends Component {
     })
   }
 
-  handleClickCreateChat() {
+  handleClickCreateChat(first_name, user_id) {
     this.props.createNewChat({
       roomid: `${this.state.roomid}`
+    })
+    this.createChatRequest(first_name, user_id);
+  }
+
+  createChatRequest(first_name, user_id) {
+    axios.post('/chat/request', 
+    {roomid: this.state.roomid, 
+    room_name: `${this.props.user.first_name} ${first_name}`,
+    request_type: 'chat',
+    request_to: user_id,
+    request_from: this.props.user.user_id
     })
   }
 
@@ -38,7 +48,7 @@ export class Friends extends Component {
 
   render() {
     console.log('props',this.props)
-    console.log(this.state);
+    console.log('friendddds',this.state);
     if(this.props.allhomies.length > 0) {
     var AllFriends = this.props.allhomies.map((e, i) => {
       return <div key={i}> 
@@ -49,9 +59,14 @@ export class Friends extends Component {
         <div className='friendsName'> 
           {e.first_name} {e.last_name} 
         </div>
+        <div>
+          {e.current_mtn}
+        </div>
+        <div>
         <Link to={`/chat/${this.state.roomid}`}>
-          <button onClick={() => this.handleClickCreateChat()} className='friendMessagebtn' >Send Message</button>
+          <button onClick={() => this.handleClickCreateChat(e.first_name, e.user_id)} className='friendMessagebtn' >Send Message</button>
         </Link>
+        </div>
       </div>
       </div>;
     })} else {
