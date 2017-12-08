@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import searchIcon from './../assets/searchicon.png'
-import {findUsers} from './../ducks/reducer';
+import { findUsers, getUserInfo } from './../ducks/reducer';
 import axios from 'axios';
 import { connect } from 'react-redux'
 
@@ -12,8 +12,12 @@ export class Search extends Component {
     }
   }
 
+componentDidMount() {
+  this.props.getUserInfo();
+}
+
   findUsers() {
-    axios.get(`/find/users/?search=${this.refs.search.value}`).then( (res) => {
+    axios.get(`/find/users/${this.props.user.user_id}?search=${this.refs.search.value}`).then( (res) => {
       this.setState({
         users: res.data
       })
@@ -21,9 +25,11 @@ export class Search extends Component {
   }
 
   render() {
+    console.log('user',this.props.user)
     console.log(this.state.users)
     var mapUsers = this.state.users.map( (e, i) => {
-      return <div className='usersList'><img className = 'searchIMG'src={e.profile_picture} /> {e.first_name} </div>
+      console.log(e.user_id)
+      return <div className='usersList'> <img className = 'searchIMG'src={e.profile_picture} /> {e.first_name} </div>
     })
     return (
       <div className='searchContainer'>
@@ -39,4 +45,4 @@ function mapStateToProps(state) {
   return state
 }
 
-export default connect(mapStateToProps, {findUsers})(Search)
+export default connect(mapStateToProps, {findUsers, getUserInfo})(Search)
