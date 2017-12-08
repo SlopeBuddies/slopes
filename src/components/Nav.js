@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getUserLocation, getUserInfo, checkResort } from "./../ducks/reducer";
+import { getUserLocation, getUserInfo, checkResort, getRequest } from "./../ducks/reducer";
 import turf from 'turf';
 
 export class Nav extends Component {
@@ -12,7 +12,7 @@ export class Nav extends Component {
         console.log('userGEO',position);
         this.props.checkResort(position)
     })
-
+    this.props.getRequest(this.props.user.user_id)
   })
 
 
@@ -26,7 +26,7 @@ export class Nav extends Component {
           <Link to="/">
             <button className="homebtn">HOME</button>
           </Link>
-          <button className="settingsbtn">SETTINGS</button>
+          <button className="settingsbtn">CHAT</button>
         </div>
       </div>
     );
@@ -37,4 +37,4 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps, {  checkResort, getUserLocation, getUserInfo })(Nav);
+export default connect(mapStateToProps, {  checkResort, getUserLocation, getUserInfo, getRequest })(Nav);
