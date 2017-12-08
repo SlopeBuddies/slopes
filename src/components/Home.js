@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUserInfo } from '../ducks/reducer';
+import { getUserInfo, getRequest } from '../ducks/reducer';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 import Nav from './Nav';
@@ -30,7 +30,7 @@ class Home extends Component {
     
 
 
-    componentDidMount(){
+    componentDidlMount(){
         this.props.getUserInfo()
     }
 
@@ -58,7 +58,7 @@ class Home extends Component {
 
 
     render() {
-        
+        console.log(this.props.requests);
         return (
             <div>
                 <Header />
@@ -76,7 +76,7 @@ class Home extends Component {
                     <button className='homecontainerButton' style= {this.state.searchToggle ? {display: 'none'}  : null} 
                             onClick={()=>{this.searchToggle()}}> SEARCH </button>
                     <button className='homecontainerButton' style= {this.state.messagesToggle ? {display: 'none'}  : null} 
-                            onClick={()=>{this.messagesToggle()}}> MESSAGES </button>
+                            onClick={()=>{this.messagesToggle()}}> NOTIFICATIONS </button>
 
                     {this.state.searchToggle && this.state.messagesToggle  ? <Friends socket={this.socket} id={this.props.user.user_id}/> : null}
                     {this.state.messagesToggle && this.state.friendsToggle  ? <Search/> : null}
@@ -94,7 +94,8 @@ function mapStateToProps(state) {
     console.log(state)
     return {
         user: state.user,
+        requests: state.requests
     }
 }
 
-export default connect(mapStateToProps, {getUserInfo})(Home);
+export default connect(mapStateToProps, {getUserInfo, getRequest})(Home);
