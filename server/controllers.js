@@ -22,9 +22,25 @@ module.exports = {
         const dbInstance = req.app.get('db');
 
         dbInstance.get_all_friends([req.params.id])
-        .then( (response) => res.status(200).send(response))
+        .then( (response) => {
+        console.log('response', response)
+        res.status(200).send(response)})
         .catch( (error) => res.status(400).send(error))
     },
+
+    findUsers: (req,res,next) =>{
+        const dbInstance = req.app.get('db');
+        console.log('reqquery', req.query)
+        dbInstance.find_users('%' + req.query.search + '%')
+        .then( (response) => {
+            console.log(response)
+        
+        res.status(200).send(response)})
+        .catch( (error) => {
+            console.log(error)
+            res.status(400).send(error)})
+    },
+
     updateUserLocation: (req,res,next) => {
         const dbInstance = req.app.get('db');
 
