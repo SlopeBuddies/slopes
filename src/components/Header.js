@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import logo from './../assets/logo.png'
+import logo from './../assets/logo.png';
+import logo2 from './../assets/logo2.png';
 
 export class Header extends Component {
 
@@ -7,7 +8,7 @@ export class Header extends Component {
     return (
       <div className='header'>
         <div className="headerimg">
-          <img src={logo} />
+          <img src={logo2} />
         </div>
         <div>
             <a href='http://localhost:3030/auth/logout'> logout </a>
