@@ -12,8 +12,9 @@ module.exports = {
         }
     },
     updateUser: (req, res, next) => {
-        req.app.get('db').update_profile([req.body.nickname, req.body.first, req.body.last, req.body.home_mountain, req.params.id])
+        req.app.get('db').update_profile([req.body.nickname, req.body.first, req.body.last, req.body.home_mountain, req.params.id, req.body.imgURL])
         .then(user => {
+            console.log(user)
             res.status(200).send(user)
         });
     },
