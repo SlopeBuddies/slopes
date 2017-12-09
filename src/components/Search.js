@@ -50,7 +50,6 @@ export class Search extends Component {
           </div>
           <div> {e.first_name}</div>
           <div>
-            {" "}
             <button onClick={()=> this.friendRequest(e.user_id)}> + </button>
           </div>
         </div>
@@ -61,7 +60,6 @@ export class Search extends Component {
         <img alt="" src={searchIcon} />
         <input ref="search" />
         <button className="searchBTN" onClick={() => this.findUsers()}>
-          {" "}
           search friggin users
         </button>
         {mapUsers}

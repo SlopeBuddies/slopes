@@ -50,10 +50,12 @@ export class Friends extends Component {
     console.log('props',this.props)
     console.log('friendddds',this.state);
     if(this.props.allhomies.length > 0) {
-    var AllFriends = this.props.allhomies.map((e, i) => {
+    var currentMTNfriends = this.props.allhomies.map((e, i) => {
+      if(e.current_mtn === this.props.user.current_mtn) {
       return <div key={i}> 
       <div className='friendsAvatar'>
         <div>
+
           <img src={e.profile_picture} />
         </div>
         <div className='friendsName'> 
@@ -69,12 +71,65 @@ export class Friends extends Component {
         </div>
       </div>
       </div>;
-    })} else {
-      AllFriends = 'You Have No Friends'
+  }  })} else {
+      currentMTNfriends = 'You Have No Friends active in yo mtn'
     };
+
+    if(this.props.allhomies.length > 0) {
+      var MTNfriends = this.props.allhomies.map((e, i) => {
+        if(e.current_mtn && e.current_mtn != this.props.user.current_mtn  ) {
+        return <div key={i}> 
+        <div className='friendsAvatar'>
+          <div>
   
+            <img src={e.profile_picture} />
+          </div>
+          <div className='friendsName'> 
+            {e.first_name} {e.last_name} 
+          </div>
+          <div>
+            {e.current_mtn}
+          </div>
+          <div>
+          <Link to={`/chat/${this.state.roomid}`}>
+            <button onClick={() => this.handleClickCreateChat(e.first_name, e.user_id)} className='friendMessagebtn' >Send Message</button>
+          </Link>
+          </div>
+        </div>
+        </div>;
+    }  })} else {
+        MTNfriends = 'You Have No Friends active in yo mtn'
+      };
+      if(this.props.allhomies.length > 0) {
+        var lazyFriends = this.props.allhomies.map((e, i) => {
+          if(!e.current_mtn) {
+          return <div key={i}> 
+          <div className='friendsAvatar'>
+            <div>
+    
+              <img src={e.profile_picture} />
+            </div>
+            <div className='friendsName'> 
+              {e.first_name} {e.last_name} 
+            </div>
+            <div>
+              {e.current_mtn}
+            </div>
+            <div>
+            <Link to={`/chat/${this.state.roomid}`}>
+              <button onClick={() => this.handleClickCreateChat(e.first_name, e.user_id)} className='friendMessagebtn' >Send Message</button>
+            </Link>
+            </div>
+          </div>
+          </div>;
+      }  })} else {
+          lazyFriends = 'Yo lazy friends'
+        };
     return (
-      <div> {AllFriends}  </div>
+      <div>
+      <div> {currentMTNfriends} </div> <div>{MTNfriends}</div><div>{lazyFriends}</div>
+
+      </div>
     )
   }
 }
@@ -85,3 +140,11 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, { getUserInfo, getAllFriends, createNewChat })(Friends);
+
+
+<div>
+  
+  
+
+
+</div>

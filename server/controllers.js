@@ -66,7 +66,7 @@ module.exports = {
         const dbInstance = req.app.get('db');
         const {roomid, room_name, request_type, request_to, request_from} = req.body;
 
-        dbInstance.create_chat_request([request_type, request_to, request_from, roomid, room_name])
+        dbInstance.create_chat_request([request_type, request_to, request_from, roomid, roomid, room_name])
         .then((response) => {
             res.status(200).send(response)});
     },
