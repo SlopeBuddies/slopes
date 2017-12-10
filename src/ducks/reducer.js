@@ -24,12 +24,23 @@ const FIND_USERS = "FIND_USERS"
 const GET_ALL_FRIENDS = "GET_ALL_FRIENDS";
 const GET_REQUEST = 'GET_REQUEST';
 
+const ACCEPT_FRIEND = 'ACCEPT_FRIEND';
+
 export function getUserInfo() {
   return {
     type: GET_USER_INFO,
     payload: axios.get("/auth/me")
   };
 }
+
+// export function acceptFriend(from, user_id, r_id) {
+//   console.log('reducerfromid', from, user_id, r_id)
+//   const acceptfriend = axios.post(`/accept/friend/`, {id : from, fid: user_id, r_id: r_id})
+//   return {
+//     type: ACCEPT_FRIEND,
+//     payload: acceptfriend
+//   }
+// }
 
 export function getUserLocation(position) {
 
@@ -174,6 +185,9 @@ export default (state = initialState, action) => {
       case GET_REQUEST + "_FULFILLED":
       console.log('request test')
       return Object.assign({}, state, {requests: action.payload});
+
+      case ACCEPT_FRIEND + "_FULFILLED":
+      return Object.assign({}, state, {allhomies: action.payload})
     default:
       return state;
   }

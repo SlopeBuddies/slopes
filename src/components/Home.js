@@ -12,10 +12,6 @@ import turf from 'turf'
 
 class Home extends Component {
 
-
-      
-
-
     constructor() {
         super()
 

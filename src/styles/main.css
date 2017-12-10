@@ -368,3 +368,48 @@ table {
   height: 27px;
   border: none;
   outline: none; }
+
+.notificationscontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  overflow: scroll;
+  height: calc(100vh - 170px); }
+
+.notificationscontainer h1 {
+  font-size: 1.25em;
+  font-weight: 400; }
+
+.notificationscontainer div {
+  margin: auto; }
+
+.snotificationschat {
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+
+.snotificationschat button {
+  margin: auto;
+  width: 50px;
+  font-size: .75em;
+  height: 30px; }
+
+.snotificationsrequest {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+
+.snotificationsrequest button {
+  margin: auto;
+  justify-content: space-around;
+  width: 60px;
+  font-size: .75em;
+  height: 30px; }
+
+.friendscontainer {
+  height: 100;
+  overflow: scroll; }

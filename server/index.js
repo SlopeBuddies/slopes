@@ -175,6 +175,8 @@ app.get('/find/users/:id', ctrl.findUsers)
 
 app.get('/friends/all/:id', ctrl.getAllFriends)
 
+app.post('/accept/friend/', ctrl.acceptFriend)
+app.put('/deny/friend', ctrl.denyFriend)
 //GEOLOCATION
 
 app.put('/user/location', ctrl.updateUserLocation)
@@ -182,6 +184,7 @@ app.put('/user/location', ctrl.updateUserLocation)
 app.put('/get/user/location', fence.check_fences)
 
 //Chat Endpoints
+app.put('/take/chat/request', ctrl.takeChatRequest)
 app.get('/chat/messages/:room_id', ctrl.getRoomMessages);
 
 app.post('/chat/request', ctrl.createChatRequest);

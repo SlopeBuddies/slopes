@@ -36,7 +36,7 @@ export class Search extends Component {
       `/send/friend/request/${this.props.user.user_id}/${
         id
       }`
-    );
+    ).then( alert('Request Sent'))
   }
 
   render() {
