@@ -47,6 +47,14 @@ class Home extends Component {
     });
   }
 
+  homeToggle() {
+      this.setState({
+          friendsToggle: false,
+          searchToggle: false,
+          notificationsToggle: false
+      })
+  }
+
   render() {
     console.log(this.props.requests);
     return (
@@ -121,7 +129,7 @@ class Home extends Component {
              : null}
           </div>
         </div>
-        <Nav />
+        <Nav toggle={()=>this.homeToggle()}/>
       </div>
     );
   }
