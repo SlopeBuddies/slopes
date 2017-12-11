@@ -134,6 +134,15 @@ module.exports = {
       dbInstance.take_chat_request([req.body.id])
       .then(response => res.status(200).send(response))
       .catch(error => res.status(400).send(error));
+  },
+  unFriend: (req, res)=>{
+    req.app.get('db').unfriend([req.params.id, req.user.user_id])
+    .then(res =>{
+      res.status(200).send(res);
+    })
+    .catch(err =>{
+      res.status(400).send(err);
+    })
   }
 };
 
