@@ -58,7 +58,7 @@ class Profile extends Component {
         fileURL = fileURL.split('/')
         for (var i = 0; i < fileURL.length; ++i){
           if (fileURL[i] == 'upload'){
-            fileURL.splice(i + 1, 0, 'w_200,h_200,c_crop,g_face/');
+            fileURL.splice(i + 1, 0, 'w_200,h_200,c_fill,g_face');
             fileURL = fileURL.join('/')
             console.log(fileURL)
             this.setState({
