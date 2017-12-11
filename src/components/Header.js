@@ -10,6 +10,7 @@ export class Header extends Component {
         <div className="headerimg">
           <img src={logo2} />
         </div>
+        <span className='slope_title'>SlopeBuddies</span>
         <div>
             <a href={process.env.REACT_APP_LOGOUT}> logout </a>
         </div>

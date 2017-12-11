@@ -49,6 +49,14 @@ class Home extends Component {
     this.props.getRequest(this.props.user.user_id)
   }
 
+  homeToggle() {
+      this.setState({
+          friendsToggle: false,
+          searchToggle: false,
+          notificationsToggle: false
+      })
+  }
+
   render() {
     console.log(this.props.requests);
     return (
@@ -124,7 +132,7 @@ class Home extends Component {
           </div>
               <Channels />
         </div>
-        <Nav />
+        <Nav toggle={()=>this.homeToggle()}/>
       </div>
     );
   }

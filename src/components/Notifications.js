@@ -11,12 +11,20 @@ export class Notifications extends Component {
 
   acceptFriend(from, user_id, r_id) {
     axios.post(`/accept/friend/`, {id : from, fid: user_id, r_id: r_id})
+<<<<<<< HEAD
     .then(()=> this.props.getRequest(this.props.user.user_id));
+=======
+    .then( () => this.props.getRequest(this.props.user.user_id));
+>>>>>>> master
   }
 
   denyFriend(r_id) {
     axios.put('/deny/friend/', { id: r_id})
+<<<<<<< HEAD
     // .then( this.props.getRequest(this.props.user.user_id));
+=======
+    .then( () => this.props.getRequest(this.props.user.user_id));
+>>>>>>> master
   }
 
   takeChat(r_id) {
@@ -29,7 +37,7 @@ export class Notifications extends Component {
       if (e.request_type === "chat") {
         return (
           <div key={i} className='snotificationschat'>
-            <div>
+            <div className='small_text'>
               {e.first_name} {e.last_name}
             </div>
             <div>
@@ -50,7 +58,7 @@ export class Notifications extends Component {
             <div>
               {e.first_name} {e.last_name}
             </div>
-            <div>
+            <div >
               <button onClick={()=> this.acceptFriend(e.request_from, this.props.user.user_id, e.id)}> ACCEPT </button> 
               <button onClick={()=> this.denyFriend(e.id)}> DENY </button>
             </div>
