@@ -100,10 +100,8 @@ export function updateProfile(id, user) {
 }
 
 export function getAllFriends(id) {
-  console.log("id:", id);
   const allhomies = axios.get(`/friends/all/${id}`).then(response => {
     return response.data;
-    console.log("promiseresponse:", response.data);
   });
   return {
     type: GET_ALL_FRIENDS,
@@ -112,7 +110,6 @@ export function getAllFriends(id) {
 }
 
 export function getRequest(user_id) {
-  console.log(user_id);
   const getRequestNotification = axios.get(`/notifications/${user_id}`).then(response=> {
     console.log(response)
     return response.data});
@@ -152,7 +149,6 @@ export function sendChatMessage(chatData) {
 
 
 export default (state = initialState, action) => {
-  console.log('reducer actions: ', action.type);
   switch (action.type) {
     case GET_USER_INFO + "_FULFILLED":
       return Object.assign({}, state, { user: action.payload.data });
@@ -173,7 +169,6 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, { position: action.payload });
       
     case CHECK_RESORT + "_FULFILLED":
-    console.log('checkresort', action.payload);
     return Object.assign({}, state, {resort: action.payload})  
 
     case 'SEND_CHAT_MESSAGE':
@@ -183,12 +178,12 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {currentChat: [...state.currentChat, ...action.payload]})
 
       case GET_REQUEST + "_FULFILLED":
-      console.log('request test')
       return Object.assign({}, state, {requests: action.payload});
 
       case ACCEPT_FRIEND + "_FULFILLED":
       return Object.assign({}, state, {allhomies: action.payload})
-    default:
+   
+      default:
       return state;
   }
 };

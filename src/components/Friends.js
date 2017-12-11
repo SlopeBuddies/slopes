@@ -45,14 +45,11 @@ export class Friends extends Component {
   // }
 
   render() {
-    console.log("props", this.props);
-    console.log("friendddds", this.state);
     if (this.props.allhomies.length > 0) {
       var currentMTNfriends = this.props.allhomies.map((e, i) => {
         if (e.current_mtn === this.props.user.current_mtn) {
           return (
-            <div key={i}>
-              <div className="friendsAvatar">
+            <div key={i} className="friendsAvatar">
                 <div>
                   <img src={e.profile_picture} />
                 </div>
@@ -73,7 +70,6 @@ export class Friends extends Component {
                   </Link>
                 </div>
               </div>
-            </div>
           );
         }
       });
@@ -82,8 +78,7 @@ export class Friends extends Component {
       var MTNfriends = this.props.allhomies.map((e, i) => {
         if (e.current_mtn && e.current_mtn != this.props.user.current_mtn) {
           return (
-            <div key={i}>
-              <div className="friendsAvatar">
+            <div key={i} className="friendsAvatar">
                 <div>
                   <img src={e.profile_picture} />
                 </div>
@@ -104,7 +99,6 @@ export class Friends extends Component {
                   </Link>
                 </div>
               </div>
-            </div>
           );
         }
       });
