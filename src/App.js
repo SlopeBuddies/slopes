@@ -16,8 +16,8 @@ render() {
             <div className='App'>
 
                 
-                <Route path='/login' component={Login} />
-                <Route exact path='/' component={Home} />
+                <Route exact path='/' component={Login} />
+                <Route  path='/home' component={Home} />
                 <Route path='/chat/:chatid' component={Chat} />
                 <Route path='/profile/:id' component={Profile} />
 

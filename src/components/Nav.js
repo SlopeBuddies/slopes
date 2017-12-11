@@ -23,8 +23,8 @@ export class Nav extends Component {
     return (
       <div>
         <div className="nav">
-          <Link to="/">
-            <button className="homebtn">HOME</button>
+          <Link to="/home">
+            <button onClick={this.props.toggle} className="homebtn">HOME</button>
           </Link>
           <button className="settingsbtn">CHAT</button>
         </div>
