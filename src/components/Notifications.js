@@ -29,7 +29,7 @@ export class Notifications extends Component {
       if (e.request_type === "chat") {
         return (
           <div key={i} className='snotificationschat'>
-            <div>
+            <div className='small_text'>
               {e.first_name} {e.last_name}
             </div>
             <div>
@@ -50,7 +50,7 @@ export class Notifications extends Component {
             <div>
               {e.first_name} {e.last_name}
             </div>
-            <div>
+            <div >
               <button onClick={()=> this.acceptFriend(e.request_from, this.props.user.user_id, e.id)}> ACCEPT </button> 
               <button onClick={()=> this.denyFriend(e.id)}> DENY </button>
             </div>
