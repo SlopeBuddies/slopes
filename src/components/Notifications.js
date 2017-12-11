@@ -11,12 +11,12 @@ export class Notifications extends Component {
 
   acceptFriend(from, user_id, r_id) {
     axios.post(`/accept/friend/`, {id : from, fid: user_id, r_id: r_id})
-    .then( this.props.getRequest(this.props.user.user_id));
+    .then(()=> this.props.getRequest(this.props.user.user_id));
   }
 
   denyFriend(r_id) {
     axios.put('/deny/friend/', { id: r_id})
-    .then( this.props.getRequest(this.props.user.user_id));
+    // .then( this.props.getRequest(this.props.user.user_id));
   }
 
   takeChat(r_id) {

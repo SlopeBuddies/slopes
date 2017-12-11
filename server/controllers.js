@@ -134,6 +134,12 @@ module.exports = {
       dbInstance.take_chat_request([req.body.id])
       .then(response => res.status(200).send(response))
       .catch(error => res.status(400).send(error));
+  },
+  getAllChannels: (req, res) => {
+    const dbInstance = req.app.get('db');
+
+    dbInstance.get_all_channels([`%${req.params.firstName}%`])
+    .then(response => res.status(200).send(response));
   }
 };
 

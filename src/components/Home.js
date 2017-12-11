@@ -7,6 +7,7 @@ import Nav from "./Nav";
 import Search from "./Search";
 import Friends from "./Friends";
 import Notifications from "./Notifications";
+import Channels from "./Channels"
 import io from "socket.io-client";
 import turf from "turf";
 
@@ -45,6 +46,7 @@ class Home extends Component {
       friendsToggle: !this.state.friendsToggle,
       searchToggle: !this.state.searchToggle
     });
+    this.props.getRequest(this.props.user.user_id)
   }
 
   render() {
@@ -120,6 +122,7 @@ class Home extends Component {
               <Notifications /> 
              : null}
           </div>
+              <Channels />
         </div>
         <Nav />
       </div>
