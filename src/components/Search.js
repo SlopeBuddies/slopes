@@ -36,12 +36,10 @@ export class Search extends Component {
       `/send/friend/request/${this.props.user.user_id}/${
         id
       }`
-    );
+    ).then( alert('Request Sent'))
   }
 
   render() {
-    // console.log("user", this.props.user);
-    // console.log(this.state.users);
     var mapUsers = this.state.users.map((e, i) => {
       return (
         <div key={e.user_id} className="usersList">
@@ -50,7 +48,6 @@ export class Search extends Component {
           </div>
           <div> {e.first_name}</div>
           <div>
-            {" "}
             <button onClick={()=> this.friendRequest(e.user_id)}> + </button>
           </div>
         </div>
@@ -58,12 +55,17 @@ export class Search extends Component {
     });
     return (
       <div className="searchContainer">
+      <div>
         <img alt="" src={searchIcon} />
+        </div>
+        <div>
         <input ref="search" />
+        </div>
+        <div>
         <button className="searchBTN" onClick={() => this.findUsers()}>
-          {" "}
-          search friggin users
+          Search Users
         </button>
+        </div>
         {mapUsers}
       </div>
     );
