@@ -1,0 +1,415 @@
+{
+	"info": {
+		"name": "Brants Endpoint Collection",
+		"_postman_id": "3d08abba-b82a-9d7c-dd41-4425729fef5a",
+		"description": "I will be testing these endpoints:\n\napp.get('/user/:id', ctrl.getUser )\n\napp.get('/find/users/:id', ctrl.findUsers)\n\napp.get('/chat/messages/:room_id', ctrl.getRoomMessages)\n\napp.get('/notifications/:user_id', ctrl.getRequest)\n\napp.get('/checkuser', ctrl.checkUser)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "10829d93-5fbb-43a0-8d81-16cd4eb9cd5c",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"pm.test('test for status 200', function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"",
+							"pm.test('test body exists', function(){",
+							"    pm.response.to.have.body",
+							"})",
+							"",
+							"pm.test('test that body is an array', function(){",
+							"    var bodyTypeTest = false;",
+							"    if(jsonData.constructor === Array){",
+							"        bodyTypeTest = true;",
+							"    }",
+							"    pm.expect(bodyTypeTest).to.eql(true)",
+							"})",
+							"",
+							"pm.test('test that body contains an array whith one object', function(){",
+							"    var bodyTypeTest = false;",
+							"    var lengthIsGood = false;",
+							"    if(jsonData[0].constructor === Object){",
+							"        bodyTypeTest = true;",
+							"    }",
+							"    ",
+							"    if(jsonData.length === 1){",
+							"        lengthIsGood = true",
+							"    }",
+							"    ",
+							"    pm.expect(bodyTypeTest && lengthIsGood).to.eql(true)",
+							"})",
+							"",
+							"pm.test('object contains 5 of the correct keys', function(){",
+							"    var keyLength = false,",
+							"        correctKeys = true;",
+							"    ",
+							"    if(Object.keys(jsonData[0]).length === 5){",
+							"        keyLength = true;",
+							"    }",
+							"    for(let key in jsonData[0]){",
+							"        if (!['profile_picture', 'nickname', 'first_name', 'last_name', 'home_mountain'].includes(key)){",
+							"            correctKeys = false;",
+							"        }",
+							"    }",
+							"    pm.expect(keyLength && correctKeys).to.eql(true)",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3030/user/4",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"user",
+						"4"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Find Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "31f89f7b-43a3-40c9-a358-1ac6ff7d8014",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"pm.test('test for status 200', function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"",
+							"pm.test('test body exists', function(){",
+							"    pm.response.to.have.body",
+							"})",
+							"",
+							"pm.test('test the body for an array with one or more objects', function(){",
+							"    var bodyTestLength = false;",
+							"    var bodyTestArray = false;",
+							"    var bodyTestObject = true;",
+							"    ",
+							"    if (jsonData.length >= 1){",
+							"        bodyTestLength = true",
+							"    }",
+							"    ",
+							"    if (jsonData.constructor === Array){",
+							"        bodyTestArray = true;",
+							"    }",
+							"    ",
+							"    for (var i in jsonData){",
+							"        if(jsonData[i].constructor !== Object){",
+							"            bodyTestObject = false;",
+							"        }",
+							"    }",
+							"    ",
+							"    pm.expect(bodyTestLength && bodyTestArray && bodyTestObject).to.eql(true)",
+							"    ",
+							"})",
+							"",
+							"pm.test('test each object for the correct keys', function(){",
+							"    ",
+							"    var testKeys = true",
+							"    ",
+							"    jsonData.forEach((e, i)=>{",
+							"        for(let key in e){",
+							"            if(!['first_name', 'profile_picture', 'home_mountain', 'user_id'].includes(key)){",
+							"                testKeys = false",
+							"            }",
+							"        }",
+							"    })",
+							"    ",
+							"    pm.expect(testKeys).to.eql(true)",
+							"    ",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3030/find/users/4?search=brant",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"find",
+						"users",
+						"4"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "brant",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Room Messages",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ed31cb0c-0485-4e61-914d-5e97bcb946eb",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"pm.test('test for status 200', function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"",
+							"pm.test('test body exists', function(){",
+							"    pm.response.to.have.body",
+							"})",
+							"",
+							"pm.test('test that body is an array', function(){",
+							"    var bodyTypeTest = false;",
+							"    if(jsonData.constructor === Array){",
+							"        bodyTypeTest = true;",
+							"    }",
+							"    pm.expect(bodyTypeTest).to.eql(true)",
+							"})",
+							"",
+							"pm.test('test that each index has an object', function(){",
+							"    ",
+							"    var testObject = true;",
+							"    ",
+							"    jsonData.forEach(e=>{",
+							"        if(e.constructor !== Object){",
+							"            testObject = false;",
+							"        }",
+							"    })",
+							"    ",
+							"    pm.expect(testObject).to.eql(true)",
+							"    ",
+							"})",
+							"",
+							"pm.test('test each object for the correct keys', function(){",
+							"    ",
+							"    var testKeys = true",
+							"    ",
+							"    jsonData.forEach((e, i)=>{",
+							"        for(let key in e){",
+							"            if(!['id', 'chat_message', 'user_id', 'room_id', 'time'].includes(key)){",
+							"                testKeys = false",
+							"            }",
+							"        }",
+							"    })",
+							"    ",
+							"    pm.expect(testKeys).to.eql(true)",
+							"    ",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3030/chat/messages/509",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"chat",
+						"messages",
+						"509"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Requests",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "297ae565-e95f-4036-b10a-f7d5ca898fcb",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"pm.test('test for status 200', function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"",
+							"pm.test('test body exists', function(){",
+							"    pm.response.to.have.body",
+							"})",
+							"",
+							"pm.test('test that body is an array', function(){",
+							"    var bodyTypeTest = false;",
+							"    if(jsonData.constructor === Array){",
+							"        bodyTypeTest = true;",
+							"    }",
+							"    pm.expect(bodyTypeTest).to.eql(true)",
+							"})",
+							"",
+							"pm.test('test that each index has an object', function(){",
+							"    ",
+							"    var testObject = true;",
+							"    ",
+							"    jsonData.forEach(e=>{",
+							"        if(e.constructor !== Object){",
+							"            testObject = false;",
+							"        }",
+							"    })",
+							"    ",
+							"    pm.expect(testObject).to.eql(true)",
+							"    ",
+							"});",
+							"",
+							"pm.test('test each object for the correct keys', function(){",
+							"    ",
+							"    var testKeys = true",
+							"    ",
+							"    jsonData.forEach((e, i)=>{",
+							"        for(let key in e){",
+							"            if(!['request_type', 'first_name', 'last_name', 'join_room_id', 'request_to', 'request_from', 'id'].includes(key)){",
+							"                testKeys = false",
+							"            }",
+							"        }",
+							"    })",
+							"    ",
+							"    pm.expect(testKeys).to.eql(true)",
+							"    ",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3030/notifications/4",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"notifications",
+						"4"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Friends",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9b849959-af8e-4948-812a-3e08d363a747",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"pm.test('test for status 200', function(){",
+							"    pm.response.to.have.status(200)",
+							"})",
+							"",
+							"pm.test('test body exists', function(){",
+							"    pm.response.to.have.body",
+							"})",
+							"",
+							"pm.test('test that body is an array', function(){",
+							"    var bodyTypeTest = false;",
+							"    if(jsonData.constructor === Array){",
+							"        bodyTypeTest = true;",
+							"    }",
+							"    pm.expect(bodyTypeTest).to.eql(true)",
+							"})",
+							"",
+							"pm.test('test that each index has an object', function(){",
+							"    ",
+							"    var testObject = true;",
+							"    ",
+							"    jsonData.forEach(e=>{",
+							"        if(e.constructor !== Object){",
+							"            testObject = false;",
+							"        }",
+							"    })",
+							"    ",
+							"    pm.expect(testObject).to.eql(true)",
+							"    ",
+							"});",
+							"",
+							"pm.test('test each object for the correct keys', function(){",
+							"    ",
+							"    var testKeys = true",
+							"    ",
+							"    jsonData.forEach((e, i)=>{",
+							"        for(let key in e){",
+							"            if(!['first_name', 'last_name', 'profile_picture', 'user_id', 'friend_id', 'current_mtn'].includes(key)){",
+							"                testKeys = false",
+							"            }",
+							"        }",
+							"    })",
+							"    ",
+							"    pm.expect(testKeys).to.eql(true)",
+							"    ",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3030/friends/all/4",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"friends",
+						"all",
+						"4"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
