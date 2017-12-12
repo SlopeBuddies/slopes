@@ -19,7 +19,7 @@ class Profile extends Component {
     this.state = {
       editable: true,
       secureURL: '',
-
+      friends: []
     };
   }
 
@@ -36,7 +36,7 @@ class Profile extends Component {
     });
     this.props.checkUser();
     this.props.getUserInfo().then(()=>{
-      this.props.getAllFriends(this.props.user.user_id);
+      this.props.getAllFriends(this.props.user.user_id)
     });
     
   }
@@ -95,6 +95,8 @@ class Profile extends Component {
     //     last: this.refs.last.value,
     //     homeMountain: this.refs.homeMountain.value
     // }
+    
+      console.log('Besties',this.state.friends)
     return (
       <div>
         <Header />
