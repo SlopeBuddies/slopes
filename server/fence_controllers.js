@@ -61,5 +61,10 @@ module.exports = {
         req.app.get('db').update_current_mtn([null, req.user.user_id])
         return res.status(200).send('NOT IN FENCE')
     }
+  },
+  friendLocation: (req, res)=>{
+    req.app.get('db').friends_location([req.params.mtn, req.user.user_id]).then((response)=>{
+      res.status(200).send(response);
+    })
   }
 };
