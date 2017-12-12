@@ -54,7 +54,7 @@
     height: 25px !important;
   }
   .usersList {
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
     margin-top: 15px;
     width: 100%;
     // display: flex;
@@ -62,12 +62,12 @@
     align-content: center;
     align-items: center;
     font-size: 1.25em;
-    height: 65px !important;
+    height: 40px !important;
   }
 }
 
 .usersList button {
-  font-size: 2em !important;
+  font-size: 1.5em !important;
   background: transparent !important;
   border-radius: 50% !important;
   // border: .5px solid black !important;
@@ -93,8 +93,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
 }
 // .searchContainer img {
 //   width: 6px !important;
@@ -145,8 +145,8 @@ align-content: center;
 //styles users img
 .searchIMG {
   margin-left: 10px;
-  height: 55px;
-  width: 55px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
 }
 
