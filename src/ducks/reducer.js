@@ -1,4 +1,5 @@
 import axios from "axios";
+import _ from 'underscore'
 
 const initialState = {
   user: {},
@@ -27,6 +28,8 @@ const FIND_USERS = "FIND_USERS"
 const GET_ALL_FRIENDS = "GET_ALL_FRIENDS";
 const GET_REQUEST = 'GET_REQUEST';
 const GET_FRIEND_IDS = 'GET_FRIEND_IDS';
+
+const RESET_CHAT = 'RESET_CHAT'
 
 const ACCEPT_FRIEND = 'ACCEPT_FRIEND';
 
@@ -152,6 +155,14 @@ export function getAllChannels(firstName) {
   }
 }
 
+export function resetChat() {
+  const newChat = []
+  return {
+    type: RESET_CHAT,
+    payload: newChat
+  }
+}
+
 //------------------------- Socket io -------------------------------//
 
 export function createNewChat(chatData) {
@@ -205,7 +216,10 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, { currentChat: [...state.currentChat, action.payload]})
 
     case GET_ROOM_MESSAGES:
-      return Object.assign({}, state, {currentChat: [...state.currentChat, ...action.payload]})
+      return Object.assign({}, state, {currentChat: action.payload})
+
+    case RESET_CHAT: 
+      return Object.assign({}, state, {currentChat: action.payload})
 
     case GET_REQUEST + "_FULFILLED":
       return Object.assign({}, state, {requests: action.payload});
