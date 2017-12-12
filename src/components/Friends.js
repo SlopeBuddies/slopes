@@ -51,7 +51,7 @@ export class Friends extends Component {
           return (
             <div key={i} className="friendsAvatar">
                 <div>
-                  <img src={e.profile_picture} />
+                <Link to={`/profile/${e.user_id}`} ><img src={e.profile_picture} /></Link>
                 </div>
                 <div className="friendsName">
                   {e.first_name} {e.last_name}
@@ -80,7 +80,7 @@ export class Friends extends Component {
           return (
             <div key={i} className="friendsAvatar">
                 <div>
-                  <img src={e.profile_picture} />
+                <Link to={`/profile/${e.user_id}`} ><img src={e.profile_picture} /></Link>
                 </div>
                 <div className="friendsName">
                   {e.first_name} {e.last_name}
@@ -110,7 +110,7 @@ export class Friends extends Component {
             <div key={i}>
               <div className="friendsAvatar">
                 <div>
-                  <img src={e.profile_picture} />
+                <Link to={`/profile/${e.user_id}`} ><img src={e.profile_picture} /></Link>
                 </div>
                 <div className="friendsName">
                   {e.first_name} {e.last_name}
