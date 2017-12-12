@@ -5,6 +5,8 @@ import Header from './Header';
 import io from 'socket.io-client';
 import { joinChat, sendChatMessage } from "./../ducks/reducer";
 import axios from 'axios';
+import Channels from "./Channels"
+
 
 
 
@@ -73,6 +75,7 @@ class Chat extends Component {
         return(
             <div>
                 <Header/>
+                <Channels/>
                 
                 <div className='chatContainer'>
                     {this.props.currentChat.map((e,i) =>{
@@ -88,8 +91,6 @@ class Chat extends Component {
                     <button className='chatBtn' onClick={this.dispatchMessage} >Send</button>
                     </div>
                 </div>
-
-
                 <Nav/>
             </div> 
         )
