@@ -85,8 +85,8 @@ table {
     height: 34px;
     width: 50px !important; }
   .searchContainer .searchIcon {
-    width: 33px !important;
-    height: 33px !important; }
+    width: 25px !important;
+    height: 25px !important; }
   .searchContainer .usersList {
     margin-bottom: 15px;
     margin-top: 15px;
@@ -102,10 +102,6 @@ table {
   background: transparent !important;
   border-radius: 50% !important; }
 
-.searchIcon {
-  height: 35px !important;
-  width: 35px; }
-
 .searchContainer div {
   height: 25px;
   margin: auto;
@@ -116,15 +112,21 @@ table {
   justify-content: center;
   align-items: center; }
 
-.searchContainer input {
-  margin-bottom: 15px !important;
-  margin-left: 5px;
-  margin-right: 7px;
+.checkmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 25px; }
+
+.searchContainer div input {
+  margin-left: 22%;
   font-size: 1em;
   border: 0.5px solid black;
   border-radius: 5px;
-  height: 30px;
-  outline: none; }
+  height: 25px;
+  outline: none;
+  width: 50%; }
 
 .usersList div {
   display: flex;
