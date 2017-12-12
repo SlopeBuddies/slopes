@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getUserInfo, getRequest } from "../ducks/reducer";
+import { getUserInfo, getRequest, resetChat } from "../ducks/reducer";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import Nav from "./Nav";
@@ -25,6 +25,7 @@ class Home extends Component {
 
   componentDidlMount() {
     this.props.getUserInfo();
+    this.props.resetChat();
   }
 
   friendsToggle() {
@@ -149,4 +150,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getUserInfo, getRequest })(Home);
+export default connect(mapStateToProps, { getUserInfo, getRequest, resetChat })(Home);
