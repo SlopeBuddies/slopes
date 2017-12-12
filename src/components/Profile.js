@@ -19,9 +19,10 @@ class Profile extends Component {
     this.state = {
       editable: true,
       secureURL: '',
-
+      friends: []
     };
   }
+
 
   componentDidMount() {
     console.log(this.props.match.params.id);
@@ -35,10 +36,8 @@ class Profile extends Component {
       })
     });
     this.props.checkUser();
-    this.props.getUserInfo().then(()=>{
-      this.props.getAllFriends(this.props.user.user_id);
-    });
-    
+    this.props.getUserInfo();
+    this.props.getAllFriends(this.props.user.user_id);
   }
 
 
@@ -64,7 +63,6 @@ class Profile extends Component {
           if (fileURL[i] == 'upload'){
             fileURL.splice(i + 1, 0, 'w_200,h_200,c_fill,g_face');
             fileURL = fileURL.join('/')
-            console.log(fileURL)
             this.setState({
               secureURL: fileURL
             })
@@ -72,7 +70,6 @@ class Profile extends Component {
           }
         }
         
-        console.log('Worked', data);
       })
     });
   
@@ -81,6 +78,12 @@ class Profile extends Component {
       // ... perform after upload is successful operation
       alert('done')
     });
+  }
+
+  unfriend(){
+    axios.put(`/unfriend/${+this.props.match.params.id}`).then((res)=>{
+      this.props.getAllFriends(this.props.user.user_id);
+    })
   }
 
   // this.props.user.user_id = this.props.match.params.id ? '' : 'profile_disabled'
@@ -95,6 +98,13 @@ class Profile extends Component {
     //     last: this.refs.last.value,
     //     homeMountain: this.refs.homeMountain.value
     // }
+    // this.props.allhomies.map((e, i, arr)=>{
+    //   this.setState({
+    //     friends: this.state.friends.push(e.user_id)
+    //   })
+    // })
+
+    
     return (
       <div>
         <Header />
@@ -144,6 +154,7 @@ class Profile extends Component {
               <h3>{this.props.profile.nickname} </h3>
               <h3> {this.props.profile.home_mountain}</h3>
             </div>
+            <div><button onClick={()=>{ this.unfriend() }} style={this.props.friendIds.includes(+this.props.match.params.id) ? null : {display:'none'} } className='profile_edit' >Unfriend</button></div>
           </div>
           <div
             className={
