@@ -52,26 +52,38 @@ export class Search extends Component {
       this.findUsers();
     }
   }
-  render() {
-    console.log(this.state)
+  
+  mapLists() {
+    var homies = [];
+    var pendingFriendReqs = [];
     if (this.props.allhomies) {
-      var homies = [];
       for (var i = 0; i < this.props.allhomies.length; i++) {
         homies.push(this.props.allhomies[i].friend_id);
       }
       if (this.props.requests) {
-        var pendingFriendReqs = [];
+        console.log(this.props.requests)
         for (var i = 0; i < this.props.requests.length; i++) {
           if (
             this.props.requests[i].request_type === "friend_request" &&
-            this.props.requests[i].pending == true
+            this.props.requests[i].request_from != this.props.user.user_id
           ) {
             pendingFriendReqs.push(this.props.requests[i].request_from);
+          } else if(this.props.requests[i].request_type === "friend_request" &&
+          this.props.requests[i].request_to != this.props.user.user_id) {
+            pendingFriendReqs.push(this.props.requests[i].request_to);
           }
         }
       }
     }
-
+    console.log(pendingFriendReqs)
+    return {
+      homies: homies,
+      pendingFriendReqs: pendingFriendReqs
+    }
+  }
+  render() {
+    const friendRef = this.mapLists();
+    console.log(friendRef)
     var mapUsers = this.state.users.map((e, i) => {
       return (
         <div key={e.user_id} className="usersList">
@@ -79,13 +91,14 @@ export class Search extends Component {
           <Link to={`/profile/${e.user_id}`} ><img className="searchIMG" src={e.profile_picture} /></Link>
           </div>
           <div> {e.first_name}</div>
-          {!homies.includes(e.user_id) ? 
+          {!friendRef.pendingFriendReqs.includes(e.user_id) ? !friendRef.homies.includes(e.user_id) ? 
             <div>
               <button className='usersList' onClick={() => this.friendRequest(e.user_id)}
               > + </button>
             </div>
-          : <div><img className="checkmark" src = {checkmark} alt="Already Friends"/></div>}
-          {pendingFriendReqs.includes(e.user_id) ?
+          : <div><img className="checkmark" src = {checkmark} alt="Already Friends"/></div> : ''}
+          {}
+          {friendRef.pendingFriendReqs.includes(e.user_id) ?
          <div className="timerDiv"> <img alt="pending-request" src={timer} className="searchBTN"/></div>
          : null }
 

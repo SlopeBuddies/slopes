@@ -97,6 +97,7 @@ table {
     height: 40px !important; }
 
 .usersList button {
+  margin: auto;
   font-size: 1.5em !important;
   background: transparent !important;
   border-radius: 50% !important; }
@@ -385,6 +386,10 @@ table {
   height: 100% !important;
   color: #3c4163; }
 
+.friendsAvatar img {
+  height: 70px;
+  width: 70px !important; }
+
 .friendsAvatar {
   margin-bottom: 15px;
   width: 100%;
@@ -397,14 +402,14 @@ table {
   display: flex;
   justify-content: space-around; }
 
-.friendsAvatar img {
+.friendmailer img {
+  width: 45px !important; }
+
+.friendsPic {
   margin-right: 15px;
   height: 50px;
-  width: 50px;
+  width: 50px !important;
   border-radius: 50%; }
-
-.friendsAvatar button {
-  margin: auto; }
 
 .friendsName {
   font-size: 1.25em;

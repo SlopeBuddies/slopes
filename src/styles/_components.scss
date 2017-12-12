@@ -67,6 +67,7 @@
 }
 
 .usersList button {
+  margin: auto;
   font-size: 1.5em !important;
   background: transparent !important;
   border-radius: 50% !important;
@@ -441,7 +442,10 @@ align-content: center;
   height: 100% !important;
   color: $dark_blue;
 }
-
+.friendsAvatar img {
+  height: 70px;
+  width: 70px !important;
+}
 .friendsAvatar {
   margin-bottom: 15px;
   width: 100%;
@@ -455,21 +459,33 @@ align-content: center;
   justify-content: space-around;
   // margin-left: 10px;
 }
-.friendsAvatar img {
+// .currentMTNhead section{
+//   margin: auto;
+// }
+
+.friendmailer img {
+  width: 45px !important;
+}
+.friendsPic {
   margin-right: 15px;
   height: 50px;
-  width: 50px;
+  width: 50px !important;
   border-radius: 50%;
 }
 
-.friendsAvatar button {
-  margin: auto;
-}
+// .friendsAvatar img {
+//   width: 40px ;
+//   margin: auto;
+//   background: transparent !important;
+//   border: .5px solid black;
+//   border-radius: 7px;
+// }
 .friendsName {
   font-size: 1.25em;
   color: $dark_blue;
   // margin-right: 15px;
 }
+
 
 .friendMessagebtn {
   font-weight: 500;
@@ -478,7 +494,9 @@ align-content: center;
   height: 35px !important;
   // background: #70aeff;
   // margin-left: 15px;
+  
 }
+
 .profile-upload {
   padding: 10px;
   width: 200px;
