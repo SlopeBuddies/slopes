@@ -117,7 +117,7 @@ app.get("/auth/logout", (req, res) => {
 //   })
 
 // });
-// ---------------------- New socket stuff ---------------------------//
+// -------------------------------- New socket stuff --------------------------------//
 
 const applyMiddleware = (io) => {
   io.use(sharedSession(session, {
@@ -159,7 +159,7 @@ const addListeners = (io, db) => {
     })
   })
 }
-//profile endpoints
+//--------------------------------profile endpoints--------------------------------//
 
 app.get('/user/:id', ctrl.getUser )
 
@@ -168,7 +168,7 @@ app.get('/checkuser', ctrl.checkUser)
 app.put('/users/:id', ctrl.updateUser)
 
 
-//Friends Endpoints
+//--------------------------------Friends Endpoints--------------------------------//
 app.post('/send/friend/request/:requestfrom/:requestto', ctrl.friendRequest)
 
 app.get('/find/users/:id', ctrl.findUsers)
@@ -176,15 +176,15 @@ app.get('/find/users/:id', ctrl.findUsers)
 app.get('/friends/all/:id', ctrl.getAllFriends)
 
 app.post('/accept/friend/', ctrl.acceptFriend)
-app.put('/deny/friend', ctrl.denyFriend)
-//GEOLOCATION
+app.put('/deny/friend', ctrl.denyFriend);
+//--------------------------------GEOLOCATION--------------------------------------//
 
-app.put('/user/location', ctrl.updateUserLocation)
+app.put('/user/location', ctrl.updateUserLocation);
 
-app.put('/get/user/location', fence.check_fences)
+app.put('/get/user/location', fence.check_fences);
 
-//Chat Endpoints
-app.put('/take/chat/request', ctrl.takeChatRequest)
+//--------------------------------Chat Endpoints-----------------------------------//
+app.put('/take/chat/request', ctrl.takeChatRequest);
 app.get('/chat/messages/:room_id', ctrl.getRoomMessages);
 
 app.post('/chat/request', ctrl.createChatRequest);
