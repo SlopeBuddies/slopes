@@ -76,7 +76,7 @@ import { findUsers,
           <div>
           <Link to={`/profile/${e.user_id}`} ><img className="searchIMG" src={e.profile_picture} /></Link>
           </div>
-          <div> {e.first_name}</div>
+          <div className='small_text'> {e.first_name}</div>
           {!homies.includes(e.user_id) ?
             <div>
               <button className='usersList' onClick={() => this.friendRequest(e.user_id)}

@@ -47,11 +47,11 @@ export class Notifications extends Component {
         return (
           
             <div key={i} className='snotificationsrequest'>
-            <div>
+            <div className='small_text'>
               {e.first_name} {e.last_name}
             </div>
-            <div >
-              <button onClick={()=> this.acceptFriend(e.request_from, this.props.user.user_id, e.id)}> ACCEPT </button> 
+            <div className='accept_deny_buttons'>
+            <button style={ {width: '80px'} } className='friend_accept_button' onClick={()=> this.acceptFriend(e.request_from, this.props.user.user_id, e.id)}> ACCEPT </button> 
               <button onClick={()=> this.denyFriend(e.id)}> DENY </button>
             </div>
         </div> 
