@@ -42,9 +42,7 @@ table {
   border-spacing: 0; }
 
 .App {
-  background: #fffafa;
-  background: fill;
-  height: fill; }
+  background: #fffafa; }
 
 .header {
   display: flex;
@@ -430,16 +428,27 @@ table {
 .profile-upload-div {
   padding: 10px; }
 
-.chatContainer {
+.chatpagecontainer {
+  overflow: scroll;
+  height: 50vh; }
+
+.chatContainer div {
+  position: fixed;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
-  background: #fffafa;
-  height: calc(100vh - 150px);
-  width: 100%; }
+  background: blue;
+  height: 70vh;
+  width: 100%;
+  overflow-y: scroll;
+  float: right !important; }
+  .chatContainer div h1 {
+    margin-right: 10px; }
 
 .inputBtn {
+  position: relative;
+  bottom: 45px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -447,8 +456,6 @@ table {
   background: #70aeff; }
 
 .chatInput {
-  width: 80%;
-  height: 20px;
   border: solid #70aeff;
   outline: none; }
 

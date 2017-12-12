@@ -1,7 +1,7 @@
 .App {
   background: #fffafa;
-  background: fill;
-  height: fill;
+  // background: fill;
+  // height: fill;
 }
 
 // Header css
@@ -508,24 +508,37 @@ align-content: center;
 }
 
 // Chat css
+.chatpagecontainer {
+  overflow: scroll;
+  height: 50vh;
+}
 
-.chatContainer {
+
+.chatContainer div{
+  position: fixed;
   @include flex(flex-end, flex-end);
   flex-direction: column;
-  background: #fffafa;
-  height: calc(100vh - 150px);
+  background: blue;
+  height: 70vh;
   width: 100%;
+  overflow-y: scroll;
+  float: right !important;
+  h1 {
+    margin-right: 10px;
+  }
 }
 
 .inputBtn {
+  position: relative;
+  bottom: 45px;
   width: 100%;
   @include flex;
   background: #70aeff;
 }
 
 .chatInput {
-  width: 80%;
-  height: 20px;
+  // width: 80%;
+  // height: 20px;
   border: solid #70aeff;
   outline: none;
 }

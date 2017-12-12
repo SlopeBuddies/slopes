@@ -15,13 +15,10 @@ render() {
         <BrowserRouter >
             <div className='App'>
 
-                
                 <Route exact path='/' component={Login} />
                 <Route  path='/home' component={Home} />
                 <Route path='/chat/:chatid' component={Chat} />
                 <Route path='/profile/:id' component={Profile} />
-
-                
 
             </div>
         </BrowserRouter>
