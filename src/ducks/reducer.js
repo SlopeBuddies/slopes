@@ -106,6 +106,7 @@ export function updateProfile(id, user) {
 
 export function getAllFriends(id) {
   const allhomies = axios.get(`/friends/all/${id}`).then(response => {
+    console.log('Friends',response.data)
     return response.data;
   });
   return {

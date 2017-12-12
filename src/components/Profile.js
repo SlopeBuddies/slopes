@@ -6,7 +6,8 @@ import {
   getProfile,
   checkUser,
   getUserInfo,
-  updateProfile
+  updateProfile,
+  getAllFriends
 } from "../ducks/reducer";
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
@@ -34,7 +35,10 @@ class Profile extends Component {
       })
     });
     this.props.checkUser();
-    this.props.getUserInfo();
+    this.props.getUserInfo().then(()=>{
+      this.props.getAllFriends(this.props.user.user_id);
+    });
+    
   }
 
 
@@ -97,6 +101,7 @@ class Profile extends Component {
         <div className="profile_container">
           <div>
             <img
+              alt='someone'
               src={this.props.profile.profile_picture}
               className="profile_image"
             />
@@ -191,5 +196,6 @@ export default connect(mapStateToProps, {
   getProfile,
   checkUser,
   getUserInfo,
-  updateProfile
+  updateProfile,
+  getAllFriends
 })(Profile);
