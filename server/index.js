@@ -177,6 +177,8 @@ app.get('/friends/all/:id', ctrl.getAllFriends)
 
 app.post('/accept/friend/', ctrl.acceptFriend)
 app.put('/deny/friend', ctrl.denyFriend)
+
+app.put('/unfriend/:id', ctrl.unFriend)
 //GEOLOCATION
 
 app.put('/user/location', ctrl.updateUserLocation)
@@ -190,6 +192,8 @@ app.get('/chat/messages/:room_id', ctrl.getRoomMessages);
 app.post('/chat/request', ctrl.createChatRequest);
 
 app.get('/notifications/:user_id', ctrl.getRequest)
+
+app.get('/channels/:firstName', ctrl.getAllChannels)
 
 const path = require("path");
 app.get("*", (req, res) => {

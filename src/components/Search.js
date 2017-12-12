@@ -9,6 +9,7 @@ import {
 import axios from "axios";
 import { connect } from "react-redux";
 import timer from "./../assets/78834-200.png";
+import { Link } from "react-router-dom";
 
 export class Search extends Component {
   constructor() {
@@ -74,7 +75,7 @@ export class Search extends Component {
       return (
         <div key={e.user_id} className="usersList">
           <div>
-            <img className="searchIMG" src={e.profile_picture} />
+          <Link to={`/profile/${e.user_id}`} ><img className="searchIMG" src={e.profile_picture} /></Link>
           </div>
           <div> {e.first_name}</div>
           <div>
