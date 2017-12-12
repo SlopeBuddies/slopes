@@ -58,6 +58,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(this.props.user.current_mtn)
     console.log(this.props.requests);
     return (
       <div>
