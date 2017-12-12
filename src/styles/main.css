@@ -211,7 +211,11 @@ table {
   height: 55px;
   width: 75% !important;
   font-size: 1.5em;
-  transition: 1s ease-in-out; }
+  transition: .7s ease-in-out; }
+
+.homecontainer_second_button {
+  margin-bottom: 3px;
+  background: red; }
 
 .homecontainer button:active {
   transform: scale(1.5); }
@@ -377,7 +381,8 @@ table {
   background: #8daad4; }
 
 .friendscontainer div {
-  height: 100% !important; }
+  height: 100% !important;
+  color: #3c4163; }
 
 .friendsAvatar {
   margin-bottom: 15px;
@@ -401,7 +406,8 @@ table {
   margin: auto; }
 
 .friendsName {
-  font-size: 1.25em; }
+  font-size: 1.25em;
+  color: #3c4163; }
 
 .friendMessagebtn {
   font-weight: 500;
@@ -449,6 +455,7 @@ table {
 
 .notificationscontainer {
   display: flex;
+  height: 100%;
   align-items: center;
   flex-direction: column;
   width: 100%;

@@ -217,7 +217,12 @@ align-content: center;
   height: 55px;
   width: 75% !important;
   font-size: 1.5em;
-  transition: 1s ease-in-out;
+  transition: .7s ease-in-out;
+}
+
+.homecontainer_second_button {
+  margin-bottom: 3px;
+  background: red;
 }
 
 .homecontainer button:active {
@@ -418,6 +423,7 @@ align-content: center;
 
 .friendscontainer div {
   height: 100% !important;
+  color: $dark_blue;
 }
 
 .friendsAvatar {
@@ -445,6 +451,7 @@ align-content: center;
 }
 .friendsName {
   font-size: 1.25em;
+  color: $dark_blue;
   // margin-right: 15px;
 }
 
@@ -499,6 +506,7 @@ align-content: center;
 
 .notificationscontainer {
   display: flex;
+  height: 100%;
   // justify-content: center;
   align-items: center;
   flex-direction: column;
