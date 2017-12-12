@@ -16,7 +16,7 @@
 }
 
 .header a {
-  font-size: 1.3em;
+  font-size: 1em;
   margin-right: 20px;
   font-weight: 100;
   color: #70aeff;
@@ -34,95 +34,134 @@
 
 .slope_title {
   font-family: $title_font;
-  font-size: 2em;
+  font-size: 1.5em;
   color: #70aeff;
 }
 
 //Search css
 .searchContainer {
-  height: calc(100vh - 170px);
+  height: 100%;
   overflow: scroll;
+  .searchBTN {
+    display: flex;
+    // margin: auto;
+    font-size: 0.75em;
+    height: 34px;
+    width: 50px !important;
+  }
+  .searchIcon {
+    width: 33px !important;
+    height: 33px !important;
+  }
+  .usersList {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    width: 100%;
+    // display: flex;
+    justify-content: space-around !important;
+    align-content: center;
+    align-items: center;
+    font-size: 1.25em;
+    height: 65px !important;
+  }
 }
-.searchContainer img {
-  margin: auto;
+
+.usersList button {
+  font-size: 2em !important;
+  background: transparent !important;
+  border-radius: 50% !important;
+  // border: .5px solid black !important;
+}
+.searchIcon {
+  height: 35px !important;
+  width: 35px;
+}
+.searchContainer div {
   height: 25px;
-  width: 25px;
+  margin: auto;
+  display: flex !important;
 }
-
-.searchBTN {
-  margin-left: 10px;
-  font-size: .75em !important;
-  height: 25px !important;
-  background: #70aeff !important;
-  width: 90px !important;
-
+.timerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+// .searchContainer img {
+//   width: 6px !important;
+// }
+
+// .searchInput input {
+//   width: 35%;
+//   border: 0.5px solid black;
+//   border-radius: 5px;
+//   height: 35px;
+// }
 
 .searchContainer input {
   margin-bottom: 15px !important;
+  margin-left: 5px;
+  margin-right: 7px;
   font-size: 1em;
-  border: 1px solid black;
+  border: 0.5px solid black;
   border-radius: 5px;
-  height: 25px;
+  height: 30px;
   outline: none;
 }
-.usersList {
-  margin-bottom: 15px;
-  overflow: scroll;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  font-size:  1.25em;
+.usersList div {
+display: flex;
+justify-content: center;
+align-items: center;
+align-content: center;
 }
-.usersList div button {
-  margin-left: 10px !important;
-  height: 100% !important;
-  width: 1em;
-  margin: auto;
 
-}
-.usersList img {
-  margin-right: 15px;
-  height: 50px;
-  width: 50px;
-}
-  .searchIMG {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-  }
+// .usersList div button {
+//   // margin-left: 10px !important;
+//   // height: 100% !important;
+//   width: 1em;
+//   margin: auto;
+// }
+// .usersList img {
+//   margin-right: 15px;
+//   height: 50px;
+//   width: 50px;
+// }
 
+//styles users img
+.searchIMG {
+  margin-left: 10px;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+}
 
 // Home css
 .home_profile_container {
-    width: 100%;
-    height: 200px;
-    background: #fffafa;
-    border-bottom: 3px solid #3c4163;
-    display: grid;
-    grid-template-columns: repeat(8, 12.5%);
-    grid-template-rows: repeat(8, 12.5%);
+  width: 100%;
+  height: 180px;
+  background: #fffafa;
+  border-bottom: 3px solid #3c4163;
+  display: grid;
+  grid-template-columns: repeat(8, 12.5%);
+  grid-template-rows: repeat(8, 12.5%);
 }
 
 .home_profile_image {
   margin-left: 15px;
   margin-top: 15px;
-    padding-top: 15px;
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    grid-column: 1.75;
-    grid-row: 1.75;
-  }
+  margin-bottom: 15px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  grid-column: 1;
+  grid-row: 1;
+}
 
 .home_profile_name {
-    font-size: 1.5em;
-    margin-left: 25px;
-    color: #3c4163;
-    grid-column: 4;
-    grid-row: 4;
+  font-size: 1.5em;
+  margin-left: 25px;
+  color: #3c4163;
+  grid-column: 4;
+  grid-row: 4;
 }
 
 .home_profile_mountain {
@@ -133,24 +172,24 @@
   margin-top: 10px;
 }
 .see_profile_button {
-    outline: none;
-    border: none;
-    color: #70aeff;
-    border-radius: 5px;
-    background: #3c4163;
-    height: 30px;
-    width: 60px;
-    font-size: 15px;
-    border-radius: 3px;
-    position: absolute;
-    right: 20px;
-    top: 225px;
-    transition: .5s ease-in-out;
+  outline: none;
+  border: none;
+  color: #70aeff;
+  border-radius: 5px;
+  background: #3c4163;
+  height: 30px;
+  width: 60px;
+  font-size: 15px;
+  border-radius: 3px;
+  position: absolute;
+  right: 20px;
+  top: 205px;
+  transition: 0.5s ease-in-out;
 }
 
 .see_profile_button:hover {
-    transform: scale(1.1);
-    text-decoration: underline;
+  transform: scale(1.1);
+  text-decoration: underline;
 }
 
 .homecontainer div {
@@ -159,13 +198,13 @@
   width: 100% !important;
 }
 .homecontainer {
+  // overflow: scroll !important;
   background: #fffafa;
   // width: 100%;
   @include flex;
-  height: calc(100vh - 352px);
+  height: calc(100vh - 332px);
   flex-direction: column;
 }
-
 
 .homecontainer button {
   // margin: auto !important;
@@ -178,14 +217,18 @@
   height: 55px;
   width: 75% !important;
   font-size: 1.5em;
-  transition: 1s ease-in-out;
+  transition: .7s ease-in-out;
+}
+
+.homecontainer_second_button {
+  margin-bottom: 3px;
+  background: red;
 }
 
 .homecontainer button:active {
-    transform: scale(1.5);
+  transform: scale(1.5);
 
-
-    .homecontainerButton  {
+  .homecontainerButton {
     outline: none;
     border: none;
     color: #3c4163;
@@ -195,7 +238,7 @@
     height: 50px;
     width: 100% !important;
     font-size: 1.5em;
-    }
+  }
 }
 // Nav css
 
@@ -228,20 +271,20 @@
 }
 
 // Login css
-.login_background{
-  background-image: url('../assets/background.jpg'); 
+.login_background {
+  background-image: url("../assets/background.jpg");
   background-position: center center;
-  background-size:  cover;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .loginContainer {
   @include flex;
   width: 100%;
   height: 100vh;
-  flex-direction: column;  
+  flex-direction: column;
 }
 
-.logo_container{
+.logo_container {
   @include flex;
   flex-direction: column;
   height: 40%;
@@ -282,7 +325,7 @@
   -moz-osx-font-smoothing: grayscale;
   border-radius: 8px;
   background: gray;
-  opacity: .75;
+  opacity: 0.75;
   @include flex;
   height: 60px;
   width: 80%;
@@ -304,7 +347,7 @@
 
 .profile_container {
   @include flex(center, center);
-  height: calc(100vh - 170px);
+  height: calc(100vh - 150px);
   flex-direction: column;
   background-color: #fffafa;
 }
@@ -321,7 +364,7 @@
 }
 
 .profile_text_container {
-  height: calc(100vh - 170px);
+  height: calc(100vh - 150px);
   margin: auto;
   width: 50%;
 }
@@ -335,7 +378,6 @@
   display: flex;
   width: 100%;
 }
-
 
 .profile_input {
   @include flex;
@@ -352,7 +394,7 @@
 
 .profile_display {
   margin: auto;
-  height: calc(100vh - 170px);
+  height: calc(100vh - 150px);
   font-size: 1.5em;
   h3 {
     margin: auto;
@@ -372,15 +414,16 @@
 }
 
 .profile_save {
-    border: none;
-    width: 75px;
-    height: 30px;
-    background: rgb(141, 170, 212);
+  border: none;
+  width: 75px;
+  height: 30px;
+  background: rgb(141, 170, 212);
 }
 //FRIENDS
 
 .friendscontainer div {
   height: 100% !important;
+  color: $dark_blue;
 }
 
 .friendsAvatar {
@@ -405,71 +448,71 @@
 
 .friendsAvatar button {
   margin: auto;
-
 }
 .friendsName {
   font-size: 1.25em;
+  color: $dark_blue;
   // margin-right: 15px;
 }
 
-.friendMessagebtn  {
+.friendMessagebtn {
   font-weight: 500;
-  font-size: .75em !important;
-    width: 80px !important;
-    height: 35px !important;
-    // background: #70aeff;
-    // margin-left: 15px;
+  font-size: 0.75em !important;
+  width: 80px !important;
+  height: 35px !important;
+  // background: #70aeff;
+  // margin-left: 15px;
 }
-.profile-upload{
+.profile-upload {
   padding: 10px;
   width: 200px;
   height: 100px;
   background: rgb(141, 170, 212);
 }
-.profile-upload-div{
+.profile-upload-div {
   padding: 10px;
 }
 
 // Chat css
 
 .chatContainer {
-    @include flex(flex-end, flex-end);
-    flex-direction: column;
-    background: #fffafa;
-    height: calc(100vh - 170px);
-    width: 100%;
+  @include flex(flex-end, flex-end);
+  flex-direction: column;
+  background: #fffafa;
+  height: calc(100vh - 150px);
+  width: 100%;
 }
 
 .inputBtn {
-    width: 100%;
-    @include flex;
-    background: #70aeff;
-    
+  width: 100%;
+  @include flex;
+  background: #70aeff;
 }
 
 .chatInput {
-    width: 80%;
-    height: 20px;
-    border: solid #70aeff;
-    outline: none;
+  width: 80%;
+  height: 20px;
+  border: solid #70aeff;
+  outline: none;
 }
 
 .chatBtn {
-    width: 20%;
-    background: #70aeff;
-    height: 27px;    
-    border: none;
-    outline: none;
+  width: 20%;
+  background: #70aeff;
+  height: 27px;
+  border: none;
+  outline: none;
 }
 
 .notificationscontainer {
   display: flex;
+  height: 100%;
   // justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
   overflow: scroll;
-  height: calc(100vh - 170px);
+  height: 100%;
   margin: auto;
 }
 
@@ -500,7 +543,7 @@
 .snotificationschat button {
   margin: auto;
   width: 50px;
-  font-size: .75em;
+  font-size: 0.75em;
   height: 30px;
 }
 
@@ -510,19 +553,19 @@
   justify-content: space-around;
   align-items: center;
   padding-top: 10px;
-  padding-left: 20px;  
+  padding-left: 20px;
 }
 
 .snotificationsrequest button {
   margin: auto;
   justify-content: space-around;
   width: 60px;
-  font-size: .75em;
+  font-size: 0.75em;
   height: 30px;
 }
 
 .friendscontainer {
-  height: 100;
+  // height: 100%;
   overflow: scroll;
 }
 

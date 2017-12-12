@@ -95,7 +95,6 @@ class Chat extends Component {
             </div> 
         )
     }
-
 }
 
 function mapStateToProps(state) {

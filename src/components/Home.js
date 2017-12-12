@@ -59,6 +59,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(this.props.user.current_mtn)
     console.log(this.props.requests);
     return (
       <div>
@@ -86,7 +87,7 @@ class Home extends Component {
 
               <button
                 className="homecontainerButton"
-                style={this.state.friendsToggle ? { display: "none" } : null}
+                style={this.state.friendsToggle ? { display: "none" } : this.state.searchToggle && this.state.notificationsToggle ? {marginBottom: '3px'} : null}
                 onClick={() => {
                   this.friendsToggle();
                 }}
@@ -97,7 +98,7 @@ class Home extends Component {
 
               <button
                 className="homecontainerButton"
-                style={this.state.searchToggle ? { display: "none" } : null}
+                style={this.state.searchToggle ? { display: "none" } : this.state.friendsToggle && this.state.notificationsToggle ? {marginBottom: '3px'} : null}
                 onClick={() => {
                   this.searchToggle();
                 }}
@@ -110,8 +111,10 @@ class Home extends Component {
               <button
                 className="homecontainerButton"
                 style={
-                  this.state.notificationsToggle ? { display: "none" } : null
+                  this.state.notificationsToggle ? { display: "none" } : this.state.friendsToggle && this.state.searchToggle ? {marginBottom: '3px'} : null
                 }
+                // style={this.state.friendsToggle && this.state.searchToggle ? {marginBottom: '3px'} : null}
+                
                 onClick={() => {
                   this.notificationsToggle();
                 }}
