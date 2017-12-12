@@ -7,6 +7,7 @@ import Nav from "./Nav";
 import Search from "./Search";
 import Friends from "./Friends";
 import Notifications from "./Notifications";
+import Channels from "./Channels"
 import io from "socket.io-client";
 import turf from "turf";
 
@@ -45,6 +46,7 @@ class Home extends Component {
       friendsToggle: !this.state.friendsToggle,
       searchToggle: !this.state.searchToggle
     });
+    this.props.getRequest(this.props.user.user_id)
   }
 
   homeToggle() {
@@ -56,6 +58,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(this.props.user.current_mtn)
     console.log(this.props.requests);
     return (
       <div>
@@ -130,6 +133,7 @@ class Home extends Component {
               <Notifications /> 
              : null}
           </div>
+              <Channels />
         </div>
         <Nav toggle={()=>this.homeToggle()}/>
       </div>

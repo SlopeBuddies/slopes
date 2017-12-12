@@ -9,7 +9,9 @@ const initialState = {
   messageData: [],
   currentChat: [],
   resort: '',
-  requests: []
+  requests: [],
+  chatNavOpen: true,
+  channels: []
 };
 
 const GET_USER_INFO = "GET_USER_INFO";
@@ -25,6 +27,9 @@ const GET_ALL_FRIENDS = "GET_ALL_FRIENDS";
 const GET_REQUEST = 'GET_REQUEST';
 
 const ACCEPT_FRIEND = 'ACCEPT_FRIEND';
+
+const TOGGLE_CHANNELS_NAV = 'TOGGLE_CHANNELS_NAV';
+const GET_ALL_CHANNELS = 'GET_ALL_CHANNELS';
 
 export function getUserInfo() {
   return {
@@ -101,6 +106,7 @@ export function updateProfile(id, user) {
 
 export function getAllFriends(id) {
   const allhomies = axios.get(`/friends/all/${id}`).then(response => {
+    console.log('Friends',response.data)
     return response.data;
   });
   return {
@@ -121,6 +127,20 @@ export function getRequest(user_id) {
   }
 }
 
+export function toggleChannelsNav(chatNavOpen) {
+  return {
+    type: TOGGLE_CHANNELS_NAV,
+    payload: !chatNavOpen
+  }
+}
+
+export function getAllChannels(firstName) {
+  const allChannels = axios.get(`/channels/${firstName}`).then((res) =>  res.data)
+  return {
+    type: GET_ALL_CHANNELS,
+    payload: allChannels
+  }
+}
 
 //------------------------- Socket io -------------------------------//
 
@@ -177,12 +197,18 @@ export default (state = initialState, action) => {
     case GET_ROOM_MESSAGES:
       return Object.assign({}, state, {currentChat: [...state.currentChat, ...action.payload]})
 
-      case GET_REQUEST + "_FULFILLED":
+    case GET_REQUEST + "_FULFILLED":
       return Object.assign({}, state, {requests: action.payload});
 
-      case ACCEPT_FRIEND + "_FULFILLED":
+    case ACCEPT_FRIEND + "_FULFILLED":
       return Object.assign({}, state, {allhomies: action.payload})
    
+    case TOGGLE_CHANNELS_NAV:
+      return Object.assign({}, state, {chatNavOpen: action.payload})
+   
+    case GET_ALL_CHANNELS + '_FULFILLED':
+      return Object.assign({}, state, {channels: action.payload})
+
       default:
       return state;
   }
