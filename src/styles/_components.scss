@@ -16,7 +16,7 @@
 }
 
 .header a {
-  font-size: 1.3em;
+  font-size: 1em;
   margin-right: 20px;
   font-weight: 100;
   color: #70aeff;
@@ -34,13 +34,13 @@
 
 .slope_title {
   font-family: $title_font;
-  font-size: 2em;
+  font-size: 1.5em;
   color: #70aeff;
 }
 
 //Search css
 .searchContainer {
-  height: calc(100vh - 170px);
+  height: 100%;
   overflow: scroll;
 }
 .searchContainer img {
@@ -178,7 +178,12 @@
   height: 55px;
   width: 75% !important;
   font-size: 1.5em;
-  transition: 1s ease-in-out;
+  transition: .7s ease-in-out;
+}
+
+.homecontainer_second_button {
+  margin-bottom: 3px;
+  background: red;
 }
 
 .homecontainer button:active {
@@ -380,6 +385,7 @@
 
 .friendscontainer div {
   height: 100% !important;
+  color: $dark_blue;
 }
 
 .friendsAvatar {
@@ -408,6 +414,7 @@
 }
 .friendsName {
   font-size: 1.25em;
+  color: $dark_blue;
   // margin-right: 15px;
 }
 
@@ -463,12 +470,13 @@
 
 .notificationscontainer {
   display: flex;
+  height: 100%;
   // justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
   overflow: scroll;
-  height: calc(100vh - 170px);
+  height: 100%;
   margin: auto;
 }
 

@@ -57,7 +57,7 @@ table {
   text-decoration: none; }
 
 .header a {
-  font-size: 1.3em;
+  font-size: 1em;
   margin-right: 20px;
   font-weight: 100;
   color: #70aeff;
@@ -73,11 +73,11 @@ table {
 
 .slope_title {
   font-family: "Courgette", cursive;
-  font-size: 2em;
+  font-size: 1.5em;
   color: #70aeff; }
 
 .searchContainer {
-  height: calc(100vh - 170px);
+  height: 100%;
   overflow: scroll; }
 
 .searchContainer img {
@@ -199,7 +199,11 @@ table {
   height: 55px;
   width: 75% !important;
   font-size: 1.5em;
-  transition: 1s ease-in-out; }
+  transition: .7s ease-in-out; }
+
+.homecontainer_second_button {
+  margin-bottom: 3px;
+  background: red; }
 
 .homecontainer button:active {
   transform: scale(1.5); }
@@ -364,7 +368,8 @@ table {
   background: #8daad4; }
 
 .friendscontainer div {
-  height: 100% !important; }
+  height: 100% !important;
+  color: #3c4163; }
 
 .friendsAvatar {
   margin-bottom: 15px;
@@ -388,7 +393,8 @@ table {
   margin: auto; }
 
 .friendsName {
-  font-size: 1.25em; }
+  font-size: 1.25em;
+  color: #3c4163; }
 
 .friendMessagebtn {
   font-weight: 500;
@@ -436,11 +442,12 @@ table {
 
 .notificationscontainer {
   display: flex;
+  height: 100%;
   align-items: center;
   flex-direction: column;
   width: 100%;
   overflow: scroll;
-  height: calc(100vh - 170px);
+  height: 100%;
   margin: auto; }
 
 .notificationscontainer h1 {

@@ -76,7 +76,7 @@ export class Search extends Component {
           <div>
             <img className="searchIMG" src={e.profile_picture} />
           </div>
-          <div> {e.first_name}</div>
+          <div className='small_text'> {e.first_name}</div>
           <div>
             {!homies.includes(e.user_id) ? (
               <button onClick={() => this.friendRequest(e.user_id)}> + </button>
