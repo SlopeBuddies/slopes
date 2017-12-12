@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Nav from './Nav';
 import Header from './Header';
-import io from 'socket.io-client';
 import { joinChat, sendChatMessage } from "./../ducks/reducer";
-import axios from 'axios';
 import Channels from "./Channels"
 
 
@@ -21,10 +19,6 @@ class Chat extends Component {
             roomid: 0,
             userid: 0
         };
-
-        // this.updateMessage = this.updateMessage.bind(this);
-        // this.sendMessages = this.sendMessages.bind(this);
-        // this.handleDown = this.handleDown.bind(this)
     };
     
 
@@ -35,23 +29,6 @@ class Chat extends Component {
             roomid: this.props.match.params.chatid
         })
     };
-    
-    // updateMessage(message) {
-    //     let newMessages = this.state.messages.slice()
-    //     newMessages.push(message)
-    //     this.setState({
-    //         messages: newMessages
-    //     })
-    // };
-
-    // sendMessages() {
-    //     this.socket.emit('message sent', {
-    //         message: this.state.input
-    //     })
-    //     this.setState({
-    //         input: ''
-    //     })
-    // };
 
     handleInput = (e) => {
         this.setState({
@@ -77,10 +54,14 @@ class Chat extends Component {
                 <Header/>
                 <Channels/>
                 
-                <div className='chatContainer'>
+                <div className='chatContainer' 
+                    style={this.props.user.user_id===this.props.currentChat.user_id ? {justifyContent: 'flexStart'} : {justifyContent: 'flexEnd'}}>
+                    <h2 className='chatTitle'>thisl siasldfjlkasjdfhaosid</h2>
                     {this.props.currentChat.map((e,i) =>{
-                       return <div key={i}>
-                                    <h1>{e.chat_message}</h1>
+                       return <div className='chatFill' key={i}>
+                                  <div className={e.user_id === this.props.user.user_id ? 'userMessagesContainer': 'otherMessagesContainer'}>
+                                    <h1 className={e.user_id === this.props.user.user_id ? 'userMessages': 'otherMessages'}>{e.chat_message}</h1>
+                                  </div>
                               </div>
                     })}
                     <div className='inputBtn'>

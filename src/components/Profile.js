@@ -61,7 +61,7 @@ class Profile extends Component {
         var fileURL = data.secure_url; // You should store this URL for future references in your app
         fileURL = fileURL.split('/')
         for (var i = 0; i < fileURL.length; ++i){
-          if (fileURL[i] == 'upload'){
+          if (fileURL[i] === 'upload'){
             fileURL.splice(i + 1, 0, 'w_200,h_200,c_fill,g_face');
             fileURL = fileURL.join('/')
             console.log(fileURL)
@@ -147,7 +147,7 @@ class Profile extends Component {
           </div>
           <div
             className={
-              this.props.user.user_id == this.props.match.params.id
+              this.props.user.user_id === this.props.match.params.id
                 ? ""
                 : "profile_disabled"
             }

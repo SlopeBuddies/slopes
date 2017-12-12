@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import { getUserInfo, getAllFriends, createNewChat } from "./../ducks/reducer";
 import { connect } from "react-redux";
-import { Socket } from "net";
 import { Link } from "react-router-dom";
 
 export class Friends extends Component {
@@ -38,11 +37,6 @@ export class Friends extends Component {
     });
   }
 
-  // joinRoom(i) {
-  //   this.props.socket.emit('join room', {
-  //     room: this.props.user.user_id + this.props.allhomies.friend_id
-  //   })
-  // }
 
   render() {
     if (this.props.allhomies.length > 0) {
@@ -51,7 +45,7 @@ export class Friends extends Component {
           return (
             <div key={i} className="friendsAvatar">
                 <div>
-                <Link to={`/profile/${e.user_id}`} ><img src={e.profile_picture} /></Link>
+                <Link to={`/profile/${e.user_id}`} ><img src={e.profile_picture} alt='profile' /></Link>
                 </div>
                 <div className="friendsName">
                   {e.first_name} {e.last_name}
@@ -76,11 +70,11 @@ export class Friends extends Component {
     }
     if (this.props.allhomies.length > 0) {
       var MTNfriends = this.props.allhomies.map((e, i) => {
-        if (e.current_mtn && e.current_mtn != this.props.user.current_mtn) {
+        if (e.current_mtn && e.current_mtn !== this.props.user.current_mtn) {
           return (
             <div key={i} className="friendsAvatar">
                 <div>
-                <Link to={`/profile/${e.user_id}`} ><img src={e.profile_picture} /></Link>
+                <Link to={`/profile/${e.user_id}`} ><img alt='user' src={e.profile_picture} /></Link>
                 </div>
                 <div className="friendsName">
                   {e.first_name} {e.last_name}
@@ -110,7 +104,7 @@ export class Friends extends Component {
             <div key={i}>
               <div className="friendsAvatar">
                 <div>
-                <Link to={`/profile/${e.user_id}`} ><img src={e.profile_picture} /></Link>
+                <Link to={`/profile/${e.user_id}`} ><img alt='user' src={e.profile_picture} /></Link>
                 </div>
                 <div className="friendsName">
                   {e.first_name} {e.last_name}
@@ -154,4 +148,4 @@ export default connect(mapStateToProps, {
   createNewChat
 })(Friends);
 
-<div />;
+

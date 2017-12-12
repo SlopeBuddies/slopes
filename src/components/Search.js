@@ -54,7 +54,7 @@ import { findUsers,
     console.log(this.state)
     if (this.props.allhomies) {
       var homies = [];
-      for (var i = 0; i < this.props.allhomies.length; i++) {
+      for (let i = 0; i < this.props.allhomies.length; i++) {
         homies.push(this.props.allhomies[i].friend_id);
       }
       if (this.props.requests) {
@@ -62,7 +62,7 @@ import { findUsers,
         for (var i = 0; i < this.props.requests.length; i++) {
           if (
             this.props.requests[i].request_type === "friend_request" &&
-            this.props.requests[i].pending == true
+            this.props.requests[i].pending === true
           ) {
             pendingFriendReqs.push(this.props.requests[i].request_from);
           }
@@ -74,7 +74,7 @@ import { findUsers,
       return (
         <div key={e.user_id} className="usersList">
           <div>
-          <Link to={`/profile/${e.user_id}`} ><img className="searchIMG" src={e.profile_picture} /></Link>
+          <Link to={`/profile/${e.user_id}`} ><img alt='user' className="searchIMG" src={e.profile_picture} /></Link>
           </div>
           <div> {e.first_name}</div>
           {!homies.includes(e.user_id) ?
