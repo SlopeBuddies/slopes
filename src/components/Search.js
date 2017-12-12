@@ -78,36 +78,30 @@ export class Search extends Component {
           <Link to={`/profile/${e.user_id}`} ><img className="searchIMG" src={e.profile_picture} /></Link>
           </div>
           <div> {e.first_name}</div>
-          <div>
-            {!homies.includes(e.user_id) ? (
-              <button onClick={() => this.friendRequest(e.user_id)}> + </button>
-            ) : null}
-          </div>
-            {pendingFriendReqs.includes(e.user_id) ? <img src={timer} /> : null}
-        </div>
+          {!homies.includes(e.user_id) ? 
+            <div>
+              <button className='usersList' onClick={() => this.friendRequest(e.user_id)}
+              > + </button>
+            </div>
+          : <div className="timerDiv"> <img alt="pending-request" src={timer} className="searchBTN"/></div>}
+         
+   </div>
       );
-      console.log(mapUsers)
     });
     return (
       <div className="searchContainer">
-        <div className="searchIcon">
-          <img alt="" src={searchIcon} />
-        </div>
-        <div>
+      <div>
+      <div>
           <input ref="search" type="text" onKeyDown={this.keyPress} />
-        </div>
-        <div>
-          <button
-            className="searchBTN"
-            onClick={() => {
+
+          <img className="searchIcon" alt="" src={searchIcon} onClick={() => {
               this.props.getRequest(this.props.user.user_id);
               this.props.getAllFriends(this.props.user.user_id);
               this.findUsers();
-            }}
-          >
-            Search Users
-          </button>
-        </div>
+            }} />
+ 
+          </div>
+          </div>
         {mapUsers}
       </div>
     );
