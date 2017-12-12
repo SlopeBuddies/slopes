@@ -24,6 +24,7 @@ class Profile extends Component {
   }
 
   componentDidMount() {
+    console.log('props id', this.props.user.user_id)
     console.log(this.props.match.params.id);
     this.props.getProfile(this.props.match.params.id).then(() => {
       this.refs.nickname.value = this.props.profile.nickname;
@@ -35,10 +36,9 @@ class Profile extends Component {
       })
     });
     this.props.checkUser();
-    this.props.getUserInfo().then(()=>{
-      this.props.getAllFriends(this.props.user.user_id)
-    });
-    
+    this.props.getUserInfo();
+    this.props.getAllFriends(this.props.user.user_id)
+    console.log('props id', this.props.user.user_id)
   }
 
 
@@ -95,8 +95,12 @@ class Profile extends Component {
     //     last: this.refs.last.value,
     //     homeMountain: this.refs.homeMountain.value
     // }
-    
-      console.log('Besties',this.state.friends)
+    // this.props.allhomies.map((e, i, arr)=>{
+    //   this.setState({
+    //     friends: this.state.friends.push(e.user_id)
+    //   })
+    // })
+      console.log('Besties',this.props.allhomies)
     return (
       <div>
         <Header />
