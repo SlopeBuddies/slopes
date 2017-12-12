@@ -90,7 +90,7 @@ export class Search extends Component {
     });
     return (
       <div className="searchContainer">
-        <div>
+        <div className="searchIcon">
           <img alt="" src={searchIcon} />
         </div>
         <div>

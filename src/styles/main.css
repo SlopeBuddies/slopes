@@ -57,7 +57,7 @@ table {
   text-decoration: none; }
 
 .header a {
-  font-size: 1.3em;
+  font-size: 1em;
   margin-right: 20px;
   font-weight: 100;
   color: #70aeff;
@@ -73,11 +73,11 @@ table {
 
 .slope_title {
   font-family: "Courgette", cursive;
-  font-size: 2em;
+  font-size: 1.5em;
   color: #70aeff; }
 
 .searchContainer {
-  height: calc(100vh - 170px);
+  height: 100%;
   overflow: scroll; }
 
 .searchContainer img {
@@ -102,7 +102,6 @@ table {
 
 .usersList {
   margin-bottom: 15px;
-  overflow: scroll;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -441,7 +440,7 @@ table {
   flex-direction: column;
   width: 100%;
   overflow: scroll;
-  height: calc(100vh - 170px);
+  height: 100%;
   margin: auto; }
 
 .notificationscontainer h1 {
@@ -486,7 +485,6 @@ table {
   height: 30px; }
 
 .friendscontainer {
-  height: 100;
   overflow: scroll; }
 
 .chatNav {
