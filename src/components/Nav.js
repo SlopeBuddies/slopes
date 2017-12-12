@@ -12,6 +12,8 @@ export class Nav extends Component {
         this.props.getUserLocation(position);
         console.log('userGEO',position);
         this.props.checkResort(position)
+    }, error => {
+      console.log('NO GPS GOTDAMN CALLBACKERROR')
     })
     this.props.getRequest(this.props.user.user_id)
   })
@@ -27,6 +29,7 @@ export class Nav extends Component {
 
 
   render() {
+    console.log(this.props.user.current_mtn)
     return (
       <div>
         <div className="nav">
