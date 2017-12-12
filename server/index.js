@@ -177,6 +177,8 @@ app.get('/friends/all/:id', ctrl.getAllFriends)
 
 app.post('/accept/friend/', ctrl.acceptFriend)
 app.put('/deny/friend', ctrl.denyFriend)
+
+app.put('/unfriend/:id', ctrl.unFriend)
 //GEOLOCATION
 
 app.put('/user/location', ctrl.updateUserLocation)
