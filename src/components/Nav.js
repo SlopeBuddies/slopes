@@ -36,7 +36,14 @@ export class Nav extends Component {
       <div>
         <div className="nav">
           <Link to="/home">
-            <button onClick={this.props.toggle} className="homebtn"><img className='homebtnImg' src={homeIcon} alt=""/></button>
+            <button onClick={()=>{
+              if(window.location.pathname === '/home'){
+                this.props.toggle();
+              }
+              if(!this.props.chatNavOpen){
+                this.handleClick(this.props.chatNavOpen)
+              }
+            }} className="homebtn"><img className='homebtnImg' src={homeIcon} alt=""/></button>
           </Link>
           <button className="settingsbtn" onClick={() => this.handleClick(this.props.chatNavOpen)}><img className='chatbtnImg' src={chatIcon} alt="" /></button>
         </div>

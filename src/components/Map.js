@@ -75,6 +75,7 @@ setInterval() {
                 text={e.profile_picture}
                 />
             )})
+            
             }
                
       </GoogleMapReact>

@@ -440,6 +440,9 @@ table {
   cursor: pointer;
   margin-top: 10px; }
 
+.profile-h3 h3 {
+  text-align: center; }
+
 .friendscontainer div {
   height: 100% !important;
   color: #3c4163; }
