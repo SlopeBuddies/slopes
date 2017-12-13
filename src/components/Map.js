@@ -7,8 +7,8 @@ import Nav from './Nav';
 import GoogleMapReact from 'google-map-react'
 import Channels from "./Channels"
 
-const UserLocation = ({ text }) => <div>{text}</div>;
-
+const UserLocation = ({ text }) => <img className='mapAvatar' src={text} />
+const CurrentLocation = ({ text }) => <div className='userLocation'></div>
 
 class Map extends Component {
 constructor() {
@@ -32,12 +32,7 @@ constructor() {
 
 setInterval() {
         let boundFunction = this.getLocations.bind(this)
-        this.interval = setInterval(boundFunction, 4000);
-        console.log('updated map')
-    }
-
-    componentWillReceiveProps(nextProps) {
-        console.log('nxtprop', nextProps, 'tis', this.props)
+        this.interval = setInterval(boundFunction, 2000);
     }
 
     componentWillUnmount() {
@@ -45,48 +40,39 @@ setInterval() {
     }
 
     getLocations() {
-        console.log('user', this.props.user)
         axios.get(`/friends/location/${this.props.user.current_mtn}`)
         .then( (response) => {
             this.setState({
-                center: {lat: this.props.user.latitude, 
-                        lng:this.props.user.longitude},
                 userMarkers: response.data
                 })
             })
     }
 
   render() {
-
-    // const Comp = this.state.userMarkers.map( (e,i) => {
-    //     return (
-    //         <Comp
-    //         lat={e.latitude}
-    //         lng={e.longitude}
-    //         text={toString(e.first_name)} 
-    //        /> 
-    //     )
-    // })
-console.log(this.state)
     return (
       <div>
-          {/* <Header/> */}
-
         <div className='mapstuff' >
           <GoogleMapReact
           bootstrapURLKeys={{
             key: "AIzaSyDmaSW_P8wv7cqs0dKmbGBsGGzSiEZRrN4"
           }}
-        defaultCenter={this.state.center}
+        defaultCenter={{lat: this.props.user.latitude, 
+            lng:this.props.user.longitude}}
         defaultZoom={this.state.zoom}
       >
+            <CurrentLocation
+            lat={this.props.user.latitude}
+            lng={this.props.user.longitude}
+  
+            />
+
             {this.state.userMarkers.map((e, i) =>{
                return(
                 <UserLocation
                 key={i}
                 lat={e.latitude}
                 lng={e.longitude}
-                text={e.first_name}
+                text={e.profile_picture}
                 />
             )})
             

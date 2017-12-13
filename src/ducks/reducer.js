@@ -120,7 +120,6 @@ export function updateProfile(id, user) {
 
 export function getAllFriends(id) {
   const allhomies = axios.get(`/friends/all/${id}`).then(response => {
-    console.log('Friends',response.data)
     var ids = [];
     response.data.forEach(e=> {
         ids.push(e.user_id)})
@@ -137,7 +136,6 @@ export function getAllFriends(id) {
 
 export function getRequest(user_id) {
   const getRequestNotification = axios.get(`/notifications/${user_id}`).then(response=> {
-    console.log(response)
     return response.data});
 
   

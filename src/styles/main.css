@@ -145,35 +145,37 @@ table {
 
 .home_profile_container {
   width: 100%;
-  height: 100%;
+  height: 18vh;
   background: #fffafa;
-  border-bottom: 3px solid #3c4163;
+  position: fixed;
+  border-bottom: 1.25px solid #3c4163;
+  margin-top: 70px;
   display: grid;
   grid-template-columns: repeat(8, 12.5%);
   grid-template-rows: repeat(8, 12.5%); }
 
 .home_profile_image {
   margin-left: 15px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  height: 150px;
-  width: 150px;
+  margin-top: 10px;
+  margin-bottom: 11px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
   grid-column: 1;
   grid-row: 1; }
 
 .home_profile_name {
-  font-size: 1.5em;
-  margin-left: 25px;
+  font-size: 1.25em;
+  margin-left: 35px;
   color: #3c4163;
-  grid-column: 4;
-  grid-row: 4; }
+  grid-column: 3;
+  grid-row: 3; }
 
 .home_profile_mountain {
-  font-size: 1.5em;
-  margin-left: 25px;
-  grid-column: 4;
-  grid-row: 5;
+  font-size: 1.25em;
+  margin-left: 45px;
+  grid-column: 3;
+  grid-row: 4;
   margin-top: 10px;
   color: #3c4163; }
 
@@ -185,11 +187,12 @@ table {
   background: #3c4163;
   height: 30px;
   width: 60px;
-  font-size: 15px;
+  font-size: .5em;
   border-radius: 3px;
+  margin: auto;
   position: absolute;
   right: 20px;
-  top: 205px;
+  top: 155px;
   transition: 0.5s ease-in-out;
   cursor: pointer; }
 
@@ -201,11 +204,15 @@ table {
   width: 100% !important; }
 
 .homecontainer {
+  overflow: scroll;
   background: #fffafa;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 332px);
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 61.5vh;
   flex-direction: column; }
 
 .homecontainer button {
@@ -214,12 +221,19 @@ table {
   color: #3c4163;
   border-radius: 5px;
   background: #70aeff;
-  margin-bottom: 30px;
-  height: 55px;
-  width: 75% !important;
+  margin-bottom: 25px;
+  height: 2em;
+  width: 75%;
   font-size: 1.5em;
   transition: .7s ease-in-out;
   cursor: pointer; }
+
+.homecontainer a {
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%; }
 
 .homecontainer button:active {
   transform: scale(1.5); }
@@ -692,3 +706,29 @@ table {
   overflow: hidden;
   height: calc(100vh - 80px);
   width: 100%; }
+
+.mapAvatar {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px; }
+
+.userLocation {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  animation-delay: 15s;
+  -webkit-animation-name: gps;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 2s; }
+
+@-webkit-keyframes gps {
+  0% {
+    background-color: rgba(0, 0, 255, 0.342); }
+  50% {
+    background-color: lightblue;
+    height: 25px;
+    width: 25px; }
+  100% {
+    background-color: rgba(82, 82, 203, 0.678);
+    height: 30px;
+    width: 30px; } }
