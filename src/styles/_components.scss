@@ -1,10 +1,11 @@
 .App {
   background: #fffafa;
-  // background: fill;
+  background: fill;
   // height: fill;
+  height: 70vh;
 }
 
-// Header css
+//---------------------------------- Header css ----------------------------------//
 
 .header {
   @include flex(space-between);
@@ -13,6 +14,8 @@
   width: 100vw;
   height: 70px;
   text-decoration: none;
+  // position: fixed;
+  // top: 0;
 }
 
 .header a {
@@ -38,7 +41,7 @@
   color: #70aeff;
 }
 
-//Search css
+//---------------------------------- Search css ----------------------------------//
 .searchContainer {
   height: 100%;
   overflow: scroll;
@@ -152,7 +155,7 @@ align-content: center;
   border-radius: 50%;
 }
 
-// Home css
+//---------------------------------- Home css ----------------------------------//
 .home_profile_container {
   width: 100%;
   height: 180px;
@@ -257,10 +260,10 @@ align-content: center;
     cursor: pointer;    
   }
 }
-// Nav css
+//---------------------------------- Nav css ----------------------------------//
 
 .nav {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   z-index: 2;
   width: 100%;
@@ -289,7 +292,7 @@ align-content: center;
   cursor: pointer;  
 }
 
-// Login css
+//---------------------------------- Login css ----------------------------------//
 .login_background {
   background-image: url("../assets/background.jpg");
   background-position: center center;
@@ -363,7 +366,7 @@ align-content: center;
   border: none;
 }
 
-// Profile
+//---------------------------------- Profile ----------------------------------//
 
 .profile_container {
   @include flex(center, center);
@@ -432,8 +435,7 @@ align-content: center;
   border-radius: 5px;
   background: #bfbbbb17;
 }
-.profile_display div {
-}
+
 
 .profile_display {
   margin: auto;
@@ -469,7 +471,7 @@ align-content: center;
   cursor: pointer;  
   margin-top: 10px;
 }
-//FRIENDS
+//---------------------------------- FRIENDS ----------------------------------//
 
 .friendscontainer div {
   height: 100% !important;
@@ -527,26 +529,69 @@ align-content: center;
   
 }
 
+//---------------------------------- Chat css ----------------------------------//
 
-// Chat css
-.chatpagecontainer {
-  overflow: scroll;
-  height: 50vh;
+.chat {
+  @include flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100vh;
+  background: $snow_white;
+  
 }
 
-
-.chatContainer div{
-  position: fixed;
-  @include flex(flex-end, flex-end);
-  flex-direction: column;
-  background: blue;
-  height: 70vh;
+.chatContainer{
+  height: 100%;
   width: 100%;
-  overflow-y: scroll;
-  float: right !important;
-  h1 {
-    margin-right: 10px;
-  }
+  overflow: scroll;
+  padding-bottom: 100px;
+  @include flex;
+  flex-direction: column;
+  // justify-content: flex-end;
+  // position: absolute;
+}
+
+.userMessagesContainer {
+  width: 100%;
+  background: $snow_white;
+  // justify-content: flex-end;
+  // position: relative;
+  // bottom: 0px;
+  
+  
+}
+.otherMessagesContainer {
+  width: 100%;
+  background: $snow_white;
+  color: $snow_white;
+}
+
+  //text
+.userMessages {
+  font-size: 1.5em;
+  color: $dark-blue;
+  float: right;
+  width: 200px;
+  text-align: center;
+  border: solid 2px $dark-blue;
+  border-radius: 8px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+  //text
+.otherMessages {
+  font-size: 1.5em;
+  color: $light-blue;
+  float: left;
+  width: 200px;
+  text-align: center;
+  border: solid 2px $light-blue;
+  border-radius: 8px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .inputBtn {
@@ -555,11 +600,15 @@ align-content: center;
   width: 100%;
   @include flex;
   background: #70aeff;
+  margin-top: 10px;
+  position: fixed;
+  bottom: 75px;
 }
 
 .chatInput {
-  // width: 80%;
-  // height: 20px;
+  width: 100%;
+  // position: fixed;
+  height: 20px;
   border: solid #70aeff;
   outline: none;
 }
@@ -572,6 +621,18 @@ align-content: center;
   outline: none;
 }
 
+
+
+
+
+.chatTitle {
+  top: 0;
+  width: 20px;
+  height: 20px;
+}
+
+
+//---------------------------------- notifications css ----------------------------------//
 .notificationscontainer {
   display: flex;
   height: 100%;
@@ -625,13 +686,7 @@ align-content: center;
   padding-left: 20px;
 }
 
-.accept_deny_buttons {
-  // @include flex;
-}
 
-.friend_accept_button {
-  
-}
 
 .snotificationsrequest button {
   margin: auto;
@@ -647,7 +702,7 @@ align-content: center;
   overflow: scroll;
 }
 
-//------------------------ chats nav -----------------------------//
+//---------------------------------- chats nav ----------------------------------//
 
 .chatNav {
   height: calc(100% - 160px);

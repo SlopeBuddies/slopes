@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from './../assets/logo.png';
+// import logo from './../assets/logo.png';
 import logo2 from './../assets/logo2.png';
 
 export class Header extends Component {
@@ -8,7 +8,7 @@ export class Header extends Component {
     return (
       <div className='header'>
         <div className="headerimg">
-          <img src={logo2} />
+          <img src={logo2} alt='logo' />
         </div>
         <span className='slope_title'>SlopeBuddies</span>
         <div>
