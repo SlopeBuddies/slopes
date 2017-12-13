@@ -1,4 +1,5 @@
 import axios from "axios";
+import _ from 'underscore'
 
 const initialState = {
   user: {},
@@ -11,7 +12,8 @@ const initialState = {
   resort: '',
   requests: [],
   chatNavOpen: true,
-  channels: []
+  channels: [],
+  friendIds: []
 };
 
 const GET_USER_INFO = "GET_USER_INFO";
@@ -25,6 +27,9 @@ const GET_ROOM_MESSAGES = 'GET_ROOM_MESSAGES'
 const FIND_USERS = "FIND_USERS"
 const GET_ALL_FRIENDS = "GET_ALL_FRIENDS";
 const GET_REQUEST = 'GET_REQUEST';
+const GET_FRIEND_IDS = 'GET_FRIEND_IDS';
+
+const RESET_CHAT = 'RESET_CHAT'
 
 const ACCEPT_FRIEND = 'ACCEPT_FRIEND';
 
@@ -104,16 +109,24 @@ export function updateProfile(id, user) {
   };
 }
 
+
+
 export function getAllFriends(id) {
   const allhomies = axios.get(`/friends/all/${id}`).then(response => {
     console.log('Friends',response.data)
-    return response.data;
+    var ids = [];
+    response.data.forEach(e=> {
+        ids.push(e.user_id)})
+    return {friends: response.data, arr: ids};
   });
+  
   return {
     type: GET_ALL_FRIENDS,
     payload: allhomies
   };
 }
+
+
 
 export function getRequest(user_id) {
   const getRequestNotification = axios.get(`/notifications/${user_id}`).then(response=> {
@@ -139,6 +152,14 @@ export function getAllChannels(firstName) {
   return {
     type: GET_ALL_CHANNELS,
     payload: allChannels
+  }
+}
+
+export function resetChat() {
+  const newChat = []
+  return {
+    type: RESET_CHAT,
+    payload: newChat
   }
 }
 
@@ -183,7 +204,7 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, { profile: action.payload });
 
     case GET_ALL_FRIENDS + "_FULFILLED":
-      return Object.assign({}, state, { allhomies: action.payload });
+      return Object.assign({}, state, { allhomies: action.payload.friends, friendIds: action.payload.arr });
 
     case GET_USER_LOCATION + "_FULFILLED":
       return Object.assign({}, state, { position: action.payload });
@@ -195,7 +216,10 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, { currentChat: [...state.currentChat, action.payload]})
 
     case GET_ROOM_MESSAGES:
-      return Object.assign({}, state, {currentChat: [...state.currentChat, ...action.payload]})
+      return Object.assign({}, state, {currentChat: action.payload})
+
+    case RESET_CHAT: 
+      return Object.assign({}, state, {currentChat: action.payload})
 
     case GET_REQUEST + "_FULFILLED":
       return Object.assign({}, state, {requests: action.payload});
