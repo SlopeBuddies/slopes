@@ -522,6 +522,9 @@ table {
   padding-top: 10px;
   padding-left: 20px; }
 
+.friend_accept_button {
+  width: 20px !important; }
+
 .snotificationsrequest button {
   margin: auto;
   justify-content: space-around;

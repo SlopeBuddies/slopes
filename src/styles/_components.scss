@@ -586,10 +586,11 @@ align-content: center;
 
 .accept_deny_buttons {
   // @include flex;
+  // background: green;
 }
 
 .friend_accept_button {
-  
+  width: 20px !important;
 }
 
 .snotificationsrequest button {
