@@ -117,6 +117,9 @@ class Profile extends Component {
       <div>
         <Header />
         <div className="profile_container">
+        <div style={{height:'75px'}}>
+
+        </div>
           <div>
             <img
               alt='profile-picture'
@@ -154,7 +157,7 @@ class Profile extends Component {
               this.state.editable ? "profile_display" : "profile_disabled"
             }>
 
-            <div>
+            <div className='profile-h3'>
               <div className="profileName">
                 <h3>{  this.props.profile.first_name} &nbsp;   </h3>
                 <h3>   {this.props.profile.last_name}</h3>
