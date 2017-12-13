@@ -12,7 +12,8 @@ const initialState = {
   requests: [],
   chatNavOpen: true,
   channels: [],
-  friendIds: []
+  friendIds: [],
+  currentRoomName: ''
 };
 
 const GET_USER_INFO = "GET_USER_INFO";
@@ -34,6 +35,8 @@ const ACCEPT_FRIEND = 'ACCEPT_FRIEND';
 
 const TOGGLE_CHANNELS_NAV = 'TOGGLE_CHANNELS_NAV';
 const GET_ALL_CHANNELS = 'GET_ALL_CHANNELS';
+
+const SET_ROOM_NAME = 'SET_ROOM_NAME'
 
 export function getUserInfo() {
   return {
@@ -162,6 +165,13 @@ export function resetChat() {
   }
 }
 
+export function setRoomName(name) {
+  return {
+    type: SET_ROOM_NAME,
+    payload: name
+  }
+}
+
 //------------------------- Socket io -------------------------------//
 
 export function createNewChat(chatData) {
@@ -216,6 +226,9 @@ export default (state = initialState, action) => {
 
     case GET_ROOM_MESSAGES:
       return Object.assign({}, state, {currentChat: action.payload})
+
+    case SET_ROOM_NAME:
+      return Object.assign({}, state, {currentRoomName: action.payload})
 
     case RESET_CHAT: 
       return Object.assign({}, state, {currentChat: action.payload})

@@ -55,7 +55,9 @@ table {
   width: 100vw;
   height: 70px;
   z-index: 10;
-  text-decoration: none; }
+  text-decoration: none;
+  position: absolute;
+  top: 0; }
 
 .header a {
   font-size: 1em;
@@ -147,6 +149,7 @@ table {
   height: 180px;
   background: #fffafa;
   border-bottom: 3px solid #3c4163;
+  margin-top: 75px;
   display: grid;
   grid-template-columns: repeat(8, 12.5%);
   grid-template-rows: repeat(8, 12.5%); }
@@ -248,8 +251,12 @@ table {
   color: #70aeff;
   border: 1px solid black;
   width: 50%;
-  height: 100%;
+  height: 80px;
   cursor: pointer; }
+
+.homebtnImg {
+  height: 60px;
+  width: 55px; }
 
 .settingsbtn {
   outline: none;
@@ -258,8 +265,13 @@ table {
   color: #70aeff;
   border: 1px solid black;
   width: 50%;
-  height: 100%;
+  height: 80px;
   cursor: pointer; }
+
+.chatbtnImg {
+  padding-top: 10px;
+  height: 50px;
+  width: 55px; }
 
 .login_background {
   background-image: url("../assets/background.jpg");
@@ -465,18 +477,20 @@ table {
   flex-direction: column-reverse;
   justify-content: flex-end;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: #fffafa; }
 
 .chatContainer {
   height: 100%;
   width: 100%;
   overflow: scroll;
-  padding-bottom: 100px;
+  margin-top: 80px;
+  margin-bottom: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+  position: relative; }
 
 .userMessagesContainer {
   width: 100%;
@@ -537,9 +551,12 @@ table {
   outline: none; }
 
 .chatTitle {
-  top: 0;
-  width: 20px;
-  height: 20px; }
+  text-align: center;
+  color: #3c4163;
+  width: 40%;
+  height: 30px;
+  position: relative;
+  font-size: 1.8em; }
 
 .notificationscontainer {
   display: flex;

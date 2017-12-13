@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { joinChat, sendChatMessage } from "./../ducks/reducer";
+import { joinChat, sendChatMessage, resetChat } from "./../ducks/reducer";
 import {connect} from 'react-redux';
 
 
@@ -23,6 +23,12 @@ class Chatroom extends Component {
             roomid: this.props.chatID
         })
     };
+
+    // componentDidUpdate(prevProps, prevState) {
+    //     if ( prevState.roomid !== prevProps.chatid) {
+    //         this.props.resetChat()
+    //     }
+    // }
 
     handleInput = (e) => {
         this.setState({
@@ -48,6 +54,9 @@ class Chatroom extends Component {
 
   render() {
 
+    // const roomName = this.props.match.params.chatid ===  <div>{e.room_name}</div>
+            
+
     const message = this.props.currentChat.map((e,i) =>{
         return (
                     <div key={i} className={e.user_id === this.props.user.user_id ? 'userMessagesContainer' : 'otherMessagesContainer'}>
@@ -60,7 +69,7 @@ class Chatroom extends Component {
 
     return (
         <div className='chatContainer'>
-                    {/* <h2 className='chatTitle'></h2> */}
+                    <h2 className='chatTitle'>{this.props.currentRoomName}</h2>
                         {message}
                     <div className='inputBtn'>
                     <input className='chatInput' type="text"
@@ -78,4 +87,4 @@ function mapStateToProps(state) {
     return state
 }
 
-export default connect(mapStateToProps, { joinChat, sendChatMessage })(Chatroom);
+export default connect(mapStateToProps, { joinChat, sendChatMessage, resetChat })(Chatroom);
