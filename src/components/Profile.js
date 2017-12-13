@@ -87,6 +87,13 @@ class Profile extends Component {
     })
   }
 
+  toggleVisibility(){
+    axios.put('/update/visibility', {updateTo: !this.props.profile.location_visible}).then((res)=>{
+      console.log('toggled');
+      this.props.getProfile(this.props.match.params.id)
+    })
+  }
+
   // this.props.user.user_id = this.props.match.params.id ? '' : 'profile_disabled'
   render() {
     // console.log(this.props.userLogged);
@@ -104,7 +111,7 @@ class Profile extends Component {
     //     friends: this.state.friends.push(e.user_id)
     //   })
     // })
-
+    
     
     return (
       <div>
@@ -155,11 +162,18 @@ class Profile extends Component {
               <h3>{this.props.profile.nickname} </h3>
               <h3> {this.props.profile.home_mountain}</h3>
             </div>
+            <div className={
+              this.props.user.user_id === +this.props.match.params.id
+                ? ""
+                : "profile_disabled"
+            }>
+              <button onClick={()=>{this.toggleVisibility()}} className='profile_edit' style={this.props.profile.location_visible ? {background: 'green'} : {background: 'red'}} >Toggle Visibility</button>
+            </div>
             <div><button onClick={()=>{ this.unfriend() }} style={this.props.friendIds.includes(+this.props.match.params.id) ? null : {display:'none'} } className='profile_edit' >Unfriend</button></div>
           </div>
           <div
             className={
-              this.props.user.user_id === this.props.match.params.id
+              this.props.user.user_id === +this.props.match.params.id
                 ? ""
                 : "profile_disabled"
             }

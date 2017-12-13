@@ -185,7 +185,9 @@ app.put('/user/location', ctrl.updateUserLocation);
 
 app.put('/get/user/location', fence.check_fences);
 
-app.get('/friends/location/:mtn', fence.friendLocation)
+app.get('/friends/location/:mtn', fence.friendLocation);
+
+app.put('/update/visibility', ctrl.toggleVisibility);
 
 //--------------------------------Chat Endpoints-----------------------------------//
 app.put('/take/chat/request', ctrl.takeChatRequest);
