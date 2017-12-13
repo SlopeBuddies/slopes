@@ -54,6 +54,7 @@ table {
   color: white;
   width: 100vw;
   height: 70px;
+  z-index: 10;
   text-decoration: none;
   position: absolute;
   top: 0; }
@@ -602,6 +603,9 @@ table {
   padding-top: 10px;
   padding-left: 20px; }
 
+.friend_accept_button {
+  width: 20px !important; }
+
 .snotificationsrequest button {
   margin: auto;
   justify-content: space-around;
@@ -637,3 +641,11 @@ table {
 
 .chatNav button:hover {
   color: #fffafa; }
+
+.mapContainer {
+  height: 300px !important;
+  width: 70%; }
+
+.map {
+  height: 300px !important;
+  width: 70%; }

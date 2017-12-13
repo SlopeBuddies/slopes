@@ -13,6 +13,7 @@
   color: white;
   width: 100vw;
   height: 70px;
+  z-index: 10;
   text-decoration: none;
   position: absolute;
   top: 0;
@@ -705,7 +706,14 @@ align-content: center;
   padding-left: 20px;
 }
 
+.accept_deny_buttons {
+  // @include flex;
+  // background: green;
+}
 
+.friend_accept_button {
+  width: 20px !important;
+}
 
 .snotificationsrequest button {
   margin: auto;
@@ -749,4 +757,14 @@ align-content: center;
 
 .chatNav button:hover {
   color: #fffafa;
+}
+
+.mapContainer {
+  height: 300px !important;
+  width: 70%;
+}
+
+.map {
+  height: 300px !important;
+  width: 70%;
 }

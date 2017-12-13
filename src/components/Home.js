@@ -93,8 +93,7 @@ class Home extends Component {
                   this.friendsToggle();
                 }}
               >
-                {" "}
-                FRIENDS{" "}
+                FRIENDS
               </button>
 
               <button
@@ -120,9 +119,13 @@ class Home extends Component {
                   this.notificationsToggle();
                 }}
               >
-                {" "}
-                NOTIFICATIONS{" "}
+                
+                NOTIFICATIONS
               </button>
+
+              <Link to='/map'><button>
+                Map
+              </button> </Link>
     
             {this.state.searchToggle && this.state.notificationsToggle ? 
             

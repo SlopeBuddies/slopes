@@ -63,7 +63,8 @@ module.exports = {
     }
   },
   friendLocation: (req, res)=>{
-    req.app.get('db').friends_location([req.params.mtn, req.user.user_id]).then((response)=>{
+    req.app.get('db').friends_location([req.params.mtn, req.user.user_id])
+    .then((response)=>{
       res.status(200).send(response);
     })
   }
