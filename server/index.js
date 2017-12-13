@@ -147,9 +147,10 @@ const addListeners = (io, db) => {
             })
             break;
           case 'server/ chat send message' :
-            console.log(action.payload, 'user: ', socket.user)
-            const { message, roomid } = action.payload
-            db.save_chat_message([ message, socket.user, roomid ]).then( res => {
+            console.log(action.payload, 'user: ', socket.handshake.time)
+            const time = socket.handshake.time.slice(0, 21)
+            const { message, roomid, userName } = action.payload
+            db.save_chat_message([ message, socket.user, roomid, userName, time ]).then( res => {
               socket.on
               io.to(roomid).emit('action', {type: 'SEND_CHAT_MESSAGE', payload: res[0]})
             })
