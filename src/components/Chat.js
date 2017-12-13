@@ -73,8 +73,8 @@ class Chat extends Component {
     render(){
         console.log(this.props.currentChat)
         return(
-            <div>
-                <Header/>
+            <div class='chatpagecontainer'>
+                {/* <Header/> */}
                 <Channels/>
                 
                 <div className='chatContainer'>
@@ -83,14 +83,15 @@ class Chat extends Component {
                                     <h1>{e.chat_message}</h1>
                               </div>
                     })}
+                </div>
                     <div className='inputBtn'>
                     <input className='chatInput' type="text"
                            value={this.state.input}
                            onChange={this.handleInput}
                            onKeyDown={this.handleDown}/>
-                    <button className='chatBtn' onClick={this.dispatchMessage} >Send</button>
+                    <button className='chatBtn' 
+                    onClick={this.dispatchMessage} >Send</button>
                     </div>
-                </div>
                 <Nav/>
             </div> 
         )

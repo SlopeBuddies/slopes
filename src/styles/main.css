@@ -42,9 +42,7 @@ table {
   border-spacing: 0; }
 
 .App {
-  background: #fffafa;
-  background: fill;
-  height: fill; }
+  background: #fffafa; }
 
 .header {
   display: flex;
@@ -85,27 +83,23 @@ table {
     height: 34px;
     width: 50px !important; }
   .searchContainer .searchIcon {
-    width: 33px !important;
-    height: 33px !important; }
+    width: 25px !important;
+    height: 25px !important; }
   .searchContainer .usersList {
-    margin-bottom: 15px;
     margin-top: 15px;
     width: 100%;
     justify-content: space-around !important;
     align-content: center;
     align-items: center;
     font-size: 1.25em;
-    height: 65px !important; }
+    height: 40px !important; }
 
 .usersList button {
-  font-size: 2em !important;
+  margin: auto;
+  font-size: 1.5em !important;
   background: transparent !important;
   border-radius: 50% !important;
   cursor: pointer; }
-
-.searchIcon {
-  height: 35px !important;
-  width: 35px; }
 
 .searchContainer div {
   height: 25px;
@@ -117,15 +111,21 @@ table {
   justify-content: center;
   align-items: center; }
 
-.searchContainer input {
-  margin-bottom: 15px !important;
-  margin-left: 5px;
-  margin-right: 7px;
+.checkmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 20px; }
+
+.searchContainer div input {
+  margin-left: 22%;
   font-size: 1em;
   border: 0.5px solid black;
   border-radius: 5px;
-  height: 30px;
-  outline: none; }
+  height: 25px;
+  outline: none;
+  width: 50%; }
 
 .usersList div {
   display: flex;
@@ -135,8 +135,8 @@ table {
 
 .searchIMG {
   margin-left: 10px;
-  height: 55px;
-  width: 55px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%; }
 
 .home_profile_container {
@@ -416,6 +416,10 @@ table {
   height: 100% !important;
   color: #3c4163; }
 
+.friendsAvatar img {
+  height: 70px;
+  width: 70px !important; }
+
 .friendsAvatar {
   margin-bottom: 15px;
   width: 100%;
@@ -428,10 +432,13 @@ table {
   display: flex;
   justify-content: space-around; }
 
-.friendsAvatar img {
+.friendmailer img {
+  width: 45px !important; }
+
+.friendsPic {
   margin-right: 15px;
   height: 50px;
-  width: 50px;
+  width: 50px !important;
   border-radius: 50%; }
 
 .friendsAvatar button {
@@ -453,11 +460,17 @@ table {
   justify-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
-  background: #fffafa;
-  height: calc(100vh - 150px);
-  width: 100%; }
+  background: blue;
+  height: 70vh;
+  width: 100%;
+  overflow-y: scroll;
+  float: right !important; }
+  .chatContainer div h1 {
+    margin-right: 10px; }
 
 .inputBtn {
+  position: relative;
+  bottom: 45px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -465,8 +478,6 @@ table {
   background: #70aeff; }
 
 .chatInput {
-  width: 80%;
-  height: 20px;
   border: solid #70aeff;
   outline: none; }
 

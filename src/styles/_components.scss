@@ -1,7 +1,7 @@
 .App {
   background: #fffafa;
-  background: fill;
-  height: fill;
+  // background: fill;
+  // height: fill;
 }
 
 // Header css
@@ -50,11 +50,11 @@
     width: 50px !important;
   }
   .searchIcon {
-    width: 33px !important;
-    height: 33px !important;
+    width: 25px !important;
+    height: 25px !important;
   }
   .usersList {
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
     margin-top: 15px;
     width: 100%;
     // display: flex;
@@ -62,21 +62,24 @@
     align-content: center;
     align-items: center;
     font-size: 1.25em;
-    height: 65px !important;
+    height: 40px !important;
   }
 }
 
 .usersList button {
-  font-size: 2em !important;
+  margin: auto;
+  font-size: 1.5em !important;
   background: transparent !important;
   border-radius: 50% !important;
   cursor: pointer;  
   // border: .5px solid black !important;
 }
-.searchIcon {
-  height: 35px !important;
-  width: 35px;
-}
+// .searchIcon {
+//   margin-right: 50px;
+//   margin-left: 0;
+//   height: 35px !important;
+//   width: 35px;
+// }
 .searchContainer div {
   height: 25px;
   margin: auto;
@@ -86,6 +89,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.checkmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 20px;
 }
 // .searchContainer img {
 //   width: 6px !important;
@@ -98,15 +109,21 @@
 //   height: 35px;
 // }
 
-.searchContainer input {
-  margin-bottom: 15px !important;
-  margin-left: 5px;
-  margin-right: 7px;
+.searchContainer div input {
+  // display: flex;
+  // justify-content: center !important;
+  // align-items: center !important;
+  // margin-bottom: 15px !important;
+  // margin-left: 5px;
+  // margin-right: 7px;
+  // margin: auto;
+  margin-left: 22%;
   font-size: 1em;
   border: 0.5px solid black;
   border-radius: 5px;
-  height: 30px;
+  height: 25px;
   outline: none;
+  width: 50%;
 }
 .usersList div {
 display: flex;
@@ -130,8 +147,8 @@ align-content: center;
 //styles users img
 .searchIMG {
   margin-left: 10px;
-  height: 55px;
-  width: 55px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
 }
 
@@ -458,7 +475,10 @@ align-content: center;
   height: 100% !important;
   color: $dark_blue;
 }
-
+.friendsAvatar img {
+  height: 70px;
+  width: 70px !important;
+}
 .friendsAvatar {
   margin-bottom: 15px;
   width: 100%;
@@ -472,10 +492,17 @@ align-content: center;
   justify-content: space-around;
   // margin-left: 10px;
 }
-.friendsAvatar img {
+// .currentMTNhead section{
+//   margin: auto;
+// }
+
+.friendmailer img {
+  width: 45px !important;
+}
+.friendsPic {
   margin-right: 15px;
   height: 50px;
-  width: 50px;
+  width: 50px !important;
   border-radius: 50%;
 }
 
@@ -489,6 +516,7 @@ align-content: center;
   // margin-right: 15px;
 }
 
+
 .friendMessagebtn {
   font-weight: 500;
   font-size: 0.75em !important;
@@ -496,29 +524,42 @@ align-content: center;
   height: 35px !important;
   // background: #70aeff;
   // margin-left: 15px;
+  
 }
-
 
 
 // Chat css
+.chatpagecontainer {
+  overflow: scroll;
+  height: 50vh;
+}
 
-.chatContainer {
+
+.chatContainer div{
+  position: fixed;
   @include flex(flex-end, flex-end);
   flex-direction: column;
-  background: #fffafa;
-  height: calc(100vh - 150px);
+  background: blue;
+  height: 70vh;
   width: 100%;
+  overflow-y: scroll;
+  float: right !important;
+  h1 {
+    margin-right: 10px;
+  }
 }
 
 .inputBtn {
+  position: relative;
+  bottom: 45px;
   width: 100%;
   @include flex;
   background: #70aeff;
 }
 
 .chatInput {
-  width: 80%;
-  height: 20px;
+  // width: 80%;
+  // height: 20px;
   border: solid #70aeff;
   outline: none;
 }
