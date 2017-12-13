@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getUserLocation, getUserInfo, checkResort, getRequest, toggleChannelsNav, getAllChannels } from "./../ducks/reducer";
+import { getUserLocation, getUserInfo, checkResort, getRequest, toggleChannelsNav, getAllChannels, resetChat } from "./../ducks/reducer";
 import turf from 'turf';
 
 
@@ -47,4 +47,4 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps, {  checkResort, getUserLocation, getUserInfo, getRequest, toggleChannelsNav, getAllChannels })(Nav);
+export default connect(mapStateToProps, {  checkResort, getUserLocation, getUserInfo, getRequest, toggleChannelsNav, getAllChannels, resetChat })(Nav);

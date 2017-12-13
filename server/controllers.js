@@ -137,10 +137,11 @@ module.exports = {
   },
   unFriend: (req, res)=>{
     req.app.get('db').unfriend([req.params.id, req.user.user_id])
-    .then(res =>{
-      res.status(200).send(res);
+    .then(response =>{
+        res.status(200).send(response);
     })
     .catch(err =>{
+      console.log(err)
       res.status(400).send(err);
     })
   },

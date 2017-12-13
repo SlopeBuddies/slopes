@@ -29,7 +29,7 @@ class Channels extends Component {
 
       const allChannels = this.props.channels.map((e,i)=>{
         return (
-        <Link key={i} to={`/chat/${e.join_room_id}`}>
+        <Link key={i} to={`/chat/${e.room_id}`}>
             <button onClick={()=> this.props.toggleChannelsNav(this.props.chatNavOpen)} key={i}>{e.room_name} </button>
         </Link>
     )
