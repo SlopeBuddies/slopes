@@ -62,6 +62,7 @@ class Chat extends Component {
                 <h2 className='chatTitle'>{this.props.currentRoomName}</h2>
                     <Chatroom chatID={this.props.match.params.chatid}/>
                 </div>
+                <Channels />
                 <Nav/>
             </div> 
         )

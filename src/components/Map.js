@@ -5,6 +5,7 @@ import {getUserInfo} from './../ducks/reducer';
 import Header from './Header';
 import Nav from './Nav';
 import GoogleMapReact from 'google-map-react'
+import Channels from "./Channels"
 
 const UserLocation = ({ text }) => <div>{text}</div>;
 
@@ -19,16 +20,32 @@ constructor() {
         center:{lat: 40.366163199999995, lng: -111.7397428},
         zoom: 13,
         userMarkers: []
+
     }
 }
 
     componentDidMount() {
         this.props.getUserInfo();
-        this.getLocations()
+        this.getLocations();
+        this.setInterval();
+    }
 
+setInterval() {
+        let boundFunction = this.getLocations.bind(this)
+        this.interval = setInterval(boundFunction, 4000);
+        console.log('updated map')
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log('nxtprop', nextProps, 'tis', this.props)
+    }
+
+    componentWillUnmount() {
+       clearInterval(this.interval)
     }
 
     getLocations() {
+        console.log('user', this.props.user)
         axios.get(`/friends/location/${this.props.user.current_mtn}`)
         .then( (response) => {
             this.setState({
@@ -53,13 +70,15 @@ constructor() {
 console.log(this.state)
     return (
       <div>
-          <Header/>
+          {/* <Header/> */}
 
-          
+        <div className='mapstuff' >
           <GoogleMapReact
+          bootstrapURLKeys={{
+            key: "AIzaSyDmaSW_P8wv7cqs0dKmbGBsGGzSiEZRrN4"
+          }}
         defaultCenter={this.state.center}
         defaultZoom={this.state.zoom}
-        style={{height: '100px', width: '100%'}}
       >
             {this.state.userMarkers.map((e, i) =>{
                return(
@@ -73,6 +92,8 @@ console.log(this.state)
             }
                
       </GoogleMapReact>
+      </div>
+      <Channels />
       <Nav/>
       </div>
     )

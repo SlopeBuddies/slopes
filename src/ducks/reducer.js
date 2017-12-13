@@ -22,6 +22,7 @@ const CHECK_USER = "CHECK_USER";
 const UPDATE_PROFILE = "UPDATE_PROFILE";
 const GET_USER_LOCATION = "GET_USER_LOCATION";
 
+
 const CHECK_RESORT = "CHECK_RESORT"
 const GET_ROOM_MESSAGES = 'GET_ROOM_MESSAGES'
 
@@ -47,14 +48,16 @@ export function getUserInfo() {
   };
 }
 
+
+
 // export function acceptFriend(from, user_id, r_id) {
-//   console.log('reducerfromid', from, user_id, r_id)
-//   const acceptfriend = axios.post(`/accept/friend/`, {id : from, fid: user_id, r_id: r_id})
-//   return {
-//     type: ACCEPT_FRIEND,
-//     payload: acceptfriend
-//   }
-// }
+  //   console.log('reducerfromid', from, user_id, r_id)
+  //   const acceptfriend = axios.post(`/accept/friend/`, {id : from, fid: user_id, r_id: r_id})
+  //   return {
+  //     type: ACCEPT_FRIEND,
+  //     payload: acceptfriend
+  //   }
+  // }
 
 export function getUserLocation(position) {
 
