@@ -8,8 +8,8 @@ import Search from "./Search";
 import Friends from "./Friends";
 import Notifications from "./Notifications";
 import Channels from "./Channels"
-import io from "socket.io-client";
-import turf from "turf";
+
+
 
 class Home extends Component {
   constructor() {
@@ -69,6 +69,7 @@ class Home extends Component {
             <img
               className="home_profile_image"
               src={this.props.user.profile_picture}
+              alt='home'
             />
             <span className="home_profile_name">
               {this.props.user.nickname}
@@ -92,8 +93,7 @@ class Home extends Component {
                   this.friendsToggle();
                 }}
               >
-                {" "}
-                FRIENDS{" "}
+                FRIENDS
               </button>
 
               <button
@@ -119,9 +119,13 @@ class Home extends Component {
                   this.notificationsToggle();
                 }}
               >
-                {" "}
-                NOTIFICATIONS{" "}
+                
+                NOTIFICATIONS
               </button>
+
+              <Link to='/map'><button>
+                Map
+              </button> </Link>
     
             {this.state.searchToggle && this.state.notificationsToggle ? 
             

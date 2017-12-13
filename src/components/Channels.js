@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { toggleChannelsNav } from "./../ducks/reducer";
-import logo2 from './../assets/logo2.png';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 
@@ -9,10 +8,6 @@ import { Link } from 'react-router-dom';
 
 
 class Channels extends Component {
-    constructor() {
-        super();
-
-    }
 
 
 

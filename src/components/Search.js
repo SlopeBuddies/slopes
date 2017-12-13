@@ -57,7 +57,8 @@ export class Search extends Component {
     var homies = [];
     var pendingFriendReqs = [];
     if (this.props.allhomies) {
-      for (var i = 0; i < this.props.allhomies.length; i++) {
+      var homies = [];
+      for (let i = 0; i < this.props.allhomies.length; i++) {
         homies.push(this.props.allhomies[i].friend_id);
       }
       if (this.props.requests) {
@@ -65,7 +66,7 @@ export class Search extends Component {
         for (var i = 0; i < this.props.requests.length; i++) {
           if (
             this.props.requests[i].request_type === "friend_request" &&
-            this.props.requests[i].request_from != this.props.user.user_id
+            this.props.requests[i].request_from !== this.props.user.user_id
           ) {
             pendingFriendReqs.push(this.props.requests[i].request_from);
           } else if(this.props.requests[i].request_type === "friend_request" &&
@@ -88,7 +89,7 @@ export class Search extends Component {
       return (
         <div key={e.user_id} className="usersList">
           <div>
-          <Link to={`/profile/${e.user_id}`} ><img className="searchIMG" src={e.profile_picture} /></Link>
+          <Link to={`/profile/${e.user_id}`} ><img alt='user' className="searchIMG" src={e.profile_picture} /></Link>
           </div>
           <div className='small_text'> {e.first_name}</div>
           {!friendRef.pendingFriendReqs.includes(e.user_id) ? !friendRef.homies.includes(e.user_id) ? 

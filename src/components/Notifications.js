@@ -26,7 +26,7 @@ export class Notifications extends Component {
 
   render() {
     var chats = this.props.requests.map((e, i) => {
-      if (e.request_type === "chat") {
+      if (e.request_type === "chat" && e.request_from !== this.props.user.user_id) {
         return (
           <div key={i} className='snotificationschat'>
             <div className='small_text'>

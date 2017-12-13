@@ -1,5 +1,4 @@
 import axios from "axios";
-import _ from 'underscore'
 
 const initialState = {
   user: {},
@@ -24,7 +23,7 @@ const GET_USER_LOCATION = "GET_USER_LOCATION";
 
 const CHECK_RESORT = "CHECK_RESORT"
 const GET_ROOM_MESSAGES = 'GET_ROOM_MESSAGES'
-const FIND_USERS = "FIND_USERS"
+
 const GET_ALL_FRIENDS = "GET_ALL_FRIENDS";
 const GET_REQUEST = 'GET_REQUEST';
 const GET_FRIEND_IDS = 'GET_FRIEND_IDS';
