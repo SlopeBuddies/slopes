@@ -18,17 +18,34 @@ constructor() {
         markers: [],
         center:{lat: 40.366163199999995, lng: -111.7397428},
         zoom: 13,
-        userMarkers: []
+        userMarkers: [],
+        intervalId: 0,
+        user: 0
     }
 }
 
     componentDidMount() {
         this.props.getUserInfo();
-        this.getLocations()
+        this.getLocations();
+        this.setInterval();
+    }
 
+setInterval() {
+        let boundFunction = this.getLocations.bind(this)
+        this.interval = setInterval(boundFunction, 4000);
+        console.log('updated map')
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log('nxtprop', nextProps, 'tis', this.props)
+    }
+
+    componentWillUnmount() {
+       clearInterval(this.interval)
     }
 
     getLocations() {
+        console.log('user', this.props.user)
         axios.get(`/friends/location/${this.props.user.current_mtn}`)
         .then( (response) => {
             this.setState({
