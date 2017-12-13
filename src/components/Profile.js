@@ -111,7 +111,7 @@ class Profile extends Component {
         <div className="profile_container">
           <div>
             <img
-              alt='someone'
+              alt='profile-picture'
               src={this.props.profile.profile_picture}
               className="profile_image"
             />
@@ -124,12 +124,6 @@ class Profile extends Component {
             }
           >
 
-              <div className="profileName">
-                <input ref="first" type="text" className="profile_input" />
-                <input ref="last" type="text" className="profile_input" />
-              </div>
-              <input ref="nickname" type="text" className="profile_input" />
-              <input ref="homeMountain" type="text" className="profile_input" />
               <div className='profile-upload-div' >
               <Dropzone 
                 onDrop={this.handleDrop}  
@@ -137,9 +131,15 @@ class Profile extends Component {
                 // style={styles.dropzone}
                 className='profile-upload'
               >
-                <p>Drop your files or click here to upload</p>
+                <p>+</p>
               </Dropzone>
               </div>
+              <div className="profileName">
+                <input ref="first" type="text" className="profile_input" />
+                <input ref="last" type="text" className="profile_input" />
+              </div>
+              <input ref="nickname" type="text" className="profile_input" />
+              <input ref="homeMountain" type="text" className="profile_input" />
           </div>
           <div
             className={
