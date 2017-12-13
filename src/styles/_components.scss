@@ -53,11 +53,11 @@
     width: 50px !important;
   }
   .searchIcon {
-    width: 33px !important;
-    height: 33px !important;
+    width: 25px !important;
+    height: 25px !important;
   }
   .usersList {
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
     margin-top: 15px;
     width: 100%;
     // display: flex;
@@ -65,20 +65,24 @@
     align-content: center;
     align-items: center;
     font-size: 1.25em;
-    height: 65px !important;
+    height: 40px !important;
   }
 }
 
 .usersList button {
-  font-size: 2em !important;
+  margin: auto;
+  font-size: 1.5em !important;
   background: transparent !important;
   border-radius: 50% !important;
+  cursor: pointer;  
   // border: .5px solid black !important;
 }
-.searchIcon {
-  height: 35px !important;
-  width: 35px;
-}
+// .searchIcon {
+//   margin-right: 50px;
+//   margin-left: 0;
+//   height: 35px !important;
+//   width: 35px;
+// }
 .searchContainer div {
   height: 25px;
   margin: auto;
@@ -88,6 +92,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.checkmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 20px;
 }
 // .searchContainer img {
 //   width: 6px !important;
@@ -100,15 +112,21 @@
 //   height: 35px;
 // }
 
-.searchContainer input {
-  margin-bottom: 15px !important;
-  margin-left: 5px;
-  margin-right: 7px;
+.searchContainer div input {
+  // display: flex;
+  // justify-content: center !important;
+  // align-items: center !important;
+  // margin-bottom: 15px !important;
+  // margin-left: 5px;
+  // margin-right: 7px;
+  // margin: auto;
+  margin-left: 22%;
   font-size: 1em;
   border: 0.5px solid black;
   border-radius: 5px;
-  height: 30px;
+  height: 25px;
   outline: none;
+  width: 50%;
 }
 .usersList div {
 display: flex;
@@ -132,8 +150,8 @@ align-content: center;
 //styles users img
 .searchIMG {
   margin-left: 10px;
-  height: 55px;
-  width: 55px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
 }
 
@@ -173,6 +191,7 @@ align-content: center;
   grid-column: 4;
   grid-row: 5;
   margin-top: 10px;
+  color: $dark_blue;
 }
 .see_profile_button {
   outline: none;
@@ -188,6 +207,7 @@ align-content: center;
   right: 20px;
   top: 205px;
   transition: 0.5s ease-in-out;
+  cursor: pointer;  
 }
 
 .see_profile_button:hover {
@@ -221,11 +241,7 @@ align-content: center;
   width: 75% !important;
   font-size: 1.5em;
   transition: .7s ease-in-out;
-}
-
-.homecontainer_second_button {
-  margin-bottom: 3px;
-  background: red;
+  cursor: pointer;  
 }
 
 .homecontainer button:active {
@@ -241,6 +257,7 @@ align-content: center;
     height: 50px;
     width: 100% !important;
     font-size: 1.5em;
+    cursor: pointer;    
   }
 }
 //---------------------------------- Nav css ----------------------------------//
@@ -252,25 +269,27 @@ align-content: center;
   width: 100%;
   height: 80px;
   background: #3c4163;
-  .homebtn {
+}
+.homebtn {
+  outline: none;
+  background: #3c4163;
+  font-size: 1.25em;
+  color: #70aeff;
+  border: 1px solid black;
+  width: 50%;
+  height: 100%;
+  cursor: pointer;  
+}
 
-    outline: none;
-    background: #3c4163;
-    font-size: 1.25em;
-    color: #70aeff;
-    border: 1px solid black;
-    width: 50%;
-    height: 100%;
-  }
-  
-  .settingsbtn {
-    background: #3c4163;
-    font-size: 1.25em;
-    color: #70aeff;
-    border: 1px solid black;
-    width: 50%;
-    height: 100%;
-  }
+.settingsbtn {
+  outline: none;
+  background: #3c4163;
+  font-size: 1.25em;
+  color: #70aeff;
+  border: 1px solid black;
+  width: 50%;
+  height: 100%;
+  cursor: pointer;  
 }
 
 //---------------------------------- Login css ----------------------------------//
@@ -335,6 +354,7 @@ align-content: center;
   position: absolute;
   bottom: 20px;
   text-decoration: none;
+  cursor: pointer;  
 }
 
 .login_button_text {
@@ -350,9 +370,12 @@ align-content: center;
 
 .profile_container {
   @include flex(center, center);
-  height: calc(100vh - 150px);
+  // height: calc(100vh - 150px);
+  height: 70vh;
   flex-direction: column;
   background-color: #fffafa;
+  color: $dark_blue;
+  // margin-top: 5px;
 }
 
 .profile_container div {
@@ -360,11 +383,31 @@ align-content: center;
 }
 
 .profile_image {
-  padding-top: 15px;
+  // padding-top: 15px;
+  margin-top: 40px;
   height: 200px;
   width: 200px;
   border-radius: 50%;
 }
+
+.profile-upload-div {
+  padding: 10px;
+  @include flex; 
+  position: relative;
+  top: -20px;
+  left: 80px; 
+  cursor: pointer;  
+}
+
+.profile-upload {
+  padding: 10px;
+  width: 10px;
+  height: 10px;
+  background: rgb(141, 170, 212);
+  @include flex;    
+  opacity: .6;
+}
+
 
 .profile_text_container {
   height: calc(100vh - 150px);
@@ -392,8 +435,7 @@ align-content: center;
   border-radius: 5px;
   background: #bfbbbb17;
 }
-.profile_display div {
-}
+
 
 .profile_display {
   margin: auto;
@@ -407,9 +449,12 @@ align-content: center;
 
 .profile_edit {
   border: none;
-  width: 75px;
-  height: 30px;
-  background: rgb(141, 170, 212);
+  width: 10em;
+  height: 50px;
+  background: $light_blue;
+  color: $dark_blue;
+  font-size: 20px;
+  cursor: pointer;  
 }
 
 .profile_disabled {
@@ -418,9 +463,13 @@ align-content: center;
 
 .profile_save {
   border: none;
-  width: 75px;
-  height: 30px;
-  background: rgb(141, 170, 212);
+  width: 10em;
+  height: 50px;
+  background: $light_blue;
+  color: $dark_blue;
+  font-size: 20px;
+  cursor: pointer;  
+  margin-top: 10px;
 }
 //---------------------------------- FRIENDS ----------------------------------//
 
@@ -428,7 +477,10 @@ align-content: center;
   height: 100% !important;
   color: $dark_blue;
 }
-
+.friendsAvatar img {
+  height: 70px;
+  width: 70px !important;
+}
 .friendsAvatar {
   margin-bottom: 15px;
   width: 100%;
@@ -442,21 +494,30 @@ align-content: center;
   justify-content: space-around;
   // margin-left: 10px;
 }
-.friendsAvatar img {
+// .currentMTNhead section{
+//   margin: auto;
+// }
+
+.friendmailer img {
+  width: 45px !important;
+}
+.friendsPic {
   margin-right: 15px;
   height: 50px;
-  width: 50px;
+  width: 50px !important;
   border-radius: 50%;
 }
 
 .friendsAvatar button {
   margin: auto;
+  cursor: pointer;
 }
 .friendsName {
   font-size: 1.25em;
   color: $dark_blue;
   // margin-right: 15px;
 }
+
 
 .friendMessagebtn {
   font-weight: 500;
@@ -465,15 +526,7 @@ align-content: center;
   height: 35px !important;
   // background: #70aeff;
   // margin-left: 15px;
-}
-.profile-upload {
-  padding: 10px;
-  width: 200px;
-  height: 100px;
-  background: rgb(141, 170, 212);
-}
-.profile-upload-div {
-  padding: 10px;
+  
 }
 
 //---------------------------------- Chat css ----------------------------------//
@@ -542,6 +595,8 @@ align-content: center;
 }
 
 .inputBtn {
+  position: relative;
+  bottom: 45px;
   width: 100%;
   @include flex;
   background: #70aeff;
@@ -619,6 +674,7 @@ align-content: center;
   width: 50px;
   font-size: 0.75em;
   height: 30px;
+  cursor: pointer;  
 }
 
 .snotificationsrequest {
@@ -630,12 +686,15 @@ align-content: center;
   padding-left: 20px;
 }
 
+
+
 .snotificationsrequest button {
   margin: auto;
   justify-content: space-around;
-  width: 60px;
+  width: 20px;
   font-size: 0.75em;
   height: 30px;
+  cursor: pointer;  
 }
 
 .friendscontainer {
@@ -666,6 +725,7 @@ align-content: center;
   display: block;
   margin-top: 5px;
   transition: 0.3s;
+  cursor: pointer;  
 }
 
 .chatNav button:hover {

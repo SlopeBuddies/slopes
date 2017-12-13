@@ -3,6 +3,7 @@ import axios from "axios";
 import { getUserInfo, getAllFriends, createNewChat } from "./../ducks/reducer";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import mail from './../assets/mail.png'
 
 export class Friends extends Component {
   constructor() {
@@ -45,23 +46,22 @@ export class Friends extends Component {
           return (
             <div key={i} className="friendsAvatar">
                 <div>
-                <Link to={`/profile/${e.user_id}`} ><img src={e.profile_picture} alt='profile' /></Link>
+                <Link to={`/profile/${e.user_id}`} ><img alt='user' className='friendsPic' src={e.profile_picture} /></Link>
                 </div>
                 <div className="friendsName">
                   {e.first_name} {e.last_name}
                 </div>
                 <div>{e.current_mtn}</div>
-                <div>
-                  <Link to={`/chat/${this.state.roomid}`}>
-                    <button
-                      onClick={() =>
-                        this.handleClickCreateChat(e.first_name, e.user_id)
-                      }
-                      className="friendMessagebtn"
-                    >
-                      Send Message
-                    </button>
-                  </Link>
+                <div  className='friendmailer'>
+                <Link to={`/chat/${this.state.roomid}`}>
+                <img src={mail}
+                  onClick={() =>
+                    this.handleClickCreateChat(e.first_name, e.user_id)
+                  }
+                  className="friendMessagebtn"
+                >
+                </img>
+              </Link>
                 </div>
               </div>
           );
@@ -74,23 +74,22 @@ export class Friends extends Component {
           return (
             <div key={i} className="friendsAvatar">
                 <div>
-                <Link to={`/profile/${e.user_id}`} ><img alt='user' src={e.profile_picture} /></Link>
+                <Link to={`/profile/${e.user_id}`} ><img alt='user' className='friendsPic' src={e.profile_picture} /></Link>
                 </div>
                 <div className="friendsName">
                   {e.first_name} {e.last_name}
                 </div>
                 <div>{e.current_mtn}</div>
-                <div>
-                  <Link to={`/chat/${this.state.roomid}`}>
-                    <button
-                      onClick={() =>
-                        this.handleClickCreateChat(e.first_name, e.user_id)
-                      }
-                      className="friendMessagebtn"
-                    >
-                      Send Message
-                    </button>
-                  </Link>
+                <div  className='friendmailer'>
+                <Link to={`/chat/${this.state.roomid}`}>
+                <img src={mail}
+                  onClick={() =>
+                    this.handleClickCreateChat(e.first_name, e.user_id)
+                  }
+                  className="friendMessagebtn"
+                >
+                </img>
+              </Link>
                 </div>
               </div>
           );
@@ -104,22 +103,21 @@ export class Friends extends Component {
             <div key={i}>
               <div className="friendsAvatar">
                 <div>
-                <Link to={`/profile/${e.user_id}`} ><img alt='user' src={e.profile_picture} /></Link>
+                <Link to={`/profile/${e.user_id}`} ><img alt='user' className='friendsPic' src={e.profile_picture} /></Link>
                 </div>
                 <div className="friendsName">
                   {e.first_name} {e.last_name}
                 </div>
                 <div>{e.current_mtn}</div>
-                <div>
+                <div className='friendmailer'>
                   <Link to={`/chat/${this.state.roomid}`}>
-                    <button
+                    <img src={mail}
                       onClick={() =>
                         this.handleClickCreateChat(e.first_name, e.user_id)
                       }
                       className="friendMessagebtn"
                     >
-                      Send Message
-                    </button>
+                    </img>
                   </Link>
                 </div>
               </div>
