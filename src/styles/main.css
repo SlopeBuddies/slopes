@@ -457,15 +457,6 @@ table {
   width: 80px !important;
   height: 35px !important; }
 
-.profile-upload {
-  padding: 10px;
-  width: 200px;
-  height: 100px;
-  background: #8daad4; }
-
-.profile-upload-div {
-  padding: 10px; }
-
 .chat {
   display: flex;
   justify-content: center;
