@@ -336,11 +336,7 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-  height: calc(100vh - 80px);
-=======
   height: 100vh;
->>>>>>> master
   flex-direction: column;
   background-color: #fffafa;
   color: #3c4163;

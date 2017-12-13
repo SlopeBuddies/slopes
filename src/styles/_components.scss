@@ -385,13 +385,8 @@ align-content: center;
 
 .profile_container {
   @include flex(center, center);
-<<<<<<< HEAD
   height: calc(100vh - 80px);
   // height: 70vh;
-=======
-  // height: calc(100vh - 150px);
-  height: 100vh;
->>>>>>> master
   flex-direction: column;
   background-color: #fffafa;
   color: $dark_blue;
