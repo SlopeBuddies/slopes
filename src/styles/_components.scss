@@ -1,7 +1,8 @@
 .App {
   background: #fffafa;
   background: fill;
-  height: fill;
+  // height: fill;
+  height: 70vh;
 }
 
 //---------------------------------- Header css ----------------------------------//
@@ -13,6 +14,8 @@
   width: 100vw;
   height: 70px;
   text-decoration: none;
+  // position: fixed;
+  // top: 0;
 }
 
 .header a {
@@ -243,31 +246,31 @@ align-content: center;
 //---------------------------------- Nav css ----------------------------------//
 
 .nav {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   z-index: 2;
   width: 100%;
   height: 80px;
   background: #3c4163;
-}
-.homebtn {
-  outline: none;
-  background: #3c4163;
-  font-size: 1.25em;
-  color: #70aeff;
-  border: 1px solid black;
-  width: 50%;
-  height: 100%;
-}
+  .homebtn {
 
-.settingsbtn {
-  outline: none;
-  background: #3c4163;
-  font-size: 1.25em;
-  color: #70aeff;
-  border: 1px solid black;
-  width: 50%;
-  height: 100%;
+    outline: none;
+    background: #3c4163;
+    font-size: 1.25em;
+    color: #70aeff;
+    border: 1px solid black;
+    width: 50%;
+    height: 100%;
+  }
+  
+  .settingsbtn {
+    background: #3c4163;
+    font-size: 1.25em;
+    color: #70aeff;
+    border: 1px solid black;
+    width: 50%;
+    height: 100%;
+  }
 }
 
 //---------------------------------- Login css ----------------------------------//
@@ -475,14 +478,67 @@ align-content: center;
 
 //---------------------------------- Chat css ----------------------------------//
 
-.chatContainer {
-  @include flex(flex-end, flex-end);
-  flex-direction: column;
-  background: #fffafa;
-  height: calc(100vh - 170px);
+.chat {
+  @include flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
   width: 100%;
-  overflow-x: scroll;
-  flex-basis: 400px;
+  height: 100vh;
+  background: $snow_white;
+  
+}
+
+.chatContainer{
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  padding-bottom: 100px;
+  @include flex;
+  flex-direction: column;
+  // justify-content: flex-end;
+  // position: absolute;
+}
+
+.userMessagesContainer {
+  width: 100%;
+  background: $snow_white;
+  // justify-content: flex-end;
+  // position: relative;
+  // bottom: 0px;
+  
+  
+}
+.otherMessagesContainer {
+  width: 100%;
+  background: $snow_white;
+  color: $snow_white;
+}
+
+  //text
+.userMessages {
+  font-size: 1.5em;
+  color: $dark-blue;
+  float: right;
+  width: 200px;
+  text-align: center;
+  border: solid 2px $dark-blue;
+  border-radius: 8px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+  //text
+.otherMessages {
+  font-size: 1.5em;
+  color: $light-blue;
+  float: left;
+  width: 200px;
+  text-align: center;
+  border: solid 2px $light-blue;
+  border-radius: 8px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .inputBtn {
@@ -490,12 +546,13 @@ align-content: center;
   @include flex;
   background: #70aeff;
   margin-top: 10px;
-  position: absolute;
+  position: fixed;
   bottom: 75px;
 }
 
 .chatInput {
   width: 100%;
+  // position: fixed;
   height: 20px;
   border: solid #70aeff;
   outline: none;
@@ -509,40 +566,12 @@ align-content: center;
   outline: none;
 }
 
-.userMessagesContainer {
-  width: 100%;
-  background: $snow_white;
 
-}
-.otherMessagesContainer {
-  width: 100%;
-  background: $dark_blue;
-  color: $snow_white;
-}
 
-.userMessages {
-  font-size: 1.2em;
-  color: black;
-  float: right;
-  
-}
 
-.chatFill {
-  width: 100%;
-  background: $snow_white;
-  height: 40px;
-}
 
-.otherMessages {
-  font-size: 20px;
-  color: black;
-  float: left;
-  background: gray;
-
-  
-}
 .chatTitle {
-  top: 70px;
+  top: 0;
   width: 20px;
   height: 20px;
 }
