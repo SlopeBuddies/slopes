@@ -768,3 +768,8 @@ align-content: center;
   height: 300px !important;
   width: 70%;
 }
+.mapstuff{
+  overflow: hidden;
+  height: calc(100vh - 80px);
+  width: 100%;
+}
