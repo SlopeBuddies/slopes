@@ -56,7 +56,7 @@ class Chat extends Component {
         console.log(this.props.currentChat)
         return(
             <div class='chatpagecontainer'>
-                {/* <Header/> */}
+                <Header/>
                 <Channels/>
                 <div className='chat'>
                     <Chatroom chatID={this.props.match.params.chatid}/>
