@@ -11,6 +11,7 @@ import {
 } from "../ducks/reducer";
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
+import Channels from "./Channels";
 
 class Profile extends Component {
   constructor() {
@@ -192,7 +193,7 @@ class Profile extends Component {
             </button>
           </div>
         </div>
-
+        <Channels />
         <Nav />
       </div>
     );

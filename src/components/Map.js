@@ -5,6 +5,7 @@ import {getUserInfo} from './../ducks/reducer';
 import Header from './Header';
 import Nav from './Nav';
 import GoogleMapReact from 'google-map-react'
+import Channels from "./Channels"
 
 const UserLocation = ({ text }) => <div>{text}</div>;
 
@@ -19,8 +20,12 @@ constructor() {
         center:{lat: 40.366163199999995, lng: -111.7397428},
         zoom: 13,
         userMarkers: [],
+<<<<<<< HEAD
+
+=======
         intervalId: 0,
         user: 0
+>>>>>>> master
     }
 }
 
@@ -70,13 +75,12 @@ setInterval() {
 console.log(this.state)
     return (
       <div>
-          <Header/>
+          {/* <Header/> */}
 
-          
+        <div className='mapstuff' >
           <GoogleMapReact
         defaultCenter={this.state.center}
         defaultZoom={this.state.zoom}
-        style={{height: '100px', width: '100%'}}
       >
             {this.state.userMarkers.map((e, i) =>{
                return(
@@ -90,6 +94,8 @@ console.log(this.state)
             }
                
       </GoogleMapReact>
+      </div>
+      <Channels />
       <Nav/>
       </div>
     )
