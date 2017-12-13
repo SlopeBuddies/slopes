@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getUserLocation, getUserInfo, checkResort, getRequest, toggleChannelsNav, getAllChannels, resetChat } from "./../ducks/reducer";
+import homeIcon from './../assets/home.png'
+import chatIcon from './../assets/chat.png'
 
 
 export class Nav extends Component {
@@ -33,9 +35,9 @@ export class Nav extends Component {
       <div>
         <div className="nav">
           <Link to="/home">
-            <button onClick={this.props.toggle} className="homebtn">HOME</button>
+            <button onClick={this.props.toggle} className="homebtn"><img className='homebtnImg' src={homeIcon} alt=""/></button>
           </Link>
-          <button className="settingsbtn" onClick={() => this.handleClick(this.props.chatNavOpen)}>CHAT</button>
+          <button className="settingsbtn" onClick={() => this.handleClick(this.props.chatNavOpen)}><img className='chatbtnImg' src={chatIcon} alt="" /></button>
         </div>
       </div>
     );
