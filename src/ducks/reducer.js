@@ -38,6 +38,8 @@ const GET_ALL_CHANNELS = 'GET_ALL_CHANNELS';
 
 const SET_ROOM_NAME = 'SET_ROOM_NAME'
 
+const SCROLL_TO_BOTTOM = 'SCROLL_TO_BOTTOM'
+
 export function getUserInfo() {
   return {
     type: GET_USER_INFO,
@@ -172,6 +174,17 @@ export function setRoomName(name) {
   }
 }
 
+export function scrollToBottom() {
+  const pageScroll = function() {
+    window.scrollBy(0,600); // horizontal and vertical scroll increments
+    let scrolldelay = setTimeout('pageScroll()',1000); // scrolls every 100 milliseconds
+  }
+  return {
+    type: SCROLL_TO_BOTTOM,
+    payload: pageScroll
+  }
+}
+
 //------------------------- Socket io -------------------------------//
 
 export function createNewChat(chatData) {
@@ -244,6 +257,8 @@ export default (state = initialState, action) => {
    
     case GET_ALL_CHANNELS + '_FULFILLED':
       return Object.assign({}, state, {channels: action.payload})
+
+    case SCROLL_TO_BOTTOM:
 
       default:
       return state;
