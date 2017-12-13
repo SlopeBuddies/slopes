@@ -55,7 +55,7 @@ class Chat extends Component {
 
         console.log(this.props.currentChat)
         return(
-            <div class='chatpagecontainer'>
+            <div>
                 <Header/>
                 <Channels/>
                 <div className='chat'>
