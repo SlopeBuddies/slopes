@@ -112,7 +112,13 @@ export class Search extends Component {
       <div>
           <input ref="search" type="text" onKeyDown={this.keyPress} />
 
-          <img className="searchIcon" alt="" src={searchIcon} />
+          <img 
+          onClick={() => {this.props.getRequest(this.props.user.user_id)
+          this.props.getAllFriends(this.props.user.user_id)
+          this.findUsers()}}
+          className="searchIcon" 
+          alt="" 
+          src={searchIcon} />
  
           </div>
           </div>

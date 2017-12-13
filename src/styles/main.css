@@ -654,3 +654,29 @@ table {
   overflow: hidden;
   height: calc(100vh - 80px);
   width: 100%; }
+
+.mapAvatar {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px; }
+
+.userLocation {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  animation-delay: 15s;
+  -webkit-animation-name: gps;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 2s; }
+
+@-webkit-keyframes gps {
+  0% {
+    background-color: rgba(0, 0, 255, 0.342); }
+  50% {
+    background-color: lightblue;
+    height: 25px;
+    width: 25px; }
+  100% {
+    background-color: rgba(82, 82, 203, 0.678);
+    height: 30px;
+    width: 30px; } }

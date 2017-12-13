@@ -7,8 +7,8 @@ import Nav from './Nav';
 import GoogleMapReact from 'google-map-react'
 import Channels from "./Channels"
 
-const UserLocation = ({ text }) => <div>{text}</div>;
-
+const UserLocation = ({ text }) => <img className='mapAvatar' src={text} />
+const CurrentLocation = ({ text }) => <div className='userLocation'></div>
 
 class Map extends Component {
 constructor() {
@@ -32,7 +32,7 @@ constructor() {
 
 setInterval() {
         let boundFunction = this.getLocations.bind(this)
-        this.interval = setInterval(boundFunction, 4000);
+        this.interval = setInterval(boundFunction, 2000);
         console.log('updated map')
     }
 
@@ -49,8 +49,6 @@ setInterval() {
         axios.get(`/friends/location/${this.props.user.current_mtn}`)
         .then( (response) => {
             this.setState({
-                center: {lat: this.props.user.latitude, 
-                        lng:this.props.user.longitude},
                 userMarkers: response.data
                 })
             })
@@ -77,16 +75,23 @@ console.log(this.state)
           bootstrapURLKeys={{
             key: "AIzaSyDmaSW_P8wv7cqs0dKmbGBsGGzSiEZRrN4"
           }}
-        defaultCenter={this.state.center}
+        defaultCenter={{lat: this.props.user.latitude, 
+            lng:this.props.user.longitude}}
         defaultZoom={this.state.zoom}
       >
+            <CurrentLocation
+            lat={this.props.user.latitude}
+            lng={this.props.user.longitude}
+  
+            />
+
             {this.state.userMarkers.map((e, i) =>{
                return(
                 <UserLocation
                 key={i}
                 lat={e.latitude}
                 lng={e.longitude}
-                text={e.first_name}
+                text={e.profile_picture}
                 />
             )})
             }
