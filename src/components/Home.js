@@ -18,7 +18,8 @@ class Home extends Component {
     this.state = {
       friendsToggle: false,
       searchToggle: false,
-      notificationsToggle: false
+      notificationsToggle: false,
+      mapToggle: false
     };
     this.friendsToggle = this.friendsToggle.bind(this);
   }
@@ -31,7 +32,8 @@ class Home extends Component {
   friendsToggle() {
     this.setState({
       searchToggle: !this.state.searchToggle,
-      notificationsToggle: !this.state.notificationsToggle
+      notificationsToggle: !this.state.notificationsToggle,
+      mapToggle: !this.state.mapToggle
     });
     // this.socket.id = this.props.user.user_id
     // console.log(this.socket)
@@ -39,13 +41,15 @@ class Home extends Component {
   searchToggle() {
     this.setState({
       friendsToggle: !this.state.friendsToggle,
-      notificationsToggle: !this.state.notificationsToggle
+      notificationsToggle: !this.state.notificationsToggle,
+      mapToggle: !this.state.mapToggle
     });
   }
   notificationsToggle() {
     this.setState({
       friendsToggle: !this.state.friendsToggle,
-      searchToggle: !this.state.searchToggle
+      searchToggle: !this.state.searchToggle,
+      mapToggle: !this.state.mapToggle
     });
     this.props.getRequest(this.props.user.user_id)
   }
@@ -54,13 +58,21 @@ class Home extends Component {
       this.setState({
           friendsToggle: false,
           searchToggle: false,
-          notificationsToggle: false
+          notificationsToggle: false,
+          mapToggle: false
       })
+  }
+
+  mapToggle() {
+    this.setState({
+      friendsToggle: !this.state.friendsToggle,
+      notificationsToggle: !this.state.notificationsToggle,
+      searchToggle: !this.state.mapToggle
+    });
   }
 
   render() {
     console.log(this.props.user.current_mtn)
-    console.log(this.props.requests);
     return (
       <div>
         <Header />
@@ -88,7 +100,7 @@ class Home extends Component {
 
               <button
                 className="homecontainerButton"
-                style={this.state.friendsToggle ? { display: "none" } : this.state.searchToggle && this.state.notificationsToggle ? {marginBottom: '3px'} : null}
+                style={this.state.friendsToggle ? { display: "none" } : this.state.searchToggle && this.state.notificationsToggle && this.state.mapToggle ? {marginBottom: '3px'} : null}
                 onClick={() => {
                   this.friendsToggle();
                 }}
@@ -98,7 +110,7 @@ class Home extends Component {
 
               <button
                 className="homecontainerButton"
-                style={this.state.searchToggle ? { display: "none" } : this.state.friendsToggle && this.state.notificationsToggle ? {marginBottom: '3px'} : null}
+                style={this.state.searchToggle ? { display: "none" } : this.state.friendsToggle && this.state.notificationsToggle && this.state.mapToggle ? {marginBottom: '3px'} : null}
                 onClick={() => {
                   this.searchToggle();
                 }}
@@ -107,36 +119,37 @@ class Home extends Component {
                 SEARCH{" "}
               </button>
 
-   
+  
               <button
                 className="homecontainerButton"
                 style={
-                  this.state.notificationsToggle ? { display: "none" } : this.state.friendsToggle && this.state.searchToggle ? {marginBottom: '3px'} : null
+                  this.state.notificationsToggle ? { display: "none" } : this.state.friendsToggle && this.state.searchToggle && this.state.notificationsToggle ? {marginBottom: '3px'} : null
                 }
                 // style={this.state.friendsToggle && this.state.searchToggle ? {marginBottom: '3px'} : null}
                 
                 onClick={() => {
                   this.notificationsToggle();
                 }}
-              >
-                
-                NOTIFICATIONS
+              >NOTIFICATIONS
               </button>
-
-              <Link to='/map'><button>
-                Map
-              </button> </Link>
+              
+              <Link to='/map'>    
+              <button
+              className="homecontainerButton"
+              style={this.state.mapToggle ? { display: "none" } : this.state.friendsToggle && this.state.searchToggle ? {marginBottom: '3px'} : null}
+                onClick={()=> {this.mapToggle();}}>
+                MAP
+              </button>
+              </Link>
+            
     
             {this.state.searchToggle && this.state.notificationsToggle ? 
             
-             <Friends socket={this.socket} id={this.props.user.user_id} /> 
-             : null}
+              <Friends socket={this.socket} id={this.props.user.user_id} /> : null}
             {this.state.notificationsToggle && this.state.friendsToggle ? 
-             <Search />
-             : null}
+              <Search /> : null}
             {this.state.friendsToggle && this.state.searchToggle ? 
-              <Notifications /> 
-             : null}
+              <Notifications /> : null}
           </div>
               <Channels />
         </div>

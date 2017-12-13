@@ -46,7 +46,7 @@ class Chatroom extends Component {
 
 
 
-  render() {
+render() {
 
     const message = this.props.currentChat.map((e,i) =>{
         return (
@@ -64,14 +64,14 @@ class Chatroom extends Component {
                         {message}
                     <div className='inputBtn'>
                     <input className='chatInput' type="text"
-                           value={this.state.input}
-                           onChange={this.handleInput}
-                           onKeyDown={this.handleDown}/>
+                        value={this.state.input}
+                        onChange={this.handleInput}
+                        onKeyDown={this.handleDown}/>
                     <button className='chatBtn' onClick={this.dispatchMessage} >Send</button>
                     </div>
                 </div>
     )
-  }
+}
 }
 
 function mapStateToProps(state) {
