@@ -455,7 +455,12 @@ table {
   width: 80px !important;
   height: 35px !important; }
 
-.chatContainer {
+.chatpagecontainer {
+  overflow: scroll;
+  height: 50vh; }
+
+.chatContainer div {
+  position: fixed;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
