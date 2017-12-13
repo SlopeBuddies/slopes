@@ -54,6 +54,7 @@ table {
   color: white;
   width: 100vw;
   height: 70px;
+  z-index: 10;
   text-decoration: none; }
 
 .header a {
@@ -620,3 +621,11 @@ table {
 
 .chatNav button:hover {
   color: #fffafa; }
+
+.mapContainer {
+  height: 300px !important;
+  width: 70%; }
+
+.map {
+  height: 300px !important;
+  width: 70%; }

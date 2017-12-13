@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import {getUserInfo} from './../ducks/reducer';
 import Header from './Header';
 import Nav from './Nav';
-import {withScriptjs, withGoogleMap, google, GoogleMap, Marker} from 'react-google-maps';
-import { compose, withProps } from "recompose";
 import GoogleMapReact from 'google-map-react'
 
 const UserLocation = ({ text }) => <div>{text}</div>;
@@ -56,10 +54,12 @@ console.log(this.state)
     return (
       <div>
           <Header/>
+
+          
           <GoogleMapReact
         defaultCenter={this.state.center}
         defaultZoom={this.state.zoom}
-        style={{height: '100px'}}
+        style={{height: '100px', width: '100%'}}
       >
             {this.state.userMarkers.map((e, i) =>{
                return(
