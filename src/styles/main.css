@@ -54,6 +54,7 @@ table {
   color: white;
   width: 100vw;
   height: 70px;
+  z-index: 10;
   text-decoration: none; }
 
 .header a {
@@ -457,15 +458,6 @@ table {
   width: 80px !important;
   height: 35px !important; }
 
-.profile-upload {
-  padding: 10px;
-  width: 200px;
-  height: 100px;
-  background: #8daad4; }
-
-.profile-upload-div {
-  padding: 10px; }
-
 .chat {
   display: flex;
   justify-content: center;
@@ -629,3 +621,11 @@ table {
 
 .chatNav button:hover {
   color: #fffafa; }
+
+.mapContainer {
+  height: 300px !important;
+  width: 70%; }
+
+.map {
+  height: 300px !important;
+  width: 70%; }
