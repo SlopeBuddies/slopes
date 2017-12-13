@@ -19,13 +19,8 @@ constructor() {
         markers: [],
         center:{lat: 40.366163199999995, lng: -111.7397428},
         zoom: 13,
-        userMarkers: [],
-<<<<<<< HEAD
+        userMarkers: []
 
-=======
-        intervalId: 0,
-        user: 0
->>>>>>> master
     }
 }
 
