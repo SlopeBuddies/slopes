@@ -41,7 +41,6 @@ export class Notifications extends Component {
         );
       }
     });
-    console.log('requests', this.props.requests)
     var requests = this.props.requests.map((e, i) => {
       if (e.request_type === "friend_request" && e.request_from !== this.props.user.user_id) {
         return (

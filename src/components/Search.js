@@ -62,7 +62,6 @@ export class Search extends Component {
         homies.push(this.props.allhomies[i].friend_id);
       }
       if (this.props.requests) {
-        console.log(this.props.requests)
         for (var i = 0; i < this.props.requests.length; i++) {
           if (
             this.props.requests[i].request_type === "friend_request" &&
@@ -76,7 +75,6 @@ export class Search extends Component {
         }
       }
     }
-    console.log(pendingFriendReqs)
     return {
       homies: homies,
       pendingFriendReqs: pendingFriendReqs
@@ -84,7 +82,6 @@ export class Search extends Component {
   }
   render() {
     const friendRef = this.mapLists();
-    console.log(friendRef)
     var mapUsers = this.state.users.map((e, i) => {
       return (
         <div key={e.user_id} className="usersList">

@@ -159,11 +159,11 @@ align-content: center;
 
 //---------------------------------- Home css ----------------------------------//
 .home_profile_container {
-  width: 100%;
-  height: 180px;
+  width: 100%;;
+  height: 18vh;
   background: #fffafa;
-  border-bottom: 3px solid #3c4163;
-  margin-top: 75px;
+  border-bottom: 1.25px solid #3c4163;
+  margin-top: 70px;
   display: grid;
   grid-template-columns: repeat(8, 12.5%);
   grid-template-rows: repeat(8, 12.5%);
@@ -171,28 +171,28 @@ align-content: center;
 
 .home_profile_image {
   margin-left: 15px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  height: 150px;
-  width: 150px;
+  margin-top: 10px;
+  margin-bottom: 11px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
   grid-column: 1;
   grid-row: 1;
 }
 
 .home_profile_name {
-  font-size: 1.5em;
-  margin-left: 25px;
+  font-size: 1.25em;
+  margin-left:35px;
   color: #3c4163;
-  grid-column: 4;
-  grid-row: 4;
+  grid-column: 3;
+  grid-row: 3;
 }
 
 .home_profile_mountain {
-  font-size: 1.5em;
-  margin-left: 25px;
-  grid-column: 4;
-  grid-row: 5;
+  font-size: 1.25em;
+  margin-left: 45px;
+  grid-column: 3;
+  grid-row: 4;
   margin-top: 10px;
   color: $dark_blue;
 }
@@ -204,11 +204,12 @@ align-content: center;
   background: #3c4163;
   height: 30px;
   width: 60px;
-  font-size: 15px;
+  font-size: .5em;
   border-radius: 3px;
+  margin: auto;
   position: absolute;
   right: 20px;
-  top: 205px;
+  top: 155px;
   transition: 0.5s ease-in-out;
   cursor: pointer;  
 }
@@ -224,11 +225,15 @@ align-content: center;
   width: 100% !important;
 }
 .homecontainer {
-  // overflow: scroll !important;
+  overflow: scroll;
   background: #fffafa;
   // width: 100%;
   @include flex;
-  height: calc(100vh - 332px);
+  // height: calc(100vh - 332px);
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 61.5vh;
   flex-direction: column;
 }
 
@@ -239,14 +244,21 @@ align-content: center;
   color: #3c4163;
   border-radius: 5px;
   background: #70aeff;
-  margin-bottom: 30px;
-  height: 55px;
-  width: 75% !important;
+  margin-bottom: 25px;
+  height: 2em;
+  width: 75%;
   font-size: 1.5em;
   transition: .7s ease-in-out;
   cursor: pointer;  
-}
 
+}
+.homecontainer a {
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 .homecontainer button:active {
   transform: scale(1.5);
 
@@ -260,9 +272,10 @@ align-content: center;
     height: 50px;
     width: 100% !important;
     font-size: 1.5em;
-    cursor: pointer;    
+    cursor: pointer;  
+    }
   }
-}
+
 //---------------------------------- Nav css ----------------------------------//
 
 .nav {
@@ -772,7 +785,6 @@ align-content: center;
 }
 
 .friendscontainer {
-  // height: 100%;
   overflow: scroll;
 }
 

@@ -33,11 +33,6 @@ constructor() {
 setInterval() {
         let boundFunction = this.getLocations.bind(this)
         this.interval = setInterval(boundFunction, 2000);
-        console.log('updated map')
-    }
-
-    componentWillReceiveProps(nextProps) {
-        console.log('nxtprop', nextProps, 'tis', this.props)
     }
 
     componentWillUnmount() {
@@ -45,7 +40,6 @@ setInterval() {
     }
 
     getLocations() {
-        console.log('user', this.props.user)
         axios.get(`/friends/location/${this.props.user.current_mtn}`)
         .then( (response) => {
             this.setState({
@@ -55,21 +49,8 @@ setInterval() {
     }
 
   render() {
-
-    // const Comp = this.state.userMarkers.map( (e,i) => {
-    //     return (
-    //         <Comp
-    //         lat={e.latitude}
-    //         lng={e.longitude}
-    //         text={toString(e.first_name)} 
-    //        /> 
-    //     )
-    // })
-console.log(this.state)
     return (
       <div>
-          {/* <Header/> */}
-
         <div className='mapstuff' >
           <GoogleMapReact
           bootstrapURLKeys={{

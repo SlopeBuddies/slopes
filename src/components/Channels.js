@@ -28,8 +28,6 @@ handleClick = (room_id, room_name)=> {
   }
 
 render() {
-    console.log(this.props)
-
     const allChannels = this.props.channels.map((e,i)=>{
         return (
         <Link key={i} to={`/chat/${e.room_id}`}>

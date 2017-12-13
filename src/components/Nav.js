@@ -31,7 +31,7 @@ export class Nav extends Component {
 
 
   render() {
-    console.log(this.props.user.current_mtn)
+    console.log('currentmtn', this.props.user.current_mtn)
     return (
       <div>
         <div className="nav">
