@@ -1,10 +1,11 @@
 .App {
   background: #fffafa;
   background: fill;
-  height: fill;
+  // height: fill;
+  height: 70vh;
 }
 
-// Header css
+//---------------------------------- Header css ----------------------------------//
 
 .header {
   @include flex(space-between);
@@ -12,7 +13,10 @@
   color: white;
   width: 100vw;
   height: 70px;
+  z-index: 10;
   text-decoration: none;
+  // position: fixed;
+  // top: 0;
 }
 
 .header a {
@@ -38,7 +42,7 @@
   color: #70aeff;
 }
 
-//Search css
+//---------------------------------- Search css ----------------------------------//
 .searchContainer {
   height: 100%;
   overflow: scroll;
@@ -50,11 +54,11 @@
     width: 50px !important;
   }
   .searchIcon {
-    width: 33px !important;
-    height: 33px !important;
+    width: 25px !important;
+    height: 25px !important;
   }
   .usersList {
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
     margin-top: 15px;
     width: 100%;
     // display: flex;
@@ -62,21 +66,24 @@
     align-content: center;
     align-items: center;
     font-size: 1.25em;
-    height: 65px !important;
+    height: 40px !important;
   }
 }
 
 .usersList button {
-  font-size: 2em !important;
+  margin: auto;
+  font-size: 1.5em !important;
   background: transparent !important;
   border-radius: 50% !important;
   cursor: pointer;  
   // border: .5px solid black !important;
 }
-.searchIcon {
-  height: 35px !important;
-  width: 35px;
-}
+// .searchIcon {
+//   margin-right: 50px;
+//   margin-left: 0;
+//   height: 35px !important;
+//   width: 35px;
+// }
 .searchContainer div {
   height: 25px;
   margin: auto;
@@ -86,6 +93,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.checkmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 20px;
 }
 // .searchContainer img {
 //   width: 6px !important;
@@ -98,15 +113,21 @@
 //   height: 35px;
 // }
 
-.searchContainer input {
-  margin-bottom: 15px !important;
-  margin-left: 5px;
-  margin-right: 7px;
+.searchContainer div input {
+  // display: flex;
+  // justify-content: center !important;
+  // align-items: center !important;
+  // margin-bottom: 15px !important;
+  // margin-left: 5px;
+  // margin-right: 7px;
+  // margin: auto;
+  margin-left: 22%;
   font-size: 1em;
   border: 0.5px solid black;
   border-radius: 5px;
-  height: 30px;
+  height: 25px;
   outline: none;
+  width: 50%;
 }
 .usersList div {
 display: flex;
@@ -130,12 +151,12 @@ align-content: center;
 //styles users img
 .searchIMG {
   margin-left: 10px;
-  height: 55px;
-  width: 55px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
 }
 
-// Home css
+//---------------------------------- Home css ----------------------------------//
 .home_profile_container {
   width: 100%;
   height: 180px;
@@ -240,10 +261,10 @@ align-content: center;
     cursor: pointer;    
   }
 }
-// Nav css
+//---------------------------------- Nav css ----------------------------------//
 
 .nav {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   z-index: 2;
   width: 100%;
@@ -272,7 +293,7 @@ align-content: center;
   cursor: pointer;  
 }
 
-// Login css
+//---------------------------------- Login css ----------------------------------//
 .login_background {
   background-image: url("../assets/background.jpg");
   background-position: center center;
@@ -346,7 +367,7 @@ align-content: center;
   border: none;
 }
 
-// Profile
+//---------------------------------- Profile ----------------------------------//
 
 .profile_container {
   @include flex(center, center);
@@ -415,8 +436,7 @@ align-content: center;
   border-radius: 5px;
   background: #bfbbbb17;
 }
-.profile_display div {
-}
+
 
 .profile_display {
   margin: auto;
@@ -452,13 +472,16 @@ align-content: center;
   cursor: pointer;  
   margin-top: 10px;
 }
-//FRIENDS
+//---------------------------------- FRIENDS ----------------------------------//
 
 .friendscontainer div {
   height: 100% !important;
   color: $dark_blue;
 }
-
+.friendsAvatar img {
+  height: 70px;
+  width: 70px !important;
+}
 .friendsAvatar {
   margin-bottom: 15px;
   width: 100%;
@@ -472,10 +495,17 @@ align-content: center;
   justify-content: space-around;
   // margin-left: 10px;
 }
-.friendsAvatar img {
+// .currentMTNhead section{
+//   margin: auto;
+// }
+
+.friendmailer img {
+  width: 45px !important;
+}
+.friendsPic {
   margin-right: 15px;
   height: 50px;
-  width: 50px;
+  width: 50px !important;
   border-radius: 50%;
 }
 
@@ -489,6 +519,7 @@ align-content: center;
   // margin-right: 15px;
 }
 
+
 .friendMessagebtn {
   font-weight: 500;
   font-size: 0.75em !important;
@@ -496,28 +527,88 @@ align-content: center;
   height: 35px !important;
   // background: #70aeff;
   // margin-left: 15px;
+  
 }
 
+//---------------------------------- Chat css ----------------------------------//
 
-
-// Chat css
-
-.chatContainer {
-  @include flex(flex-end, flex-end);
-  flex-direction: column;
-  background: #fffafa;
-  height: calc(100vh - 150px);
+.chat {
+  @include flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
   width: 100%;
+  height: 100vh;
+  background: $snow_white;
+  
+}
+
+.chatContainer{
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  padding-bottom: 100px;
+  @include flex;
+  flex-direction: column;
+  // justify-content: flex-end;
+  // position: absolute;
+}
+
+.userMessagesContainer {
+  width: 100%;
+  background: $snow_white;
+  // justify-content: flex-end;
+  // position: relative;
+  // bottom: 0px;
+  
+  
+}
+.otherMessagesContainer {
+  width: 100%;
+  background: $snow_white;
+  color: $snow_white;
+}
+
+  //text
+.userMessages {
+  font-size: 1.5em;
+  color: $dark-blue;
+  float: right;
+  width: 200px;
+  text-align: center;
+  border: solid 2px $dark-blue;
+  border-radius: 8px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+  //text
+.otherMessages {
+  font-size: 1.5em;
+  color: $light-blue;
+  float: left;
+  width: 200px;
+  text-align: center;
+  border: solid 2px $light-blue;
+  border-radius: 8px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .inputBtn {
+  position: relative;
+  bottom: 45px;
   width: 100%;
   @include flex;
   background: #70aeff;
+  margin-top: 10px;
+  position: fixed;
+  bottom: 75px;
 }
 
 .chatInput {
-  width: 80%;
+  width: 100%;
+  // position: fixed;
   height: 20px;
   border: solid #70aeff;
   outline: none;
@@ -531,6 +622,18 @@ align-content: center;
   outline: none;
 }
 
+
+
+
+
+.chatTitle {
+  top: 0;
+  width: 20px;
+  height: 20px;
+}
+
+
+//---------------------------------- notifications css ----------------------------------//
 .notificationscontainer {
   display: flex;
   height: 100%;
@@ -607,7 +710,7 @@ align-content: center;
   overflow: scroll;
 }
 
-//------------------------ chats nav -----------------------------//
+//---------------------------------- chats nav ----------------------------------//
 
 .chatNav {
   height: calc(100% - 160px);
@@ -635,4 +738,14 @@ align-content: center;
 
 .chatNav button:hover {
   color: #fffafa;
+}
+
+.mapContainer {
+  height: 300px !important;
+  width: 70%;
+}
+
+.map {
+  height: 300px !important;
+  width: 70%;
 }

@@ -4,7 +4,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Chat from './components/Chat';
 import Profile from './components/Profile';
-
+import Map from './components/Map'
 
 
 
@@ -15,14 +15,11 @@ render() {
         <BrowserRouter >
             <div className='App'>
 
-                
                 <Route exact path='/' component={Login} />
                 <Route  path='/home' component={Home} />
                 <Route path='/chat/:chatid' component={Chat} />
                 <Route path='/profile/:id' component={Profile} />
-
-                
-
+                <Route path='/map' component={Map} />
             </div>
         </BrowserRouter>
     );
