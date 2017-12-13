@@ -9,7 +9,8 @@ import chatIcon from './../assets/chat.png'
 export class Nav extends Component {
   componentDidMount() {
     this.props.getUserInfo().then( (response, user) => {
-    const userGeo = navigator.geolocation.watchPosition(position => {
+      const option = {enableHighAccuracy: true}
+    const userGeo = navigator.geolocation.watchPosition( (position, error_loc, option) => {
         this.props.getUserLocation(position);
         console.log('userGEO',position);
         this.props.checkResort(position)
