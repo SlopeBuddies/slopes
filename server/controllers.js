@@ -37,7 +37,13 @@ module.exports = {
     dbInstance
       .get_all_friends([req.params.id])
       .then(response => {
-        res.status(200).send(response);
+        filtered = [...response]
+        response.forEach((e, i) => {
+          if(!e.location_visible){
+            filtered[i].current_mtn = ''
+          }
+        });
+        res.status(200).send(filtered);
       })
       .catch(error => res.status(400).send(error));
   },
@@ -150,6 +156,11 @@ module.exports = {
 
     dbInstance.get_all_channels([`%${req.params.firstName}%`])
     .then(response => res.status(200).send(response));
+  },
+  toggleVisibility: (req, res)=> {
+    req.app.get('db').toggle_visibility([req.body.updateTo, req.user.user_id]).then((response)=>{
+      res.status(200).send('toggle worked')
+    })
   }
 };
 

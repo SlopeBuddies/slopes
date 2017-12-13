@@ -89,6 +89,7 @@ console.log(this.state)
                 text={e.first_name}
                 />
             )})
+            
             }
                
       </GoogleMapReact>
