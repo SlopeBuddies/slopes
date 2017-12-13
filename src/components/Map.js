@@ -74,6 +74,9 @@ console.log(this.state)
 
         <div className='mapstuff' >
           <GoogleMapReact
+          bootstrapURLKeys={{
+            key: "AIzaSyDmaSW_P8wv7cqs0dKmbGBsGGzSiEZRrN4"
+          }}
         defaultCenter={this.state.center}
         defaultZoom={this.state.zoom}
       >
