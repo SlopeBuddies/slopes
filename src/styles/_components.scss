@@ -969,3 +969,62 @@ align-content: center;
   50% {background-color: lightblue; height: 25px; width: 25px;}
   100% {background-color: rgba(82, 82, 203, 0.678); height: 30px; width: 30px}
 }
+
+/*---------- modal -------------*/
+.create_room_div {
+  height: 40px;
+  width: 70px;
+  background: red;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.create_room_button {
+  cursor: pointer;
+}
+
+.create_room_modal {
+  height: 90%;
+  width: 90%;
+  background: $snow_white;
+  box-shadow: 0px 10px 10px 10px gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  position: absolute;
+  top: 5vh;
+  left: 5vw;
+}
+
+.modal_display_none {
+  display: none;
+}
+
+.modal_title {
+  margin-bottom: 20px;
+}
+
+.modal_input {
+
+}
+
+.modal_name_submit_button {
+
+}
+
+.friends_modal_list {
+  height: 70%;
+  width: 80%;
+  margin-top: 20px;
+  background: white;
+  border: 2px solid $light_blue;
+  box-shadow: 0 0 3px 3px gray inset;
+  overflow: scroll;  
+  padding: 10px;
+}
+
+.close_modal_button {
+  margin-top: 10px;
+}
