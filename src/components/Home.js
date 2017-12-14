@@ -73,7 +73,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div></div>
         <Header />
         <div>
           <div className="home_profile_container">
