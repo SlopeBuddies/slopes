@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getUserInfo, getRequest, resetChat } from "../ducks/reducer";
+import { getUserInfo, getRequest } from "../ducks/reducer";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import Nav from "./Nav";
@@ -8,7 +8,9 @@ import Search from "./Search";
 import Friends from "./Friends";
 import Notifications from "./Notifications";
 import Channels from "./Channels"
-
+import io from "socket.io-client";
+import turf from "turf";
+import Modal from './Modal';
 
 
 class Home extends Component {
@@ -24,9 +26,8 @@ class Home extends Component {
     this.friendsToggle = this.friendsToggle.bind(this);
   }
 
-  componentDidlMount() {
+  componentDidMount() {
     this.props.getUserInfo();
-    this.props.resetChat();
   }
 
   friendsToggle() {
@@ -72,6 +73,7 @@ class Home extends Component {
   }
 
   render() {
+      console.log(this.props.openModal);
     return (
       <div className='home'>
         <Header />
@@ -80,14 +82,13 @@ class Home extends Component {
             <img
               className="home_profile_image"
               src={this.props.user.profile_picture}
-              alt='home'
             />
             <span className="home_profile_name">
               {this.props.user.nickname}
             </span>
             <span className="home_profile_mountain">
               {" "}
-              {this.props.user.home_mountain}
+              {this.props.user.current_mtn}
             </span>
             <Link to={`/profile/${this.props.user.user_id}`}>
               <button type="" className="see_profile_button">
@@ -104,7 +105,8 @@ class Home extends Component {
                   this.friendsToggle();
                 }}
               >
-                FRIENDS
+                {" "}
+                FRIENDS{" "}
               </button>
 
               <button
@@ -152,6 +154,7 @@ class Home extends Component {
           </div>
               <Channels />
         </div>
+        <Modal/>
         <Nav toggle={()=>this.homeToggle()}/>
       </div>
     );
@@ -161,8 +164,9 @@ class Home extends Component {
 function mapStateToProps(state) {
   return {
     user: state.user,
-    requests: state.requests
+    requests: state.requests,
+    openModal: state.openModal
   };
 }
 
-export default connect(mapStateToProps, { getUserInfo, getRequest, resetChat })(Home);
+export default connect(mapStateToProps, { getUserInfo, getRequest })(Home);

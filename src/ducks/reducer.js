@@ -4,7 +4,7 @@ const initialState = {
   user: {},
   profile: {},
   userLogged: false,
-  allhomies: {},
+  allhomies: [],
   position: {},
   messageData: [],
   currentChat: [],
@@ -14,7 +14,8 @@ const initialState = {
   chatNavOpen: true,
   channels: [],
   friendIds: [],
-  currentRoomName: ''
+  currentRoomName: '',
+  openModal: true
 };
 
 const GET_USER_INFO = "GET_USER_INFO";
@@ -42,6 +43,7 @@ const GET_ALL_PUBLIC_CHANNELS = 'GET_ALL_PUBLIC_CHANNELS'
 const SET_ROOM_NAME = 'SET_ROOM_NAME'
 
 const SCROLL_TO_BOTTOM = 'SCROLL_TO_BOTTOM'
+const TOGGLE_MODAL = 'TOGGLE_MODAL'
 
 export function getUserInfo() {
   return {
@@ -196,6 +198,13 @@ export function scrollToBottom() {
   }
 }
 
+export function toggleModal() {
+  return {
+    type: TOGGLE_MODAL,
+    payload: null
+  }
+}
+
 //------------------------- Socket io -------------------------------//
 
 export function createNewChat(chatData) {
@@ -273,6 +282,9 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {publicChannels: action.payload})
 
     case SCROLL_TO_BOTTOM:
+
+    case TOGGLE_MODAL:
+      return Object.assign({}, state, {openModal: !state.openModal});
 
       default:
       return state;

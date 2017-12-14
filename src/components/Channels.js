@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { toggleChannelsNav, resetChat, joinChat, setRoomName, scrollToBottom } from "./../ducks/reducer";
+import { toggleChannelsNav, resetChat, joinChat, setRoomName, scrollToBottom, toggleModal } from "./../ducks/reducer";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 
@@ -53,7 +53,8 @@ render() {
                 {allChannels}
             <h1 className='chatNavTitle'>Public Channels</h1>
                 {allPublicChannels}
-        </div>
+                <button type='' className='close_modal_button' onClick={() => this.props.toggleModal()}>Create Room</button>       
+              </div>
     
     )
 }
@@ -63,4 +64,4 @@ function mapStateToProps(state) {
     return state
 }
 
-export default connect(mapStateToProps, {toggleChannelsNav, resetChat, joinChat, setRoomName, scrollToBottom })(Channels);
+export default connect(mapStateToProps, {toggleChannelsNav, resetChat, joinChat, setRoomName, scrollToBottom, toggleModal })(Channels);

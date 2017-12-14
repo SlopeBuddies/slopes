@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getUserLocation, getUserInfo, checkResort, getRequest, toggleChannelsNav, getAllChannels, resetChat, getAllPublicChannels } from "./../ducks/reducer";
-import homeIcon from './../assets/home.png'
-import chatIcon from './../assets/chat.png'
+import homeIcon from './../assets/home2.png'
+import chatIcon from './../assets/chat3.png'
 
 
 export class Nav extends Component {
