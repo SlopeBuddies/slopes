@@ -818,7 +818,7 @@ table {
   height: 90%;
   width: 90%;
   background: #fffafa;
-  box-shadow: 0px 10px 10px 10px gray;
+  box-shadow: 0px 5px 10px 10px gray;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -834,6 +834,10 @@ table {
 .modal_title {
   margin-bottom: 20px; }
 
+.modal_name_submit_button {
+  background: #70aeff;
+  color: #3c4163; }
+
 .friends_modal_list {
   height: 70%;
   width: 80%;
@@ -846,3 +850,7 @@ table {
 
 .close_modal_button {
   margin-top: 10px; }
+
+.add_to_room_button {
+  background: #70aeff;
+  color: #3c4163; }
