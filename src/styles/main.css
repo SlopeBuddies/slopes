@@ -143,11 +143,13 @@ table {
   width: 45px;
   border-radius: 50%; }
 
+.home {
+  height: 100%; }
+
 .home_profile_container {
   width: 100%;
   height: 18vh;
   background: #fffafa;
-  position: fixed;
   border-bottom: 1.25px solid #3c4163;
   margin-top: 70px;
   display: grid;
@@ -350,7 +352,7 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 80px);
   flex-direction: column;
   background-color: #fffafa;
   color: #3c4163;

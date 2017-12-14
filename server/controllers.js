@@ -167,6 +167,7 @@ module.exports = {
     req.app.get('db').toggle_visibility([req.body.updateTo, req.user.user_id]).then((response)=>{
       res.status(200).send('toggle worked')
     })
+  }
 }
 
 // insert into request (request_type, pending, request_to, request_from)
