@@ -147,6 +147,7 @@ table {
   height: 100%; }
 
 .home_profile_container {
+  overflow: hidden;
   width: 100%;
   height: 18vh;
   background: #fffafa;
@@ -216,6 +217,11 @@ table {
   align-content: center;
   height: 61.5vh;
   flex-direction: column; }
+
+.home {
+  width: 100%;
+  height: 100vh;
+  position: fixed; }
 
 .homecontainer button {
   outline: none;
