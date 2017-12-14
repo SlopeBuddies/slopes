@@ -44,7 +44,7 @@ export class Friends extends Component {
       var currentMTNfriends = this.props.allhomies.map((e, i) => {
         if (e.current_mtn === this.props.user.current_mtn) {
           return (
-            <div key={i} className="friendsAvatar">
+            <div key={i} className="friendsAvatar buds">
                 <div>
                 <Link to={`/profile/${e.user_id}`} ><img alt='user' className='friendsPic' src={e.profile_picture} /></Link>
                 </div>
@@ -72,7 +72,7 @@ export class Friends extends Component {
       var MTNfriends = this.props.allhomies.map((e, i) => {
         if (e.current_mtn && e.current_mtn !== this.props.user.current_mtn) {
           return (
-            <div key={i} className="friendsAvatar">
+            <div key={i} className="friendsAvatar skiin">
                 <div>
                 <Link to={`/profile/${e.user_id}`} ><img alt='user' className='friendsPic' src={e.profile_picture} /></Link>
                 </div>
@@ -100,8 +100,8 @@ export class Friends extends Component {
       var lazyFriends = this.props.allhomies.map((e, i) => {
         if (!e.current_mtn) {
           return (
-            <div key={i}>
-              <div className="friendsAvatar">
+            
+              <div className="friendsAvatar lazy" key={i}>
                 <div>
                 <Link to={`/profile/${e.user_id}`} ><img alt='user' className='friendsPic' src={e.profile_picture} /></Link>
                 </div>
@@ -121,7 +121,6 @@ export class Friends extends Component {
                   </Link>
                 </div>
               </div>
-            </div>
           );
         }
       });

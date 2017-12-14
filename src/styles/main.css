@@ -458,25 +458,48 @@ table {
 .profile-h3 h3 {
   text-align: center; }
 
+.friendscontainer {
+  margin-right: 1px;
+  margin-left: 1px;
+  overflow: scroll; }
+
+.buds {
+  box-shadow: 2.5px 1.5px 4px 1.5px #B0E2FF; }
+
+.skiin {
+  box-shadow: 2.5px 1.5px 4px 1.5px #FFDAB9 !important; }
+
+.lazy {
+  box-shadow: 2.5px 1.5px 4px 1.5px rgba(43, 52, 58, 0.678); }
+
 .friendscontainer div {
+  margin: auto;
+  margin-bottom: 6px;
+  width: 98% !important;
   height: 100% !important;
   color: #3c4163; }
 
 .friendsAvatar img {
+  margin-left: 4px;
   height: 70px;
   width: 70px !important; }
 
 .friendsAvatar {
+  border-radius: 5px;
   margin-bottom: 15px;
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center; }
+  .friendsAvatar div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    height: 83px !important; }
 
 .friendsAvatar div {
-  width: 100%;
-  display: flex;
-  justify-content: space-around; }
+  width: 100% !important;
+  display: flex; }
 
 .friendmailer img {
   width: 45px !important; }
@@ -496,7 +519,6 @@ table {
   color: #3c4163; }
 
 .friendMessagebtn {
-  font-weight: 500;
   font-size: 0.75em !important;
   width: 80px !important;
   height: 35px !important; }
@@ -536,19 +558,43 @@ table {
   background: #fffafa;
   color: #fffafa; }
 
-.otherChatName {
-  font-size: .8em;
+.otherMessages {
+  font-size: 1.5em;
   color: #70aeff;
-  float: right;
-  width: 100px;
-  margin-right: 10px; }
+  float: left;
+  width: 200px;
+  text-align: center;
+  border: solid 2px #70aeff;
+  border-radius: 8px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 10px; }
+
+.otherMessages:active ~ .otherChatName {
+  visibility: visible; }
+
+.otherMessages:active ~ .otherChatTime {
+  font-size: .75em;
+  transition: 1s ease-in;
+  visibility: visible; }
+
+.otherChatName {
+  visibility: hidden; }
 
 .otherChatTime {
-  font-size: .8em;
+  visibility: hidden; }
+
+.otherChatName {
+  font-size: 1em;
   color: #70aeff;
   float: right;
-  width: 100px;
-  margin-right: 10px; }
+  width: 100px; }
+
+.otherChatTime {
+  font-size: .75em;
+  color: #70aeff;
+  float: right !important;
+  width: 100px; }
 
 .userMessages {
   font-size: 1.5em;
@@ -562,31 +608,31 @@ table {
   margin-bottom: 10px;
   padding: 10px; }
 
+.userMessages:active ~ .userChatName {
+  visibility: visible;
+  transition: 1s ease-in-out; }
+
+.userMessages:active ~ .userChatTime {
+  font-size: .75em;
+  visibility: visible; }
+
 .userChatName {
-  font-size: .8em;
-  color: #3c4163;
-  float: left;
-  width: 100px;
-  margin-left: 10px; }
+  visibility: hidden; }
 
 .userChatTime {
-  font-size: .8em;
+  visibility: hidden; }
+
+.userChatName:active {
+  font-size: .75em;
   color: #3c4163;
   float: left;
-  width: 100px;
-  margin-left: 10px; }
+  width: 100px; }
 
-.otherMessages {
-  font-size: 1.5em;
-  color: #70aeff;
+.userChatTime:active {
+  font-size: .75em;
+  color: #3c4163;
   float: left;
-  width: 200px;
-  text-align: center;
-  border: solid 2px #70aeff;
-  border-radius: 8px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  padding: 10px; }
+  width: 100px; }
 
 .inputBtn {
   position: relative;
@@ -684,9 +730,6 @@ table {
   height: 30px;
   cursor: pointer; }
 
-.friendscontainer {
-  overflow: scroll; }
-
 .chatNav {
   height: calc(100% - 160px);
   position: fixed;
@@ -701,12 +744,13 @@ table {
 
 .chatNavTitle {
   font-size: 35px;
-  padding: 8px 8px 8px 32px;
-  margin-top: 5px;
+  padding: 5px 5px 5px 32px;
+  margin-top: 3px;
   display: block;
   transition: 0.3s;
   color: #70aeff;
-  text-decoration: underline; }
+  text-decoration: none;
+  box-shadow: 0 4px 2px -2px; }
 
 .chatNavLink {
   text-decoration: none; }
