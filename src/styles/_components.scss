@@ -1,10 +1,12 @@
 .App {
+  overflow: hidden;
   background: #fffafa;
   // background: fill;
   height: fill;
   // height: 70vh;
 }
 
+// 
 //---------------------------------- Header css ----------------------------------//
 
 .header {
@@ -235,6 +237,7 @@ align-content: center;
   align-content: center;
   height: 61.5vh;
   flex-direction: column;
+  
 }
 
 .homecontainer button {
