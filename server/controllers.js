@@ -168,7 +168,7 @@ module.exports = {
       res.status(200).send('toggle worked')
     })
 }
-
+}
 // insert into request (request_type, pending, request_to, request_from)
 // values($1, true, $2, $3);
 

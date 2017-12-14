@@ -1,5 +1,5 @@
 .App {
-  overflow: hidden;
+  // overflow: hidden;
   background: #fffafa;
   // background: fill;
   height: fill;
@@ -161,6 +161,7 @@ align-content: center;
 
 //---------------------------------- Home css ----------------------------------//
 .home_profile_container {
+  overflow: hidden;
   width: 100%;;
   height: 18vh;
   background: #fffafa;
@@ -239,7 +240,11 @@ align-content: center;
   flex-direction: column;
   
 }
-
+.home {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+}
 .homecontainer button {
   // margin: auto !important;
   outline: none;
