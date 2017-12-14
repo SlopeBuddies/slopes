@@ -19,7 +19,8 @@ constructor() {
         markers: [],
         center:{lat: 40.366163199999995, lng: -111.7397428},
         zoom: 13,
-        userMarkers: []
+        userMarkers: [],
+        defaultCenter: {}
 
     }
 }
@@ -28,6 +29,10 @@ constructor() {
         this.props.getUserInfo();
         this.getLocations();
         this.setInterval();
+        this.setState({
+            defaultCenter:{lat: this.props.user.latitude, 
+            lng:this.props.user.longitude}
+        })
     }
 
 setInterval() {
@@ -56,8 +61,7 @@ setInterval() {
           bootstrapURLKeys={{
             key: "AIzaSyDmaSW_P8wv7cqs0dKmbGBsGGzSiEZRrN4"
           }}
-        defaultCenter={{lat: this.props.user.latitude, 
-            lng:this.props.user.longitude}}
+        defaultCenter={this.state.defaultCenter}
         defaultZoom={this.state.zoom}
       >
             <CurrentLocation

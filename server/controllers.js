@@ -23,7 +23,8 @@ module.exports = {
         req.body.last,
         req.body.home_mountain,
         req.params.id,
-        req.body.imgURL
+        req.body.imgURL,
+        req.body.coverURL
       ])
       .then(user => {
         console.log(user);
