@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getUserLocation, getUserInfo, checkResort, getRequest, toggleChannelsNav, getAllChannels, resetChat } from "./../ducks/reducer";
+import { getUserLocation, getUserInfo, checkResort, getRequest, toggleChannelsNav, getAllChannels, resetChat, getAllPublicChannels } from "./../ducks/reducer";
 import homeIcon from './../assets/home.png'
 import chatIcon from './../assets/chat.png'
 
@@ -25,6 +25,7 @@ export class Nav extends Component {
   handleClick(chatNavOpen) {
     this.props.toggleChannelsNav(chatNavOpen)
     this.props.getAllChannels(this.props.user.first_name)
+    this.props.getAllPublicChannels()
   }
 
     
@@ -49,4 +50,4 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps, {  checkResort, getUserLocation, getUserInfo, getRequest, toggleChannelsNav, getAllChannels, resetChat })(Nav);
+export default connect(mapStateToProps, {  checkResort, getUserLocation, getUserInfo, getRequest, toggleChannelsNav, getAllChannels, resetChat, getAllPublicChannels })(Nav);

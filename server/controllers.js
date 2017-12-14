@@ -150,6 +150,12 @@ module.exports = {
 
     dbInstance.get_all_channels([`%${req.params.firstName}%`])
     .then(response => res.status(200).send(response));
+  },
+  publicChannels: (req, res) => {
+    const dbInstance = req.app.get('db');
+
+    dbInstance.get_public_channels()
+    .then(response => res.status(200).send(response));
   }
 };
 
