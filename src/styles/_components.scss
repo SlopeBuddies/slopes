@@ -1,10 +1,12 @@
 .App {
+  // overflow: hidden;
   background: #fffafa;
-  background: fill;
-  // height: fill;
-  height: 70vh;
+  // background: fill;
+  height: fill;
+  // height: 70vh;
 }
 
+// 
 //---------------------------------- Header css ----------------------------------//
 
 .header {
@@ -15,8 +17,9 @@
   height: 70px;
   z-index: 10;
   text-decoration: none;
-  // position: fixed;
-  // top: 0;
+  position: fixed;
+  top: 0;
+  
 }
 
 .header a {
@@ -158,10 +161,12 @@ align-content: center;
 
 //---------------------------------- Home css ----------------------------------//
 .home_profile_container {
-  width: 100%;
-  height: 180px;
+  overflow: hidden;
+  width: 100%;;
+  height: 18vh;
   background: #fffafa;
-  border-bottom: 3px solid #3c4163;
+  border-bottom: 1.25px solid #3c4163;
+  margin-top: 70px;
   display: grid;
   grid-template-columns: repeat(8, 12.5%);
   grid-template-rows: repeat(8, 12.5%);
@@ -169,28 +174,28 @@ align-content: center;
 
 .home_profile_image {
   margin-left: 15px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  height: 150px;
-  width: 150px;
+  margin-top: 10px;
+  margin-bottom: 11px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
   grid-column: 1;
   grid-row: 1;
 }
 
 .home_profile_name {
-  font-size: 1.5em;
-  margin-left: 25px;
+  font-size: 1.25em;
+  margin-left:35px;
   color: #3c4163;
-  grid-column: 4;
-  grid-row: 4;
+  grid-column: 3;
+  grid-row: 3;
 }
 
 .home_profile_mountain {
-  font-size: 1.5em;
-  margin-left: 25px;
-  grid-column: 4;
-  grid-row: 5;
+  font-size: 1.25em;
+  margin-left: 45px;
+  grid-column: 3;
+  grid-row: 4;
   margin-top: 10px;
   color: $dark_blue;
 }
@@ -202,11 +207,12 @@ align-content: center;
   background: #3c4163;
   height: 30px;
   width: 60px;
-  font-size: 15px;
+  font-size: .5em;
   border-radius: 3px;
+  margin: auto;
   position: absolute;
   right: 20px;
-  top: 205px;
+  top: 155px;
   transition: 0.5s ease-in-out;
   cursor: pointer;  
 }
@@ -222,14 +228,23 @@ align-content: center;
   width: 100% !important;
 }
 .homecontainer {
-  // overflow: scroll !important;
+  overflow: scroll;
   background: #fffafa;
   // width: 100%;
   @include flex;
-  height: calc(100vh - 332px);
+  // height: calc(100vh - 332px);
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 61.5vh;
   flex-direction: column;
+  
 }
-
+.home {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+}
 .homecontainer button {
   // margin: auto !important;
   outline: none;
@@ -237,14 +252,21 @@ align-content: center;
   color: #3c4163;
   border-radius: 5px;
   background: #70aeff;
-  margin-bottom: 30px;
-  height: 55px;
-  width: 75% !important;
+  margin-bottom: 25px;
+  height: 2em;
+  width: 75%;
   font-size: 1.5em;
   transition: .7s ease-in-out;
   cursor: pointer;  
-}
 
+}
+.homecontainer a {
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 .homecontainer button:active {
   transform: scale(1.5);
 
@@ -258,9 +280,10 @@ align-content: center;
     height: 50px;
     width: 100% !important;
     font-size: 1.5em;
-    cursor: pointer;    
+    cursor: pointer;  
+    }
   }
-}
+
 //---------------------------------- Nav css ----------------------------------//
 
 .nav {
@@ -278,8 +301,13 @@ align-content: center;
   color: #70aeff;
   border: 1px solid black;
   width: 50%;
-  height: 100%;
+  height: 80px;
   cursor: pointer;  
+}
+
+.homebtnImg {
+  height: 60px;
+  width: 55px;
 }
 
 .settingsbtn {
@@ -289,8 +317,16 @@ align-content: center;
   color: #70aeff;
   border: 1px solid black;
   width: 50%;
-  height: 100%;
+  height: 80px;
   cursor: pointer;  
+}
+
+.chatbtnImg {
+  // height: 60px;
+  padding-top: 10px;
+  height: 50px;
+  width: 55px;
+  // padding-top: 5px;
 }
 
 //---------------------------------- Login css ----------------------------------//
@@ -371,12 +407,13 @@ align-content: center;
 
 .profile_container {
   @include flex(center, center);
-  // height: calc(100vh - 150px);
-  height: 70vh;
+  height: calc(100vh - 80px);
+  // height: 70vh;
   flex-direction: column;
   background-color: #fffafa;
   color: $dark_blue;
-  // margin-top: 5px;
+ 
+  margin-top: 70px;
 }
 
 .profile_container div {
@@ -450,7 +487,7 @@ align-content: center;
 
 .profile_edit {
   border: none;
-  width: 10em;
+  width: 2em;
   height: 50px;
   background: $light_blue;
   color: $dark_blue;
@@ -471,6 +508,9 @@ align-content: center;
   font-size: 20px;
   cursor: pointer;  
   margin-top: 10px;
+}
+.profile-h3 h3{
+  text-align: center;
 }
 //---------------------------------- FRIENDS ----------------------------------//
 
@@ -537,20 +577,26 @@ align-content: center;
   flex-direction: column-reverse;
   justify-content: flex-end;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: $snow_white;
-  
+  // font-family: 'Boogaloo', cursive;
+  // font-family: 'Arvo', serif;
+  font-family: 'Fira Sans', sans-serif;
+}
+.chatBackground {
+  background: $snow_white;  
 }
 
 .chatContainer{
   height: 100%;
   width: 100%;
   overflow: scroll;
-  padding-bottom: 100px;
+  margin-top: 120px;
+  margin-bottom: 110px;
   @include flex;
   flex-direction: column;
   // justify-content: flex-end;
-  // position: absolute;
+  position: relative;
 }
 
 .userMessagesContainer {
@@ -568,6 +614,22 @@ align-content: center;
   color: $snow_white;
 }
 
+.otherChatName {
+  font-size: .8em;
+  color: $light-blue;
+  float: right;
+  width: 100px;
+  margin-right: 10px;
+} 
+
+.otherChatTime {
+  font-size: .8em;
+  color: $light-blue;
+  float: right;
+  width: 100px;
+  margin-right: 10px;
+}
+
   //text
 .userMessages {
   font-size: 1.5em;
@@ -581,6 +643,23 @@ align-content: center;
   margin-bottom: 10px;
   padding: 10px;
 }
+
+.userChatName {
+  font-size: .8em;
+  color: $dark-blue;
+  float: left;
+  width: 100px;
+  margin-left: 10px;
+} 
+
+.userChatTime {
+  font-size: .8em;
+  color: $dark-blue;
+  float: left;
+  width: 100px;
+  margin-left: 10px;
+}
+
   //text
 .otherMessages {
   font-size: 1.5em;
@@ -588,7 +667,7 @@ align-content: center;
   float: left;
   width: 200px;
   text-align: center;
-  border: solid 2px $light-blue;
+  border: solid 2px $light_blue;
   border-radius: 8px;
   margin-left: 10px;
   margin-bottom: 10px;
@@ -609,9 +688,11 @@ align-content: center;
 .chatInput {
   width: 100%;
   // position: fixed;
-  height: 20px;
+  height: 30px;
   border: solid #70aeff;
   outline: none;
+  font-size: 1.3em;
+  color: $dark_blue;
 }
 
 .chatBtn {
@@ -627,9 +708,18 @@ align-content: center;
 
 
 .chatTitle {
-  top: 0;
-  width: 20px;
-  height: 20px;
+  // top: 0;
+  z-index: 1;
+  text-align: center;
+  color: $dark-blue;
+  width: 100%;
+  height: 30px;
+  position: fixed;
+  font-size: 1.8em;
+  padding-top: 10px;
+  margin-top: 70px;
+  margin-bottom: 10px;
+  background: $snow-white;
 }
 
 
@@ -706,7 +796,6 @@ align-content: center;
 }
 
 .friendscontainer {
-  // height: 100%;
   overflow: scroll;
 }
 
@@ -722,23 +811,37 @@ align-content: center;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 10px;
-  border: solid black 1px;
+  border: solid black 1px; 
+}
+
+.chatNavTitle {
+  font-size: 35px;
+  padding: 8px 8px 8px 32px;
+  margin-top: 5px;
+  display: block;
+  transition: 0.3s;
+  color: #70aeff;
+  text-decoration: underline;  
+}
+
+.chatNavLink {
+  text-decoration: none;  
 }
 
 .chatNav button {
   padding: 8px 8px 8px 32px;
-  text-decoration: none;
   font-size: 25px;
-  color: #70aeff;
+  color: black;
   display: block;
   margin-top: 5px;
   transition: 0.3s;
   cursor: pointer;  
 }
 
-.chatNav button:hover {
-  color: #fffafa;
-}
+
+// .chatNav button:hover {
+//   color: #fffafa;
+// }
 
 .mapContainer {
   height: 300px !important;
@@ -748,4 +851,31 @@ align-content: center;
 .map {
   height: 300px !important;
   width: 70%;
+}
+.mapstuff{
+  overflow: hidden;
+  height: calc(100vh - 80px);
+  width: 100%;
+}
+
+.mapAvatar {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.userLocation {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  animation-delay: 15s;
+  -webkit-animation-name: gps;  
+  -webkit-animation-iteration-count: infinite;  
+  -webkit-animation-duration: 2s; 
+}
+
+@-webkit-keyframes gps {
+  0% { background-color: rgba(0, 0, 255, 0.342)}
+  50% {background-color: lightblue; height: 25px; width: 25px;}
+  100% {background-color: rgba(82, 82, 203, 0.678); height: 30px; width: 30px}
 }

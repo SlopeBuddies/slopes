@@ -8,11 +8,13 @@ const initialState = {
   position: {},
   messageData: [],
   currentChat: [],
+  publicChannels: [],
   resort: '',
   requests: [],
   chatNavOpen: true,
   channels: [],
-  friendIds: []
+  friendIds: [],
+  currentRoomName: ''
 };
 
 const GET_USER_INFO = "GET_USER_INFO";
@@ -20,6 +22,7 @@ const GET_PROFILE = "GET_PROFILE";
 const CHECK_USER = "CHECK_USER";
 const UPDATE_PROFILE = "UPDATE_PROFILE";
 const GET_USER_LOCATION = "GET_USER_LOCATION";
+
 
 const CHECK_RESORT = "CHECK_RESORT"
 const GET_ROOM_MESSAGES = 'GET_ROOM_MESSAGES'
@@ -34,6 +37,11 @@ const ACCEPT_FRIEND = 'ACCEPT_FRIEND';
 
 const TOGGLE_CHANNELS_NAV = 'TOGGLE_CHANNELS_NAV';
 const GET_ALL_CHANNELS = 'GET_ALL_CHANNELS';
+const GET_ALL_PUBLIC_CHANNELS = 'GET_ALL_PUBLIC_CHANNELS'
+
+const SET_ROOM_NAME = 'SET_ROOM_NAME'
+
+const SCROLL_TO_BOTTOM = 'SCROLL_TO_BOTTOM'
 
 export function getUserInfo() {
   return {
@@ -42,14 +50,16 @@ export function getUserInfo() {
   };
 }
 
+
+
 // export function acceptFriend(from, user_id, r_id) {
-//   console.log('reducerfromid', from, user_id, r_id)
-//   const acceptfriend = axios.post(`/accept/friend/`, {id : from, fid: user_id, r_id: r_id})
-//   return {
-//     type: ACCEPT_FRIEND,
-//     payload: acceptfriend
-//   }
-// }
+  //   console.log('reducerfromid', from, user_id, r_id)
+  //   const acceptfriend = axios.post(`/accept/friend/`, {id : from, fid: user_id, r_id: r_id})
+  //   return {
+  //     type: ACCEPT_FRIEND,
+  //     payload: acceptfriend
+  //   }
+  // }
 
 export function getUserLocation(position) {
 
@@ -112,7 +122,6 @@ export function updateProfile(id, user) {
 
 export function getAllFriends(id) {
   const allhomies = axios.get(`/friends/all/${id}`).then(response => {
-    console.log('Friends',response.data)
     var ids = [];
     response.data.forEach(e=> {
         ids.push(e.user_id)})
@@ -129,7 +138,6 @@ export function getAllFriends(id) {
 
 export function getRequest(user_id) {
   const getRequestNotification = axios.get(`/notifications/${user_id}`).then(response=> {
-    console.log(response)
     return response.data});
 
   
@@ -154,11 +162,37 @@ export function getAllChannels(firstName) {
   }
 }
 
+export function getAllPublicChannels() {
+  const publicChannels = axios.get('/public/channels').then((res)=>  res.data)
+  return {
+    type: GET_ALL_PUBLIC_CHANNELS,
+    payload: publicChannels
+  }
+}
+
 export function resetChat() {
   const newChat = []
   return {
     type: RESET_CHAT,
     payload: newChat
+  }
+}
+
+export function setRoomName(name) {
+  return {
+    type: SET_ROOM_NAME,
+    payload: name
+  }
+}
+
+export function scrollToBottom() {
+  const pageScroll = function() {
+    window.scrollBy(0,600); // horizontal and vertical scroll increments
+    let scrolldelay = setTimeout('pageScroll()',1000); // scrolls every 100 milliseconds
+  }
+  return {
+    type: SCROLL_TO_BOTTOM,
+    payload: pageScroll
   }
 }
 
@@ -217,6 +251,9 @@ export default (state = initialState, action) => {
     case GET_ROOM_MESSAGES:
       return Object.assign({}, state, {currentChat: action.payload})
 
+    case SET_ROOM_NAME:
+      return Object.assign({}, state, {currentRoomName: action.payload})
+
     case RESET_CHAT: 
       return Object.assign({}, state, {currentChat: action.payload})
 
@@ -231,6 +268,11 @@ export default (state = initialState, action) => {
    
     case GET_ALL_CHANNELS + '_FULFILLED':
       return Object.assign({}, state, {channels: action.payload})
+
+    case GET_ALL_PUBLIC_CHANNELS + '_FULFILLED':
+      return Object.assign({}, state, {publicChannels: action.payload})
+
+    case SCROLL_TO_BOTTOM:
 
       default:
       return state;

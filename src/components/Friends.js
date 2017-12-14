@@ -31,7 +31,7 @@ export class Friends extends Component {
   createChatRequest(first_name, user_id) {
     axios.post("/chat/request", {
       roomid: this.state.roomid,
-      room_name: `${this.props.user.first_name} ${first_name}`,
+      room_name: `${this.props.user.first_name} + ${first_name}`,
       request_type: "chat",
       request_to: user_id,
       request_from: this.props.user.user_id

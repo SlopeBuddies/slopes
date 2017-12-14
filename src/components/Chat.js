@@ -55,12 +55,14 @@ class Chat extends Component {
 
         console.log(this.props.currentChat)
         return(
-            <div class='chatpagecontainer'>
+            <div className='chatBackground'>
                 <Header/>
                 <Channels/>
                 <div className='chat'>
+                <h2 className='chatTitle'>{this.props.currentRoomName}</h2>
                     <Chatroom chatID={this.props.match.params.chatid}/>
                 </div>
+                <Channels />
                 <Nav/>
             </div> 
         )
