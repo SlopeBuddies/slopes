@@ -51,7 +51,8 @@ passport.use(
               userData.email,
               userData.picture,
               userData.nickname,
-              userData.identities[0].user_id
+              userData.identities[0].user_id,
+              'https://res.cloudinary.com/dpkxhok4t/image/upload/v1513270640/wladislaw-sokolowskij-147726_gfr47q.jpg'
             ])
             .then(user => {
               done(null, user[0].user_id);
@@ -84,6 +85,7 @@ app.get(
 );
 app.get("/auth/me", (req, res) => {
   if (req.user) {
+    console.log(req.user)
     return res.status(200).send(req.user);
   } else {
     return res.status(401).send(req.user);

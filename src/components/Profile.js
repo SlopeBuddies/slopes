@@ -20,7 +20,8 @@ class Profile extends Component {
     this.state = {
       editable: true,
       secureURL: '',
-      friends: []
+      friends: [],
+      coverURL: ''
     };
   }
 
@@ -33,12 +34,53 @@ class Profile extends Component {
       this.refs.last.value = this.props.profile.last_name;
       this.refs.homeMountain.value = this.props.profile.home_mountain;
       this.setState({
-        secureURL:this.props.profile.profile_picture
+        secureURL:this.props.profile.profile_picture,
+        coverURL: this.props.profile.cover_picture
       })
     });
     this.props.checkUser();
     this.props.getUserInfo();
     this.props.getAllFriends(this.props.user.user_id);
+  }
+
+
+  handleDropCover = files => {
+    // Push all the axios request promise into a single array
+    const uploaders = files.map(file => {
+      // Initial FormData
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("tags", `codeinfuse, medium, gist`);
+      formData.append("upload_preset", "faquy7a8"); // Replace the preset name with your own
+      formData.append("api_key", "468972269232726"); // Replace API key with your own Cloudinary key
+      formData.append("timestamp", (Date.now() / 1000) | 0);
+      
+      // Make an AJAX upload request using Axios (replace Cloudinary URL below with your own)
+      return axios.post(" https://api.cloudinary.com/v1_1/dpkxhok4t/image/upload", formData, {
+        headers: { "X-Requested-With": "XMLHttpRequest" },
+      }).then(response => {
+        const data = response.data;
+        var fileURL = data.secure_url; // You should store this URL for future references in your app
+        fileURL = fileURL.split('/')
+        for (var i = 0; i < fileURL.length; ++i){
+          if (fileURL[i] === 'upload'){
+            fileURL.splice(i + 1, 0, 'w_200,h_200,c_fill');
+            fileURL = fileURL.join('/')
+            this.setState({
+              coverURL: fileURL
+            })
+            i = fileURL.length;
+          }
+        }
+        
+      })
+    });
+  
+    // Once all the files are uploaded 
+    axios.all(uploaders).then(() => {
+      // ... perform after upload is successful operation
+      alert('done')
+    });
   }
 
 
@@ -117,9 +159,16 @@ class Profile extends Component {
       <div>
         <Header />
         <div className="profile_container">
-        <div style={{height:'75px'}}>
+        <div style={{height:'15px'}}>
 
         </div>
+          <div>
+          <img
+              alt='cover-picture'
+              src={this.props.profile.cover_picture}
+              className="profile-cover-photo"
+            />
+          </div>
           <div>
             <img
               alt='profile-picture'
@@ -134,6 +183,17 @@ class Profile extends Component {
                 : "profile_text_container"
             }
           >
+
+              <div className='profile-upload-div' >
+              <Dropzone 
+                onDrop={this.handleDropCover}  
+                accept="image/*" 
+                // style={styles.dropzone}
+                className='profile-upload'
+              >
+                <p>+</p>
+              </Dropzone>
+              </div>
 
               <div className='profile-upload-div' >
               <Dropzone 
@@ -157,7 +217,7 @@ class Profile extends Component {
               this.state.editable ? "profile_display" : "profile_disabled"
             }>
 
-            <div className='profile-h3'>
+            <div className=''>
               <div className="profileName">
                 <h3>{  this.props.profile.first_name} &nbsp;   </h3>
                 <h3>   {this.props.profile.last_name}</h3>
@@ -201,7 +261,8 @@ class Profile extends Component {
                   first: this.refs.first.value,
                   last: this.refs.last.value,
                   home_mountain: this.refs.homeMountain.value,
-                  imgURL: this.state.secureURL
+                  imgURL: this.state.secureURL,
+                  coverURL: this.state.coverURL
                 });
                 this.setState({ editable: true });
               }}
