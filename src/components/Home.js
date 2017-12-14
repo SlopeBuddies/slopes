@@ -72,7 +72,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.props.user.current_mtn)
     return (
       <div>
         <Header />
@@ -92,7 +91,7 @@ class Home extends Component {
             </span>
             <Link to={`/profile/${this.props.user.user_id}`}>
               <button type="" className="see_profile_button">
-                Profile
+                PROFILE
               </button>
             </Link>
           </div>
@@ -133,7 +132,7 @@ class Home extends Component {
               >NOTIFICATIONS
               </button>
               
-              <Link to='/map'>    
+              <Link className='homebtnlink' to='/map'>    
               <button
               className="homecontainerButton"
               style={this.state.mapToggle ? { display: "none" } : this.state.friendsToggle && this.state.searchToggle ? {marginBottom: '3px'} : null}
@@ -160,7 +159,6 @@ class Home extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     user: state.user,
     requests: state.requests

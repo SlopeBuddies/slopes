@@ -65,7 +65,13 @@ module.exports = {
   friendLocation: (req, res)=>{
     req.app.get('db').friends_location([req.params.mtn, req.user.user_id])
     .then((response)=>{
-      res.status(200).send(response);
+      var filtered = []
+      response.forEach((e, i, arr)=> {
+        if(e.location_visible){
+          filtered.push(e)
+        }
+      })
+      res.status(200).send(filtered);
     })
   }
 };
