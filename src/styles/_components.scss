@@ -181,6 +181,7 @@ align-content: center;
   border-radius: 50%;
   grid-column: 1;
   grid-row: 1;
+  
 }
 
 .home_profile_name {
@@ -422,10 +423,22 @@ align-content: center;
 
 .profile_image {
   // padding-top: 15px;
-  margin-top: 40px;
-  height: 200px;
-  width: 200px;
+  margin-top: 65px;
+  height: 175px;
+  width: 175px;
   border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+.profile-cover-photo{
+  max-width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  // margin-left: auto;
+  // margin-right: auto;
+  height: 282px;
 }
 
 .profile-upload-div {

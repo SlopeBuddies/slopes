@@ -24,7 +24,7 @@ class Home extends Component {
     this.friendsToggle = this.friendsToggle.bind(this);
   }
 
-  componentDidlMount() {
+  componentDidMount() {
     this.props.getUserInfo();
     this.props.resetChat();
   }
@@ -87,7 +87,7 @@ class Home extends Component {
             </span>
             <span className="home_profile_mountain">
               {" "}
-              {this.props.user.home_mountain}
+              {this.props.user.current_mtn}
             </span>
             <Link to={`/profile/${this.props.user.user_id}`}>
               <button type="" className="see_profile_button">

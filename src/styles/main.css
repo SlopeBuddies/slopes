@@ -365,10 +365,20 @@ table {
   margin: auto; }
 
 .profile_image {
-  margin-top: 40px;
-  height: 200px;
-  width: 200px;
-  border-radius: 50%; }
+  margin-top: 65px;
+  height: 175px;
+  width: 175px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1; }
+
+.profile-cover-photo {
+  max-width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 282px; }
 
 .profile-upload-div {
   padding: 10px;
