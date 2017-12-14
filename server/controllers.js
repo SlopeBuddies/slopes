@@ -157,15 +157,20 @@ module.exports = {
     dbInstance.get_all_channels([`%${req.params.firstName}%`])
     .then(response => res.status(200).send(response));
   },
+  publicChannels: (req, res) => {
+    const dbInstance = req.app.get('db');
+
+    dbInstance.get_public_channels()
+    .then(response => res.status(200).send(response))
+  },
   toggleVisibility: (req, res)=> {
     req.app.get('db').toggle_visibility([req.body.updateTo, req.user.user_id]).then((response)=>{
       res.status(200).send('toggle worked')
     })
-  }
-};
-
+}
+}
 // insert into request (request_type, pending, request_to, request_from)
 // values($1, true, $2, $3);
 
 // insert into rooms (room_id, room_name, room_private)
-// values($4, $5, true);
+// values($4, $5, true)

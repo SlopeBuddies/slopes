@@ -1,10 +1,12 @@
 .App {
+  // overflow: hidden;
   background: #fffafa;
   // background: fill;
   height: fill;
   // height: 70vh;
 }
 
+// 
 //---------------------------------- Header css ----------------------------------//
 
 .header {
@@ -159,6 +161,7 @@ align-content: center;
 
 //---------------------------------- Home css ----------------------------------//
 .home_profile_container {
+  overflow: hidden;
   width: 100%;;
   height: 18vh;
   background: #fffafa;
@@ -235,8 +238,13 @@ align-content: center;
   align-content: center;
   height: 61.5vh;
   flex-direction: column;
+  
 }
-
+.home {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+}
 .homecontainer button {
   // margin: auto !important;
   outline: none;
@@ -614,7 +622,7 @@ align-content: center;
   margin-right: 10px;
 } 
 
-.otherChattime {
+.otherChatTime {
   font-size: .8em;
   color: $light-blue;
   float: right;
@@ -803,19 +811,33 @@ align-content: center;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 10px;
-  border: solid black 1px;
+  border: solid black 1px; 
+}
+
+.chatNavTitle {
+  font-size: 35px;
+  padding: 8px 8px 8px 32px;
+  margin-top: 5px;
+  display: block;
+  transition: 0.3s;
+  color: #70aeff;
+  text-decoration: underline;  
+}
+
+.chatNavLink {
+  text-decoration: none;  
 }
 
 .chatNav button {
   padding: 8px 8px 8px 32px;
-  text-decoration: none;
   font-size: 25px;
-  color: #70aeff;
+  color: black;
   display: block;
   margin-top: 5px;
   transition: 0.3s;
   cursor: pointer;  
 }
+
 
 // .chatNav button:hover {
 //   color: #fffafa;
