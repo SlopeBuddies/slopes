@@ -199,6 +199,7 @@ app.post('/chat/request', ctrl.createChatRequest);
 app.get('/notifications/:user_id', ctrl.getRequest)
 
 app.get('/channels/:firstName', ctrl.getAllChannels)
+app.get('/public/channels', ctrl.publicChannels)
 
 const path = require("path");
 app.get("*", (req, res) => {

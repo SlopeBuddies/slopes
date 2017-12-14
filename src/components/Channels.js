@@ -11,13 +11,17 @@ class Channels extends Component {
 
 
 
-componentDidMount() {
-    this.getAllChannels(this.props.user.first_name)
-}
+// componentDidMount() {
+//     this.getAllChannels(this.props.user.first_name)
+// }
 
-getAllChannels(firstName) {
-    axios.get(`/channels/${firstName}`).then((res) =>  this.setState({channels: res.data}))
-}
+// getAllChannels(firstName) {
+//     axios.get(`/channels/${firstName}`).then((res) =>  this.setState({channels: res.data}))
+// }
+
+// getAllPublicChannels() {
+//     axios.get('/channels/public').then((res)=> this.setState({publicChannels: res.data}))
+// }
 
 handleClick = (room_id, room_name)=> {
     this.props.joinChat(room_id)
@@ -30,14 +34,25 @@ handleClick = (room_id, room_name)=> {
 render() {
     const allChannels = this.props.channels.map((e,i)=>{
         return (
-        <Link key={i} to={`/chat/${e.room_id}`}>
+        <Link className='chatNavLink' key={i} to={`/chat/${e.room_id}`}>
             <button onClick={()=> this.handleClick(e.room_id, e.room_name)} key={i}>{e.room_name} </button>
         </Link>
-    )
+        )
+    })
+
+    const allPublicChannels = this.props.publicChannels.map((e,i)=> {
+        return (
+        <Link className='chatNavLink' key={i} to={`/chat/${e.room_id}`}>
+            <button onClick={()=> this.handleClick(e.room_id, e.room_name)} key={i}>{e.room_name} </button>
+        </Link>        
+        )
     })
     return (
         <div className='chatNav' style={ this.props.chatNavOpen ? { width: '0px', border: 'none'} : {width : '70%'}}>
-            {allChannels}
+            <h1 className='chatNavTitle'>MY Channels</h1>
+                {allChannels}
+            <h1 className='chatNavTitle'>Public Channels</h1>
+                {allPublicChannels}
         </div>
     
     )

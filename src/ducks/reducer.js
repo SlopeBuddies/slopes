@@ -8,6 +8,7 @@ const initialState = {
   position: {},
   messageData: [],
   currentChat: [],
+  publicChannels: [],
   resort: '',
   requests: [],
   chatNavOpen: true,
@@ -36,6 +37,7 @@ const ACCEPT_FRIEND = 'ACCEPT_FRIEND';
 
 const TOGGLE_CHANNELS_NAV = 'TOGGLE_CHANNELS_NAV';
 const GET_ALL_CHANNELS = 'GET_ALL_CHANNELS';
+const GET_ALL_PUBLIC_CHANNELS = 'GET_ALL_PUBLIC_CHANNELS'
 
 const SET_ROOM_NAME = 'SET_ROOM_NAME'
 
@@ -160,6 +162,14 @@ export function getAllChannels(firstName) {
   }
 }
 
+export function getAllPublicChannels() {
+  const publicChannels = axios.get('/public/channels').then((res)=>  res.data)
+  return {
+    type: GET_ALL_PUBLIC_CHANNELS,
+    payload: publicChannels
+  }
+}
+
 export function resetChat() {
   const newChat = []
   return {
@@ -258,6 +268,9 @@ export default (state = initialState, action) => {
    
     case GET_ALL_CHANNELS + '_FULFILLED':
       return Object.assign({}, state, {channels: action.payload})
+
+    case GET_ALL_PUBLIC_CHANNELS + '_FULFILLED':
+      return Object.assign({}, state, {publicChannels: action.payload})
 
     case SCROLL_TO_BOTTOM:
 
