@@ -10,6 +10,8 @@ import Notifications from "./Notifications";
 import Channels from "./Channels"
 import io from "socket.io-client";
 import turf from "turf";
+import Modal from './Modal';
+
 
 class Home extends Component {
   constructor() {
@@ -71,6 +73,7 @@ class Home extends Component {
   }
 
   render() {
+      console.log(this.props.openModal);
     return (
       <div className='home'>
         <Header />
@@ -151,6 +154,7 @@ class Home extends Component {
           </div>
               <Channels />
         </div>
+        <Modal/>
         <Nav toggle={()=>this.homeToggle()}/>
       </div>
     );
@@ -160,7 +164,8 @@ class Home extends Component {
 function mapStateToProps(state) {
   return {
     user: state.user,
-    requests: state.requests
+    requests: state.requests,
+    openModal: state.openModal
   };
 }
 
