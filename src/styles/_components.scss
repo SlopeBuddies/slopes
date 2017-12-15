@@ -1035,7 +1035,7 @@ bottom: 350px;
   height: 90%;
   width: 90%;
   background: $snow_white;
-  box-shadow: 0px 10px 10px 10px gray;
+  box-shadow: 0px 5px 10px 10px gray;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1059,7 +1059,8 @@ bottom: 350px;
 }
 
 .modal_name_submit_button {
-
+  background: $light_blue;
+  color: $dark_blue;
 }
 
 .friends_modal_list {
@@ -1075,4 +1076,9 @@ bottom: 350px;
 
 .close_modal_button {
   margin-top: 10px;
+}
+
+.add_to_room_button {
+  background: $light_blue;
+  color: $dark_blue;
 }
