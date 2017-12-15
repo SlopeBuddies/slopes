@@ -405,16 +405,20 @@ align-content: center;
 }
 
 //---------------------------------- Profile ----------------------------------//
-
+.profile-main {
+  height: 100vh;
+  overflow: hidden;
+}
 .profile_container {
+  overflow: hidden;
   @include flex(center, center);
-  height: calc(100vh - 80px);
+  height: calc(100vh - 145px);
   // height: 70vh;
   flex-direction: column;
   background-color: #fffafa;
   color: $dark_blue;
- 
   margin-top: 70px;
+
 }
 
 .profile_container div {
@@ -444,26 +448,40 @@ align-content: center;
 .profile-upload-div {
   padding: 10px;
   @include flex; 
-  position: relative;
-  top: -20px;
-  left: 80px; 
+  position: absolute;
+  top: 32%;
+  left: 45%; 
   cursor: pointer;  
+  z-index: 34;
 }
-
-.profile-upload {
+.cover-upload-div {
   padding: 10px;
-  width: 10px;
-  height: 10px;
-  background: rgb(141, 170, 212);
-  @include flex;    
-  opacity: .6;
+  @include flex; 
+  position: absolute;
+  top: 36.25%;
+  right: 0px; 
+  cursor: pointer;  
+  z-index: 34;
+}
+.profile-upload {
+  color: $dark_blue;
+  font-size: 2em;
+  border-radius: 6px;
+  width: 30px !important;
+  height: 30px !important;
+  background: rgba(141, 170, 212, .4);
+  @include flex;  
+  // opacity: .6;
+  text-align: center;
 }
 
 
-.profile_text_container {
-  height: calc(100vh - 150px);
+.profile_text_container{
+  // height: 80vh;
+  overflow: scroll;
   margin: auto;
-  width: 50%;
+  width: 75%;
+  height: 80%;
 }
 
 .profile_text_container div {
@@ -493,20 +511,43 @@ align-content: center;
   height: calc(100vh - 150px);
   font-size: 1.5em;
   h3 {
-    margin: auto;
+    font-weight: 450;
+    
+    letter-spacing: 1.5px;
+    text-align: center;
     margin-top: 15px;
   }
 }
-
+.profile_toggle {
+border-radius: 50%;
+position: absolute;
+height: 30px;
+right: 5px;
+bottom: 350px;
+}
 .profile_edit {
   border: none;
-  width: 2em;
-  height: 50px;
-  background: $light_blue;
-  color: $dark_blue;
-  font-size: 20px;
+  height: 20px;
+  font-size: 1em;
   cursor: pointer;  
+  position: absolute;
+  bottom: 230.5px;
+  right: 5px;
+  margin: auto;
 }
+
+.unfriend {
+  background: rgba(173, 104, 104, 0.699);
+  width: 25px;
+  height: 15px !important;
+  border-radius: 5px;
+  font-size: .5em;
+  position: absolute;
+  top: 150px;
+}
+// .profile-edit:hover {
+//   height: 40px;
+// }
 
 .profile_disabled {
   display: none;
@@ -514,13 +555,19 @@ align-content: center;
 
 .profile_save {
   border: none;
-  width: 10em;
-  height: 50px;
+  border-radius: 6px;
+  width: 50px;
+  height: 30px;
   background: $light_blue;
   color: $dark_blue;
-  font-size: 20px;
+  font-size: .75em;
   cursor: pointer;  
   margin-top: 10px;
+  text-align: center;
+}
+
+.profile_save div {
+  height: 25px;
 }
 .profile-h3 h3{
   text-align: center;
@@ -663,7 +710,6 @@ align-content: center;
   color: $snow_white;
 }
 
-
 ////////////////////////
 .otherMessages {
   font-size: 1.5em;
@@ -687,6 +733,7 @@ align-content: center;
   transition: 1s ease-in;
   visibility: visible;
 }
+
 .otherChatName {
   visibility: hidden;
 }
@@ -727,7 +774,7 @@ align-content: center;
 
 .userMessages:active ~ .userChatName {
   visibility: visible;
-  transition: 1s ease-in-out;
+  transition: 10s ease-in !important;
 }
 
 .userMessages:active ~ .userChatTime {
@@ -773,10 +820,11 @@ align-content: center;
   background: #70aeff;
   margin-top: 10px;
   position: fixed;
-  bottom: 75px;
+  bottom: 80px;
 }
 
 .chatInput {
+  border-radius: 7px;
   width: 100%;
   // position: fixed;
   height: 30px;

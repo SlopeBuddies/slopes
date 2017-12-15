@@ -30,7 +30,8 @@ class Modal extends Component {
           </div>
         </div>
       );
-    });
+    })
+  ;
     return (
       <div>
         <section className="section_modal">
