@@ -1,0 +1,89 @@
+{
+	"variables": [],
+	"info": {
+		"name": "endpoints",
+		"_postman_id": "18b2564f-668e-11eb-271d-fb08b105bdca",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "group project endpoint tests",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody)",
+							"",
+							"    pm.test('to have status', () => {",
+							"        pm.response.to.have.status(200)",
+							"})",
+							"",
+							"    pm.test('to be an array', ()=> {",
+							"        var bodyType = false;",
+							"        if(jsonData.constructor === Array) {",
+							"            bodyType = true;",
+							"        }",
+							"        pm.expect(bodyType).to.eql(true)",
+							"})",
+							"",
+							"    pm.test('has body', ()=> {",
+							"        pm.response.to.have.body",
+							"        ",
+							"    })",
+							"    ",
+							"    pm.test('no same user', ()=> {",
+							"        var userId = 4",
+							"        var none = true;",
+							"        for(let key in jsonData) {",
+							"            if(jsonData[key].user_id === userId) {",
+							"                none = false;",
+							"            }",
+							"        }",
+							"        pm.expect(none).to.eql(true)",
+							"    })",
+							"    ",
+							"    pm.test('check a users home mountain', ()=> {",
+							"        var mtn = false;",
+							"        if(jsonData[2].home_mountain == \"Sundance\") {",
+							"            mtn = true",
+							"        }",
+							"        pm.expect(mtn).to.eql(true)",
+							"    })"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "localhost:3030/find/users/4?search=a",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"find",
+						"users",
+						"4"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "a",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
