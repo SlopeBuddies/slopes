@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getUserInfo, getRequest } from "../ducks/reducer";
+import { getUserInfo, getRequest, initialResort } from "../ducks/reducer";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import Nav from "./Nav";
@@ -11,6 +11,7 @@ import Channels from "./Channels"
 import io from "socket.io-client";
 import turf from "turf";
 import Modal from './Modal';
+import ski from './../assets/Ski.png'
 
 
 class Home extends Component {
@@ -28,6 +29,11 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.getUserInfo();
+    this.props.initialResort();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps)
   }
 
   friendsToggle() {
@@ -73,6 +79,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(this.props.resort)
       console.log(this.props.openModal);
     return (
       <div className='home'>
@@ -83,13 +90,14 @@ class Home extends Component {
               className="home_profile_image"
               src={this.props.user.profile_picture}
             />
-            <span className="home_profile_name">
+            <div className="home_profile_name">
               {this.props.user.nickname}
-            </span>
-            <span className="home_profile_mountain">
-              {" "}
-              {this.props.user.current_mtn}
-            </span>
+            </div>
+            {this.props.resort ? <img className='ski-icon' src={ski} /> : null }
+            <div className="home_profile_mountain">
+               <p>{this.props.resort}</p>
+              
+            </div>
             <Link to={`/profile/${this.props.user.user_id}`}>
               <button type="" className="see_profile_button">
                 PROFILE
@@ -134,6 +142,7 @@ class Home extends Component {
               >NOTIFICATIONS
               </button>
               
+              <div style={this.props.mapCenter.data ? {display:'inline'}: {display:'none'}} >
               <Link className='homebtnlink' to='/map'>    
               <button
               className="homecontainerButton"
@@ -142,7 +151,15 @@ class Home extends Component {
                 MAP
               </button>
               </Link>
-            
+              </div>
+              
+              <button
+              className={this.props.mapCenter.data ? 'profile_disabled' : 'homecontainerButton'}
+              style={this.state.mapToggle ? { display: "none" } : this.state.friendsToggle && this.state.searchToggle ? {marginBottom: '3px'} : null}
+                >
+                Loading MAP
+              </button>
+              
     
             {this.state.searchToggle && this.state.notificationsToggle ? 
             
@@ -165,8 +182,10 @@ function mapStateToProps(state) {
   return {
     user: state.user,
     requests: state.requests,
-    openModal: state.openModal
+    openModal: state.openModal,
+    resort: state.resort,
+    mapCenter: state.mapCenter
   };
 }
 
-export default connect(mapStateToProps, { getUserInfo, getRequest })(Home);
+export default connect(mapStateToProps, { getUserInfo, getRequest, initialResort })(Home);
