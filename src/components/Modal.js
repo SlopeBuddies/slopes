@@ -1,37 +1,81 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { toggleModal, getAllFriends, getUserInfo } from "./../ducks/reducer";
+import axios from 'axios';
 
 class Modal extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      roomid: '',
       roomName: '',
       uninvitedFriends: [],
-      invitedFriends: []
+      invitedFriends: [],
+      createdRoomsInfo: [],
+      requestInfo: []
     }
   }
 
   componentDidMount() {
     this.props.getUserInfo();
-    console.log(this.props.user.user_id);
+    console.log(this.refs);
+    const roomid = Math.floor(Math.random() * (10000 - 2000) + 2000);
+    this.setState({
+      roomid: `${roomid}`
+    });
+  }
+
+  createRoomName() {
+    this.setState({
+      roomName: this.refs.roomName.value
+    })
+    this.refs.roomName.value = '';
+  }
+
+  handleDown = (e) => {
+    if (e.keyCode === 13) this.createRoomName()
+  }
+
+  sendRoomNotification(room) {
+    axios.post('/created/room', room)
   }
 
   addToInvited(friend) {
+    if (this.state.roomName === '') {
+      alert ('You must first create a room name');
+    } else {
      let arr = [...this.state.uninvitedFriends];
     arr.forEach((e, i) => {
       if (friend === e) {
         var top = [...this.state.uninvitedFriends]
         var bottom = [...this.state.invitedFriends]
+        var addUserInfo = [...this.state.createdRoomsInfo];
         var topSplice = top.splice(i, 1);
+        var roomUserInfo = {
+          room_name: this.state.roomName,
+          user_id: topSplice[0]
+        };
+        var addRoomInfo = [...this.state.requestInfo];
+        var requestInfo = {
+          join_room_id: this.state.roomid,
+          request_from: this.props.user.user_id,
+          request_to: topSplice[0],
+          request_type: 'chat',
+          pending: true
+        }
+        addUserInfo.push(roomUserInfo);
         bottom.push(topSplice[0]);
+        addRoomInfo.push(requestInfo);
         this.setState({
           uninvitedFriends: top,
-          invitedFriends: bottom
+          invitedFriends: bottom,
+          createdRoomsInfo: addUserInfo,
+          requestInfo: addRoomInfo
         })
       }
     })
+    } 
   }
 
   removeFromRoom(friend) {
@@ -40,11 +84,17 @@ class Modal extends Component {
      if (friend === e) {
        var top = [...this.state.uninvitedFriends]
        var bottom = [...this.state.invitedFriends]
+       var addUserInfo = [...this.state.createdRoomsInfo]
+       var addRoomInfo = [...this.state.requestInfo];
        var bottomSplice = bottom.splice(i, 1);
+       var userSplice = addUserInfo.splice(i, 1)
+       var roomSplice = addRoomInfo.splice(i, 1);
        top.push(bottomSplice[0]);
        this.setState({
          uninvitedFriends: top,
-         invitedFriends: bottom
+         invitedFriends: bottom,
+         createdRoomsInfo: addUserInfo,
+         requestInfo: addRoomInfo
        })
      }
    })
@@ -52,8 +102,10 @@ class Modal extends Component {
 
 
 
+
+
   render() {
-    console.log('all homeies', this.props.allhomies);
+    console.log(this.props.channels)
     for (var i = 0; i < this.props.allhomies.length; i++) {
       if (!this.state.invitedFriends.includes(this.props.allhomies[i].user_id) && !this.state.uninvitedFriends.includes(this.props.allhomies[i].user_id)) {
         this.setState({
@@ -89,7 +141,7 @@ class Modal extends Component {
     });
     const invitedFriends = this.props.allhomies.map((e, i) => {
       if (this.state.invitedFriends.includes(e.user_id)) {
-        console.log(e.user_id)
+        // console.log(e.user_id)
         return (
           <div key={i} className="friendsAvatar">
             <div>
@@ -123,21 +175,32 @@ class Modal extends Component {
                 type="text"
                 placeholder="room name"
                 className="modal_input"
+                ref='roomName'
+                onKeyDown={this.handleDown}
               />
-              <button type="" className="modal_name_submit_button">
+              <button onClick={() => this.createRoomName()}
+              type="" className="modal_name_submit_button">
                 Submit
               </button>
             </div>
+            <span className='invite_friends_to_room_span'>Invite Friends to Room</span>
             <div className="friends_modal_list">{displayFriends}
             <div>
-              <span className=''>Room: </span> <span className=''>Friends: </span>
+              {/* <span className=''>Room: </span>  */}
+              <span className='friends_in_room_span'>Friends in Room '{this.state.roomName}': </span>
               </div> 
               <div>
               {invitedFriends}
               </div> 
             </div>
             <div>
-              <button type='' className=''>
+              <button type='' className='' onClick={() => this.sendRoomNotification({
+                createdRoom: [...this.state.createdRoomsInfo, {
+                room_name: this.state.roomName,
+                user_id: this.props.user.user_id}],
+                request: this.state.requestInfo,
+                room: { roomName: this.state.roomName, roomid: this.state.roomid }
+              })}>
               Send Invites</button>
             <button
               type=""

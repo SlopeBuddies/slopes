@@ -203,6 +203,10 @@ app.get('/notifications/:user_id', ctrl.getRequest)
 app.get('/channels/:firstName', ctrl.getAllChannels)
 app.get('/public/channels', ctrl.publicChannels)
 
+app.post('/created/room', ctrl.createdRoom)
+
+app.get('/rooms/created/:id', ctrl.getAllCreatedRooms)
+
 const path = require("path");
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));

@@ -6,6 +6,8 @@ import Header from './Header';
 import Nav from './Nav';
 import GoogleMapReact from 'google-map-react'
 import Channels from "./Channels"
+import Modal from './Modal';
+
 
 const UserLocation = ({ text }) => <img className='mapAvatar' src={text} />
 const CurrentLocation = ({ text }) => <div className='userLocation'></div>
@@ -85,6 +87,7 @@ setInterval() {
       </GoogleMapReact>
       </div>
       <Channels />
+      <Modal/>
       <Nav/>
       </div>
     )
