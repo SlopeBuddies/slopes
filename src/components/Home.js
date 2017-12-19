@@ -79,6 +79,11 @@ class Home extends Component {
   }
 
   render() {
+    let count = 0;
+    var notification_count = this.props.requests.map( e => {
+      count++
+    })
+    console.log(count)
     console.log(this.props.resort)
       console.log(this.props.openModal);
     return (
