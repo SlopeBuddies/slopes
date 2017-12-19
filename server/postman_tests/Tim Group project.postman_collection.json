@@ -1,0 +1,68 @@
+{
+	"info": {
+		"name": "Group project",
+		"_postman_id": "f699aa4d-4bb4-84f8-8e7d-de95ee610a77",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "group project endpoints",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody)",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Message: User id sent must be a number', function () {",
+							"    pm.expect(jsonData[0].user_id).to.eql(10);",
+							"});",
+							"",
+							"pm.test('Message: User must have a first name', function () {",
+							"    pm.expect(jsonData[0].first_name)",
+							"})",
+							"",
+							"pm.test('Message: must be an array of objects', () => {",
+							"    pm.expect(jsonData.constructor).to.eql(Array)",
+							"})",
+							"    ",
+							"    ",
+							"pm.test('Message: must have first name', () => {",
+							"    pm.expect(jsonData[0].first_name).to.eql('Brant')",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3030/friends/all/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"friends",
+						"all",
+						"4"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

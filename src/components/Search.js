@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import searchIcon from "./../assets/searchicon.png";
+import searchIcon from "./../assets/searchicon2.png";
 import {
   findUsers,
   getUserInfo,
@@ -10,7 +10,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import timer from "./../assets/78834-200.png";
 import { Link } from "react-router-dom";
-import checkmark from './../assets/checkmark.png'
+import checkmark from './../assets/checkmark2.png'
 
 export class Search extends Component {
   constructor() {
