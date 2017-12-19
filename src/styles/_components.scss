@@ -625,6 +625,7 @@ bottom: 350px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  transition: .5s ease-in-out;
   div {
     display: flex;
     width: 100%;
@@ -1073,15 +1074,23 @@ bottom: 350px;
   color: $dark_blue;
 }
 
+.invite_friends_to_room_span {
+  margin-top: 10px;
+}
+
 .friends_modal_list {
   height: 70%;
   width: 80%;
-  margin-top: 20px;
+  margin-top: 10px;
   background: white;
   border: 2px solid $light_blue;
   box-shadow: 0 0 3px 3px gray inset;
   overflow: scroll;  
   padding: 10px;
+}
+
+.friends_in_room_span {
+  text-align: center;
 }
 
 .close_modal_button {
@@ -1091,4 +1100,8 @@ bottom: 350px;
 .add_to_room_button {
   background: $light_blue;
   color: $dark_blue;
+}
+
+.add_to_room_button:active ~ .friendsAvatar {
+  opacity: .5;
 }
