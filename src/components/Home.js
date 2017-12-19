@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getUserInfo, getRequest } from "../ducks/reducer";
+import { getUserInfo, getRequest, initialResort } from "../ducks/reducer";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import Nav from "./Nav";
@@ -28,6 +28,11 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.getUserInfo();
+    this.props.initialResort();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps)
   }
 
   friendsToggle() {
@@ -73,6 +78,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(this.props.resort)
       console.log(this.props.openModal);
     return (
       <div className='home'>
@@ -88,7 +94,7 @@ class Home extends Component {
             </span>
             <span className="home_profile_mountain">
               {" "}
-              {this.props.user.current_mtn}
+              {this.props.resort}
             </span>
             <Link to={`/profile/${this.props.user.user_id}`}>
               <button type="" className="see_profile_button">
@@ -165,8 +171,9 @@ function mapStateToProps(state) {
   return {
     user: state.user,
     requests: state.requests,
-    openModal: state.openModal
+    openModal: state.openModal,
+    resort: state.resort
   };
 }
 
-export default connect(mapStateToProps, { getUserInfo, getRequest })(Home);
+export default connect(mapStateToProps, { getUserInfo, getRequest, initialResort })(Home);

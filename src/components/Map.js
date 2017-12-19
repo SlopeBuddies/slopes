@@ -24,15 +24,20 @@ constructor() {
 
     }
 }
-
+    // component() {
+    //     this.setState({
+    //         defaultCenter:{lat: this.props.user.latitude, 
+    //         lng:this.props.user.longitude}
+    //     })
+    // }
     componentDidMount() {
         this.props.getUserInfo();
+
         this.getLocations();
         this.setInterval();
-        this.setState({
-            defaultCenter:{lat: this.props.user.latitude, 
-            lng:this.props.user.longitude}
-        })
+    }
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps)
     }
 
 setInterval() {
@@ -55,20 +60,21 @@ setInterval() {
 
   render() {
     return (
-      <div>
-        <div className='mapstuff' >
-          <GoogleMapReact
+       
+        <div>
+        <div className='mapstuff'>
+        {this.state.defaultCenter ? 
+           <GoogleMapReact
           bootstrapURLKeys={{
-            key: "AIzaSyDmaSW_P8wv7cqs0dKmbGBsGGzSiEZRrN4"
+              key: "AIzaSyDmaSW_P8wv7cqs0dKmbGBsGGzSiEZRrN4"
           }}
-        defaultCenter={this.state.defaultCenter}
+        defaultCenter={{lat: this.props.mapCenter.data[0].latitude, lng: this.props.mapCenter.data[0].longitude}}
         defaultZoom={this.state.zoom}
       >
             <CurrentLocation
             lat={this.props.user.latitude}
             lng={this.props.user.longitude}
-  
-            />
+            /> 
 
             {this.state.userMarkers.map((e, i) =>{
                return(
@@ -83,6 +89,7 @@ setInterval() {
             }
                
       </GoogleMapReact>
+      : null }
       </div>
       <Channels />
       <Nav/>
@@ -92,6 +99,7 @@ setInterval() {
 }
 
 function mapStateToProps(state) {
+    console.log(state)
     return state
 }
 

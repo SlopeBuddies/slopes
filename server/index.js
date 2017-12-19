@@ -192,6 +192,8 @@ app.get('/friends/location/:mtn', fence.friendLocation);
 
 app.put('/update/visibility', ctrl.toggleVisibility);
 
+app.get('/initial/resort', fence.initialResort);
+
 //--------------------------------Chat Endpoints-----------------------------------//
 app.put('/take/chat/request', ctrl.takeChatRequest);
 app.get('/chat/messages/:room_id', ctrl.getRoomMessages);
