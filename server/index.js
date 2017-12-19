@@ -192,6 +192,8 @@ app.get('/friends/location/:mtn', fence.friendLocation);
 
 app.put('/update/visibility', ctrl.toggleVisibility);
 
+app.get('/initial/resort', fence.initialResort);
+
 //--------------------------------Chat Endpoints-----------------------------------//
 app.put('/take/chat/request', ctrl.takeChatRequest);
 app.get('/chat/messages/:room_id', ctrl.getRoomMessages);
@@ -202,6 +204,10 @@ app.get('/notifications/:user_id', ctrl.getRequest)
 
 app.get('/channels/:firstName', ctrl.getAllChannels)
 app.get('/public/channels', ctrl.publicChannels)
+
+app.post('/created/room', ctrl.createdRoom)
+
+app.get('/rooms/created/:id', ctrl.getAllCreatedRooms)
 
 const path = require("path");
 app.get("*", (req, res) => {
