@@ -42,6 +42,7 @@ DevMountain: turf.polygon([
 };
 
 module.exports = {
+
   check_fences: (req, res, next) => {
       console.log(req.body)
     var pt1 = turf.point([req.body.longitude, req.body.latitude]);
@@ -54,9 +55,11 @@ module.exports = {
       } 
     }
     if(resort) {
+      console.log(resort)
         req.app.get('db').update_current_mtn([resort, req.user.user_id])
+        .then( (response ) => { 
         return res.status(200).send(resort);
-
+      })
     } else {
         req.app.get('db').update_current_mtn([null, req.user.user_id])
         return res.status(200).send('NOT IN FENCE')
@@ -73,5 +76,10 @@ module.exports = {
       })
       res.status(200).send(filtered);
     })
+  },
+  initialResort: (req,res,next) => {
+    console.log('initialresort')
+    req.app.get('db').get_initial_resort([req.user.user_id])
+    .then( (response) => res.status(200).send(response[0]))
   }
 };

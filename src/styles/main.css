@@ -165,24 +165,33 @@ table {
   grid-row: 1; }
 
 .home_profile_name {
-  font-size: 1.25em;
+  width: 100vw;
+  font-size: 1.5em;
   margin-left: 35px;
   color: #3c4163;
   grid-column: 3;
-  grid-row: 3; }
+  grid-row: 3/2; }
 
 .home_profile_mountain {
   font-size: 1.25em;
-  margin-left: 45px;
-  grid-column: 3;
-  grid-row: 4;
+  margin-left: 38px;
+  grid-column: 9/4;
+  grid-row: 8/4;
   margin-top: 10px;
   color: #3c4163; }
+
+.ski-icon {
+  margin: auto;
+  grid-column: 4;
+  grid-row: 8/3;
+  height: 25px;
+  width: 25px; }
 
 .see_profile_button {
   outline: none;
   border: none;
   color: #70aeff;
+  letter-spacing: 1.75px;
   border-radius: 5px;
   background: #3c4163;
   height: 30px;
@@ -351,11 +360,16 @@ table {
   background: none;
   border: none; }
 
+.profile-main {
+  height: 100vh;
+  overflow: hidden; }
+
 .profile_container {
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 145px);
   flex-direction: column;
   background-color: #fffafa;
   color: #3c4163;
@@ -385,25 +399,40 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  top: -20px;
-  left: 80px;
-  cursor: pointer; }
+  position: absolute;
+  top: 32%;
+  left: 45%;
+  cursor: pointer;
+  z-index: 34; }
 
-.profile-upload {
+.cover-upload-div {
   padding: 10px;
-  width: 10px;
-  height: 10px;
-  background: #8daad4;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: .6; }
+  position: absolute;
+  top: 36.25%;
+  right: 0px;
+  cursor: pointer;
+  z-index: 34; }
+
+.profile-upload {
+  color: #3c4163;
+  font-size: 2em;
+  border-radius: 6px;
+  width: 30px !important;
+  height: 30px !important;
+  background: rgba(141, 170, 212, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
 
 .profile_text_container {
-  height: calc(100vh - 150px);
+  overflow: scroll;
   margin: auto;
-  width: 50%; }
+  width: 75%;
+  height: 80%; }
 
 .profile_text_container div {
   margin: auto;
@@ -430,30 +459,54 @@ table {
   height: calc(100vh - 150px);
   font-size: 1.5em; }
   .profile_display h3 {
-    margin: auto;
+    font-weight: 450;
+    letter-spacing: 1.5px;
+    text-align: center;
     margin-top: 15px; }
+
+.profile_toggle {
+  border-radius: 50%;
+  position: absolute;
+  height: 30px;
+  right: 5px;
+  bottom: 350px; }
 
 .profile_edit {
   border: none;
-  width: 2em;
-  height: 50px;
-  background: #70aeff;
-  color: #3c4163;
-  font-size: 20px;
-  cursor: pointer; }
+  height: 20px;
+  font-size: 1em;
+  cursor: pointer;
+  position: absolute;
+  bottom: 230.5px;
+  right: 5px;
+  margin: auto; }
+
+.unfriend {
+  background: rgba(173, 104, 104, 0.699);
+  width: 25px;
+  height: 15px !important;
+  border-radius: 5px;
+  font-size: .5em;
+  position: absolute;
+  top: 150px; }
 
 .profile_disabled {
   display: none; }
 
 .profile_save {
   border: none;
-  width: 10em;
-  height: 50px;
+  border-radius: 6px;
+  width: 50px;
+  height: 30px;
   background: #70aeff;
   color: #3c4163;
-  font-size: 20px;
+  font-size: .75em;
   cursor: pointer;
-  margin-top: 10px; }
+  margin-top: 10px;
+  text-align: center; }
+
+.profile_save div {
+  height: 25px; }
 
 .profile-h3 h3 {
   text-align: center; }
@@ -611,7 +664,7 @@ table {
 
 .userMessages:active ~ .userChatName {
   visibility: visible;
-  transition: 1s ease-in-out; }
+  transition: 10s ease-in !important; }
 
 .userMessages:active ~ .userChatTime {
   font-size: .75em;
@@ -645,9 +698,10 @@ table {
   background: #70aeff;
   margin-top: 10px;
   position: fixed;
-  bottom: 75px; }
+  bottom: 80px; }
 
 .chatInput {
+  border-radius: 7px;
   width: 100%;
   height: 30px;
   border: solid #70aeff;

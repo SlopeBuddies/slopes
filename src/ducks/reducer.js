@@ -15,7 +15,8 @@ const initialState = {
   channels: [],
   friendIds: [],
   currentRoomName: '',
-  openModal: true
+  openModal: true,
+  mapCenter: {}
 };
 
 const GET_USER_INFO = "GET_USER_INFO";
@@ -26,6 +27,7 @@ const GET_USER_LOCATION = "GET_USER_LOCATION";
 
 
 const CHECK_RESORT = "CHECK_RESORT"
+const CHECK_RESORT_INTIAL = "CHECK_RESORT_INITIAL"
 const GET_ROOM_MESSAGES = 'GET_ROOM_MESSAGES'
 
 const GET_ALL_FRIENDS = "GET_ALL_FRIENDS";
@@ -52,6 +54,15 @@ export function getUserInfo() {
   };
 }
 
+export function initialResort() {
+  var initial_resort = axios.get('/initial/resort').then( (res) => {
+    return res.data.current_mtn
+  })
+  return {
+    type: CHECK_RESORT_INTIAL,
+    payload: initial_resort
+  }
+    }
 
 
 // export function acceptFriend(from, user_id, r_id) {
@@ -256,10 +267,10 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, { allhomies: action.payload.friends, friendIds: action.payload.arr });
 
     case GET_USER_LOCATION + "_FULFILLED":
-      return Object.assign({}, state, { position: action.payload });
+      return Object.assign({}, state, { position: action.payload, mapCenter: action.payload });
       
     case CHECK_RESORT + "_FULFILLED":
-    return Object.assign({}, state, {resort: action.payload})  
+    return Object.assign({}, state, {resort: action.payload.data})  
 
     case 'SEND_CHAT_MESSAGE':
       return Object.assign({}, state, { currentChat: [...state.currentChat, action.payload]})
@@ -296,6 +307,8 @@ export default (state = initialState, action) => {
     case GET_ALL_CREATED_ROOMS + '_FULFILLED':
       return Object.assign({}, state, {channels: [...action.payload, ...state.channels]})
 
+      case CHECK_RESORT_INTIAL + '_FULFILLED':
+      return Object.assign({}, state, {resort: action.payload})
       default:
       return state;
   }
