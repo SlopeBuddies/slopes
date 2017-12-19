@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { toggleModal, getAllFriends, getUserInfo } from "./../ducks/reducer";
 import axios from 'axios';
+import add from '../assets/Check1_Green.png';
+import remove from '../assets/X_Red.png';
 
 class Modal extends Component {
   constructor(props) {
@@ -125,14 +127,15 @@ class Modal extends Component {
             <div className="friendsName">
               {e.first_name} {e.last_name}
             </div>
-            <div className="friendmailer">
-              <button type="" className="add_to_room_button" onClick={() => {
+            <div className="friendmailer_green">
+              <img src={add} type="" className="green_add_button" onClick={() => {
                 console.log(e.user_id)
                 console.log(this.state.invitedFriends)
                 this.addToInvited(e.user_id)
-              } }>
-                Add to Room
-              </button>
+              } }/>
+              
+              
+              
             </div>
           </div>
         );
@@ -150,10 +153,10 @@ class Modal extends Component {
             <div className="friendsName">
               {e.first_name} {e.last_name}
             </div>
-            <div className="friendmailer">
-              <button type="" className="add_to_room_button" onClick={ () => this.removeFromRoom(e.user_id) }>
-                Remove from Room
-              </button>
+            <div className="friendmailer_green">
+              <img src={remove} type="" className="green_add_button" onClick={ () => this.removeFromRoom(e.user_id) }/>
+              
+              
             </div>
           </div>
         );
