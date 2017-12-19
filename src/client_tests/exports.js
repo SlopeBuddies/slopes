@@ -1,4 +1,5 @@
 const getAllFriendsJson = require('./getAllFriends')
+const getAllChannelsJson = require('./getAllChannels')
 module.exports = {
 addToInvited: (friend) => {
     let uninvitedFriends = [1,4,3,8,6];
@@ -27,6 +28,14 @@ addToInvited: (friend) => {
             }
         });
         return filtered
-    }
+    },
+    getAllChannels: (name) => {
+        var channels = getAllChannelsJson
+        return getAllChannelsJson.filter((e, i) => {
+            if(e.room_name.includes(name)){
+                return e 
+            }
+        })
+      }
 
 }
