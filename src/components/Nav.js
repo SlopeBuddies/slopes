@@ -20,6 +20,8 @@ export class Nav extends Component {
     this.props.getRequest(this.props.user.user_id)
   })
   }
+
+
   
   
   handleClick(chatNavOpen) {

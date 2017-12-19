@@ -79,6 +79,11 @@ class Home extends Component {
   }
 
   render() {
+    let count = 0;
+    var notification_count = this.props.requests.map( e => {
+      count++
+    })
+    console.log(count)
     console.log(this.props.resort)
       console.log(this.props.openModal);
     return (
@@ -157,7 +162,7 @@ class Home extends Component {
               className={this.props.mapCenter.data ? 'profile_disabled' : 'homecontainerButton'}
               style={this.state.mapToggle ? { display: "none" } : this.state.friendsToggle && this.state.searchToggle ? {marginBottom: '3px'} : null}
                 >
-                Loading MAP
+               <i className="fas fa-spinner spinning"></i> MAP
               </button>
               
     
