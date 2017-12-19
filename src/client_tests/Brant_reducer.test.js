@@ -1,34 +1,37 @@
-// // const reducer = require('../ducks/reducer');
-test(' name it something, whatever' , () => {
-    expect(true).toEqual(true)
+const testFunctions = require('./exports');
+
+
+describe('Brants unit tests', ()=>{
+    test('test if filtered exists', () => {
+        let result = testFunctions.getAllFriends(4);
+        expect(result).not.toEqual(undefined);
+    })
+    test('recieve array',()=>{
+        let result = testFunctions.getAllFriends(4)
+
+        expect(result.constructor).toEqual(Array);
+    })
+    test('test if 4th object in array has "" as home mountain', ()=>{
+        let result = testFunctions.getAllFriends(4)
+
+        expect(result[3].current_mtn).toEqual("")
+    })
+    test('secound object current_mtn = devmountain', ()=>{
+        let result = testFunctions.getAllFriends(4)
+
+        expect(result[1].current_mtn).toEqual('DevMountain')
+    })
+    test('test every index for an object',()=>{
+        let result = testFunctions.getAllFriends(4);
+        let obj = true
+        result.forEach((e)=>{
+            if(e.constructor !== Object){
+                obj = false;
+            }
+        })
+
+        expect(obj).toEqual(true);
+    })
+    
 })
-// // describe("Brant's tests", ()=>{
-// //     test('')
-// // })
-// module.exports = {
-//     geberateRoomId: function() {
-//        let roomId = Math.floor(Math.random() * 2000)
-//        return roomId;
-//     },
-
-//     greeting: function(name) {
-//         return `Hello ${name}`;
-//     },
-
-//     addFriendsToRoom: function(id) {
-//         let friendInRoom = [];
-//         return friendInRoom.push(id);
-//     },
-
-//     removeFromRoom: function(array, id) {
-//         let array = [1, 2, 3, 4, 5, 6 ,7 ,8, 9];
-//         let id = 4;
-//         return array.splice()
-//     },
-
-//     mapArray: function() {
-
-//     }
-// }
-
 
