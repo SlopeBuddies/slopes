@@ -168,10 +168,6 @@ module.exports = {
     req.app.get('db').toggle_visibility([req.body.updateTo, req.user.user_id]).then((response)=>{
       res.status(200).send('toggle worked')
     })
-<<<<<<< HEAD
-  }
-}
-=======
 },
 
 createdRoom: (req, res) => {
@@ -184,12 +180,11 @@ createdRoom: (req, res) => {
   db.create_room([roomid, roomName]).then(response => res.status(200).send(response));
 },
 
-  getAllCreatedRooms: (req, res) => {
-    const db = req.app.get('db');
+getAllCreatedRooms: (req, res) => {
+  const db = req.app.get('db');
 
-    db.get_all_created_rooms(req.params.id).then(rooms => res.status(200).send(rooms))
-  }
->>>>>>> master
+  db.get_all_created_rooms(req.params.id).then(rooms => res.status(200).send(rooms))
+}
 }
 // insert into request (request_type, pending, request_to, request_from)
 // values($1, true, $2, $3);
