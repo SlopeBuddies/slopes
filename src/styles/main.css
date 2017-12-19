@@ -173,11 +173,18 @@ table {
 
 .home_profile_mountain {
   font-size: 1.25em;
-  margin-left: 45px;
-  grid-column: 3;
-  grid-row: 4;
+  margin-left: 38px;
+  grid-column: 9/4;
+  grid-row: 8/4;
   margin-top: 10px;
   color: #3c4163; }
+
+.ski-icon {
+  margin: auto;
+  grid-column: 4;
+  grid-row: 8/3;
+  height: 25px;
+  width: 25px; }
 
 .see_profile_button {
   outline: none;

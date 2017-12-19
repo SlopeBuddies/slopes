@@ -11,6 +11,7 @@ import Channels from "./Channels"
 import io from "socket.io-client";
 import turf from "turf";
 import Modal from './Modal';
+import ski from './../assets/Ski.png'
 
 
 class Home extends Component {
@@ -92,10 +93,11 @@ class Home extends Component {
             <span className="home_profile_name">
               {this.props.user.nickname}
             </span>
-            <span className="home_profile_mountain">
-              {" "}
-              {this.props.resort}
-            </span>
+            {this.props.resort ? <img className='ski-icon' src={ski} /> : null }
+            <div className="home_profile_mountain">
+               <p>{this.props.resort}</p>
+              
+            </div>
             <Link to={`/profile/${this.props.user.user_id}`}>
               <button type="" className="see_profile_button">
                 PROFILE

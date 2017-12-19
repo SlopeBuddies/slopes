@@ -63,7 +63,7 @@ setInterval() {
        
         <div>
         <div className='mapstuff'>
-        {this.state.defaultCenter ? 
+        
            <GoogleMapReact
           bootstrapURLKeys={{
               key: "AIzaSyDmaSW_P8wv7cqs0dKmbGBsGGzSiEZRrN4"
@@ -99,7 +99,7 @@ setInterval() {
 }
 
 function mapStateToProps(state) {
-    console.log(state)
+    console.log('state', state)
     return state
 }
 
