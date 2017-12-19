@@ -419,6 +419,21 @@ align-content: center;
   height: 100vh;
   overflow: hidden;
 }
+
+.profile_box {
+  margin-top: 8px !important;
+  border-radius: 5px;
+  padding:13px 20px 30px 20px;
+  box-shadow: 1px 1px 3px 2px rgba(128, 128, 128, 0.548);
+}
+
+.profile_nickname {
+  font-size: .65em;
+}
+
+.profile_home_mtn {
+  font-size: 1em;
+}
 .profile_container {
   overflow: hidden;
   @include flex(center, center);
@@ -531,21 +546,31 @@ align-content: center;
 .profile_toggle {
 border-radius: 50%;
 position: absolute;
-height: 30px;
-right: 5px;
-bottom: 350px;
+height: 24px;
+left: 56.5px;
+bottom: 190px;
 }
+
 .profile_edit {
   border: none;
   height: 20px;
   font-size: 1em;
   cursor: pointer;  
   position: absolute;
-  bottom: 230.5px;
-  right: 5px;
+  bottom: 192px;
+  right: 55px;
   margin: auto;
 }
 
+.spinning {
+  float: left;
+  animation: spin 2s linear infinite
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 .unfriend {
   background: rgba(173, 104, 104, 0.699);
   width: 25px;

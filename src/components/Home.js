@@ -162,7 +162,7 @@ class Home extends Component {
               className={this.props.mapCenter.data ? 'profile_disabled' : 'homecontainerButton'}
               style={this.state.mapToggle ? { display: "none" } : this.state.friendsToggle && this.state.searchToggle ? {marginBottom: '3px'} : null}
                 >
-                Loading MAP
+               <i className="fas fa-spinner spinning"></i> MAP
               </button>
               
     
