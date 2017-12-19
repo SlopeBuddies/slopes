@@ -90,9 +90,9 @@ class Home extends Component {
               className="home_profile_image"
               src={this.props.user.profile_picture}
             />
-            <span className="home_profile_name">
+            <div className="home_profile_name">
               {this.props.user.nickname}
-            </span>
+            </div>
             {this.props.resort ? <img className='ski-icon' src={ski} /> : null }
             <div className="home_profile_mountain">
                <p>{this.props.resort}</p>

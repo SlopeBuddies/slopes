@@ -185,11 +185,12 @@ align-content: center;
 }
 
 .home_profile_name {
-  font-size: 1.25em;
+  width: 100vw;
+  font-size: 1.5em;
   margin-left:35px;
   color: #3c4163;
   grid-column: 3;
-  grid-row: 3;
+  grid-row: 3/2;
 }
 
 .home_profile_mountain {
@@ -212,6 +213,7 @@ align-content: center;
   outline: none;
   border: none;
   color: #70aeff;
+  letter-spacing: 1.75px;
   border-radius: 5px;
   background: #3c4163;
   height: 30px;
