@@ -543,7 +543,8 @@ table {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  align-items: center; }
+  align-items: center;
+  transition: .5s ease-in-out; }
   .friendsAvatar div {
     display: flex;
     width: 100%;
@@ -892,15 +893,21 @@ table {
   background: #70aeff;
   color: #3c4163; }
 
+.invite_friends_to_room_span {
+  margin-top: 10px; }
+
 .friends_modal_list {
   height: 70%;
   width: 80%;
-  margin-top: 20px;
+  margin-top: 10px;
   background: white;
   border: 2px solid #70aeff;
   box-shadow: 0 0 3px 3px gray inset;
   overflow: scroll;
   padding: 10px; }
+
+.friends_in_room_span {
+  text-align: center; }
 
 .close_modal_button {
   margin-top: 10px; }
@@ -908,3 +915,6 @@ table {
 .add_to_room_button {
   background: #70aeff;
   color: #3c4163; }
+
+.add_to_room_button:active ~ .friendsAvatar {
+  opacity: .5; }

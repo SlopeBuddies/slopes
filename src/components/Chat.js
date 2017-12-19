@@ -5,6 +5,7 @@ import Header from './Header';
 import { joinChat, sendChatMessage } from "./../ducks/reducer";
 import Channels from "./Channels"
 import Chatroom from "./Chatroom"
+import Modal from './Modal';
 
 
 
@@ -63,6 +64,7 @@ class Chat extends Component {
                     <Chatroom chatID={this.props.match.params.chatid}/>
                 </div>
                 <Channels />
+                <Modal/>
                 <Nav/>
             </div> 
         )

@@ -147,6 +147,7 @@ class Home extends Component {
               >NOTIFICATIONS
               </button>
               
+              <div style={this.props.mapCenter.data ? {display:'inline'}: {display:'none'}} >
               <Link className='homebtnlink' to='/map'>    
               <button
               className="homecontainerButton"
@@ -155,7 +156,15 @@ class Home extends Component {
                 MAP
               </button>
               </Link>
-            
+              </div>
+              
+              <button
+              className={this.props.mapCenter.data ? 'profile_disabled' : 'homecontainerButton'}
+              style={this.state.mapToggle ? { display: "none" } : this.state.friendsToggle && this.state.searchToggle ? {marginBottom: '3px'} : null}
+                >
+                Loading MAP
+              </button>
+              
     
             {this.state.searchToggle && this.state.notificationsToggle ? 
             
@@ -179,7 +188,8 @@ function mapStateToProps(state) {
     user: state.user,
     requests: state.requests,
     openModal: state.openModal,
-    resort: state.resort
+    resort: state.resort,
+    mapCenter: state.mapCenter
   };
 }
 

@@ -41,7 +41,7 @@ const ACCEPT_FRIEND = 'ACCEPT_FRIEND';
 const TOGGLE_CHANNELS_NAV = 'TOGGLE_CHANNELS_NAV';
 const GET_ALL_CHANNELS = 'GET_ALL_CHANNELS';
 const GET_ALL_PUBLIC_CHANNELS = 'GET_ALL_PUBLIC_CHANNELS'
-
+const GET_ALL_CREATED_ROOMS = 'GET_ALL_CREATED_ROOMS';
 const SET_ROOM_NAME = 'SET_ROOM_NAME'
 
 const SCROLL_TO_BOTTOM = 'SCROLL_TO_BOTTOM'
@@ -216,6 +216,13 @@ export function toggleModal() {
   }
 }
 
+export function getAllCreatedRooms(user_id) {
+  return {
+    type: GET_ALL_CREATED_ROOMS,
+    payload: axios.get(`/rooms/created/${user_id}`).then(res => res.data)
+  }
+}
+
 //------------------------- Socket io -------------------------------//
 
 export function createNewChat(chatData) {
@@ -287,7 +294,7 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {chatNavOpen: action.payload})
    
     case GET_ALL_CHANNELS + '_FULFILLED':
-      return Object.assign({}, state, {channels: action.payload})
+      return Object.assign({}, state, {channels: [...action.payload, ...state.channels]})
 
     case GET_ALL_PUBLIC_CHANNELS + '_FULFILLED':
       return Object.assign({}, state, {publicChannels: action.payload})
@@ -296,6 +303,9 @@ export default (state = initialState, action) => {
 
     case TOGGLE_MODAL:
       return Object.assign({}, state, {openModal: !state.openModal});
+
+    case GET_ALL_CREATED_ROOMS + '_FULFILLED':
+      return Object.assign({}, state, {channels: [...action.payload, ...state.channels]})
 
       case CHECK_RESORT_INTIAL + '_FULFILLED':
       return Object.assign({}, state, {resort: action.payload})
