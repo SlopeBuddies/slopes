@@ -143,6 +143,9 @@ table {
   width: 45px;
   border-radius: 50%; }
 
+.home {
+  height: 100%; }
+
 .home_profile_container {
   overflow: hidden;
   width: 100%;
