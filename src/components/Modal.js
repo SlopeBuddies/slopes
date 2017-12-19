@@ -19,7 +19,7 @@ class Modal extends Component {
   }
 
   addToInvited(friend) {
-     let arr = [...this.state.uninvitedFriends];
+    let arr = [...this.state.uninvitedFriends];
     arr.forEach((e, i) => {
       if (friend === e) {
         var top = [...this.state.uninvitedFriends]
@@ -36,19 +36,19 @@ class Modal extends Component {
 
   removeFromRoom(friend) {
     let arr = [...this.state.invitedFriends];
-   arr.forEach((e, i) => {
-     if (friend === e) {
-       var top = [...this.state.uninvitedFriends]
-       var bottom = [...this.state.invitedFriends]
-       var bottomSplice = bottom.splice(i, 1);
-       top.push(bottomSplice[0]);
-       this.setState({
-         uninvitedFriends: top,
-         invitedFriends: bottom
-       })
-     }
-   })
- }
+  arr.forEach((e, i) => {
+    if (friend === e) {
+      var top = [...this.state.uninvitedFriends]
+      var bottom = [...this.state.invitedFriends]
+      var bottomSplice = bottom.splice(i, 1);
+      top.push(bottomSplice[0]);
+      this.setState({
+        uninvitedFriends: top,
+        invitedFriends: bottom
+      })
+    }
+  })
+}
 
 
 
