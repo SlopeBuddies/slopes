@@ -24,10 +24,10 @@ module.exports = {
         req.body.home_mountain,
         req.params.id,
         req.body.imgURL,
-        req.body.coverURL
+        req.body.coverURL,
+        req.body.insta
       ])
       .then(user => {
-        console.log(user);
         res.status(200).send(user);
       });
   },

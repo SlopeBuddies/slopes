@@ -3,7 +3,7 @@ import axios from "axios";
 import { getUserInfo, getAllFriends, createNewChat } from "./../ducks/reducer";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import mail from './../assets/mail.png'
+import mail from './../assets/mail2.png'
 
 export class Friends extends Component {
   constructor() {

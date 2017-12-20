@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import searchIcon from "./../assets/searchicon.png";
+import searchIcon from "./../assets/searchicon2.png";
 import {
   findUsers,
   getUserInfo,
@@ -10,7 +10,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import timer from "./../assets/78834-200.png";
 import { Link } from "react-router-dom";
-import checkmark from './../assets/checkmark.png'
+import checkmark from './../assets/checkmark2.png'
 
 export class Search extends Component {
   constructor() {
@@ -91,7 +91,7 @@ export class Search extends Component {
           <div className='small_text'> {e.first_name}</div>
           {!friendRef.pendingFriendReqs.includes(e.user_id) ? !friendRef.homies.includes(e.user_id) ? 
             <div>
-              <button className='usersList' onClick={() => this.friendRequest(e.user_id)}
+              <button  className='usersBtn' onClick={() => this.friendRequest(e.user_id)}
               > + </button>
             </div>
           : <div><img className="checkmark" src = {checkmark} alt="Already Friends"/></div> : ''}
