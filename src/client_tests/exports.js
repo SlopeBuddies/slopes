@@ -57,8 +57,8 @@ addToInvited: (friend) => {
         // createdRoomsInfo: addUserInfo,
         // requestInfo: addRoomInfo
       }
-    }
-}
+    },
+
     getAllChannels: (name) => {
         var channels = getAllChannelsJson
         return getAllChannelsJson.filter((e, i) => {
@@ -67,4 +67,4 @@ addToInvited: (friend) => {
             }
         })
       }
-
+    }

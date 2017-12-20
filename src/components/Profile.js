@@ -15,6 +15,7 @@ import Channels from "./Channels";
 import edit from './../assets/edit icon.png';
 import gps from './../assets/gps.svg';
 import { Link } from 'react-router-dom';
+import hmtn from './../assets/thin-0786_basecamp_alps_mountains_cabin-512.png'
 
 class Profile extends Component {
   constructor() {
@@ -256,7 +257,7 @@ class Profile extends Component {
                 <h3> {this.props.profile.last_name}</h3>
               </div>
               <h3 className='profile_nickname'>{this.props.profile.nickname} </h3>
-              <h3 className='profile_home_mtn'> {this.props.profile.home_mountain}</h3>
+              <div className='hmtn_div'><img className='hmtn' src={hmtn} /> <h3 className='profile_home_mtn'> {this.props.profile.home_mountain}</h3></div>
               <h3><a href={this.props.profile.insta} ><i className='fab fa-instagram' ></i></a></h3>
             </div>
 
