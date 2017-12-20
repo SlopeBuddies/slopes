@@ -120,15 +120,15 @@ class Modal extends Component {
       if (this.state.uninvitedFriends.includes(e.user_id)) {
         console.log(e.user_id)
         return (
-          <div key={i} className="friendsAvatar">
+          <div key={i} className="friendsAvatar_chat">
             <div>
-              <img alt="user" className="friendsPic" src={e.profile_picture} />
+              <img alt="user" className="friendsPic_chat" src={e.profile_picture} />
             </div>
-            <div className="friendsName">
+            <div className="friendsName_chat">
               {e.first_name} {e.last_name}
             </div>
-            <div className="friendmailer_green">
-              <img src={add} type="" className="green_add_button" onClick={() => {
+            <div className="friendmailer_green_chat">
+              <img src={add} type="" className="green_add_button_chat" onClick={() => {
                 console.log(e.user_id)
                 console.log(this.state.invitedFriends)
                 this.addToInvited(e.user_id)
@@ -146,15 +146,15 @@ class Modal extends Component {
       if (this.state.invitedFriends.includes(e.user_id)) {
         // console.log(e.user_id)
         return (
-          <div key={i} className="friendsAvatar">
+          <div key={i} className="friendsAvatar_chat">
             <div>
-              <img alt="user" className="friendsPic" src={e.profile_picture} />
+              <img alt="user" className="friendsPic_chat" src={e.profile_picture} />
             </div>
-            <div className="friendsName">
+            <div className="friendsName_chat">
               {e.first_name} {e.last_name}
             </div>
-            <div className="friendmailer_green">
-              <img src={remove} type="" className="green_add_button" onClick={ () => this.removeFromRoom(e.user_id) }/>
+            <div className="friendmailer_green_chat">
+              <img src={remove} type="" className="red_add_button_chat" onClick={ () => this.removeFromRoom(e.user_id) }/>
               
               
             </div>
@@ -187,14 +187,15 @@ class Modal extends Component {
               </button>
             </div>
             <span className='invite_friends_to_room_span'>Invite Friends to Room</span>
-            <div className="friends_modal_list">{displayFriends}
-            <div>
+            <div className="friends_modal_list">
+            {displayFriends}
+            
               {/* <span className=''>Room: </span>  */}
               <span className='friends_in_room_span'>Friends in Room '{this.state.roomName}': </span>
-              </div> 
-              <div>
+               
+             
               {invitedFriends}
-              </div> 
+              
             </div>
             <div>
               <button type='' className='' onClick={() => this.sendRoomNotification({
