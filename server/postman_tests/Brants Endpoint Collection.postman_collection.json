@@ -12,7 +12,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "10829d93-5fbb-43a0-8d81-16cd4eb9cd5c",
+						"id": "0b4b652f-2547-4564-9862-7b2003f517e7",
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
@@ -51,11 +51,11 @@
 							"    var keyLength = false,",
 							"        correctKeys = true;",
 							"    ",
-							"    if(Object.keys(jsonData[0]).length === 5){",
+							"    if(Object.keys(jsonData[0]).length === 8){",
 							"        keyLength = true;",
 							"    }",
 							"    for(let key in jsonData[0]){",
-							"        if (!['profile_picture', 'nickname', 'first_name', 'last_name', 'home_mountain'].includes(key)){",
+							"        if (!['profile_picture', 'nickname', 'first_name', 'last_name', 'home_mountain', 'insta', 'cover_picture', 'location_visible'].includes(key)){",
 							"            correctKeys = false;",
 							"        }",
 							"    }",
