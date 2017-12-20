@@ -189,7 +189,13 @@ module.exports = {
     req.app.get('db').get_request([req.user.user_id])
       .then(
         response => {
-          console.log('jladljjnlsjkldaslknj',response.length)
+          response = response.filter((e)=>{
+            if(e.pending === true && e.request_to === req.user.user_id){
+              return true;
+            } else {
+              return false;
+            }
+          })
           res.status(200).send({lengths:response.length})
         });
   }
