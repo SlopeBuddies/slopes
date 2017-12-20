@@ -866,6 +866,7 @@ table {
   border-radius: 50%;
   height: 30px;
   width: 30px;
+  transition: ease-in-out;
   animation-delay: 15s;
   -webkit-animation-name: gps;
   -webkit-animation-iteration-count: infinite;
@@ -873,15 +874,25 @@ table {
 
 @-webkit-keyframes gps {
   0% {
-    background-color: rgba(0, 0, 255, 0.342); }
-  50% {
-    background-color: lightblue;
+    background-color: #5c9cd8;
     height: 25px;
     width: 25px; }
-  100% {
-    background-color: rgba(82, 82, 203, 0.678);
+  25% {
+    background-color: #2483db;
+    height: 27px;
+    width: 27px; }
+  50% {
+    background-color: #157eda;
     height: 30px;
-    width: 30px; } }
+    width: 30px; }
+  75% {
+    background-color: #2483db;
+    height: 27px;
+    width: 27px; }
+  100% {
+    background-color: #5c9cd8;
+    height: 25px;
+    width: 25px; } }
 
 /*---------- modal -------------*/
 .create_room_div {

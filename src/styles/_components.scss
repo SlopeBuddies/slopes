@@ -1047,6 +1047,7 @@ bottom: 190px;
   border-radius: 50%;
   height: 30px;
   width: 30px;
+  transition: ease-in-out;
   animation-delay: 15s;
   -webkit-animation-name: gps;  
   -webkit-animation-iteration-count: infinite;  
@@ -1054,9 +1055,11 @@ bottom: 190px;
 }
 
 @-webkit-keyframes gps {
-  0% { background-color: rgba(0, 0, 255, 0.342)}
-  50% {background-color: lightblue; height: 25px; width: 25px;}
-  100% {background-color: rgba(82, 82, 203, 0.678); height: 30px; width: 30px}
+  0% { background-color: rgb(92, 156, 216); height: 25px; width: 25px;}
+  25% { background-color: rgb(36, 131, 219); height: 27px; width: 27px;}
+  50% {background-color: rgb(21, 126, 218); height: 30px; width: 30px;}
+  75% {background-color: rgb(36, 131, 219); height: 27px; width: 27px}
+  100% {background-color: rgb(92, 156, 216); height: 25px; width: 25px;}
 }
 
 /*---------- modal -------------*/
