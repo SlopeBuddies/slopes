@@ -12,6 +12,7 @@ import io from "socket.io-client";
 import turf from "turf";
 import Modal from './Modal';
 import ski from './../assets/Ski.png'
+import axios from 'axios';
 
 
 class Home extends Component {
@@ -22,7 +23,8 @@ class Home extends Component {
       friendsToggle: false,
       searchToggle: false,
       notificationsToggle: false,
-      mapToggle: false
+      mapToggle: false,
+      num: 0
     };
     this.friendsToggle = this.friendsToggle.bind(this);
   }
@@ -30,6 +32,13 @@ class Home extends Component {
   componentDidMount() {
     this.props.getUserInfo();
     this.props.initialResort();
+    axios.get('/get/notification/length').then(
+      response =>{
+        this.setState({
+          num:response.data.lengths
+        })
+      }
+    )
   }
 
   componentWillReceiveProps(nextProps) {
@@ -59,6 +68,14 @@ class Home extends Component {
       mapToggle: !this.state.mapToggle
     });
     this.props.getRequest(this.props.user.user_id)
+    axios.get('/get/notification/length').then(
+      response =>{
+        console.log('aghjsdjgashda', response.data.lengths)
+        this.setState({
+          num: response.data.lengths
+        })
+      }
+    )
   }
 
   homeToggle() {
@@ -144,7 +161,7 @@ class Home extends Component {
                 onClick={() => {
                   this.notificationsToggle();
                 }}
-              >NOTIFICATIONS
+              >NOTIFICATIONS <span className={this.state.num > 0 ? 'home-notification-alert' : 'profile_disabled' } >{this.state.num}</span>
               </button>
               
               <div style={this.props.mapCenter.data ? {display:'inline'}: {display:'none'}} >
