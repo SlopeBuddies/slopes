@@ -500,8 +500,10 @@ table {
   margin: auto; }
 
 .spinning {
-  float: left;
-  animation: spin 2s linear infinite; }
+  position: absolute;
+  left: 60px;
+  bottom: 161px;
+  animation: spin .75s linear infinite; }
 
 @keyframes spin {
   0% {
