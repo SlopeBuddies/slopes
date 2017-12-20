@@ -170,6 +170,8 @@ app.get('/checkuser', ctrl.checkUser)
 
 app.put('/users/:id', ctrl.updateUser)
 
+app.get('/get/notification/length', ctrl.getNotificationLength)
+
 
 //--------------------------------Friends Endpoints--------------------------------//
 app.post('/send/friend/request/:requestfrom/:requestto', ctrl.friendRequest)

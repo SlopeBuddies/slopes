@@ -189,6 +189,20 @@ getAllCreatedRooms: (req, res) => {
     })
   })
   
+},
+getNotificationLength: (req,res)=>{
+  req.app.get('db').get_request([req.user.user_id])
+    .then(
+      response => {
+        response = response.filter((e)=>{
+          if(e.pending === true && e.request_to === req.user.user_id){
+            return true;
+          } else {
+            return false;
+          }
+        })
+        res.status(200).send({lengths:response.length})
+      });
 }
 }
 // insert into request (request_type, pending, request_to, request_from)

@@ -53,7 +53,7 @@ render() {
                 {allChannels}
             <h1 className='chatNavTitle'>Public Channels</h1>
                 {allPublicChannels}
-                <button type='' className='close_modal_button' onClick={() => this.props.toggleModal()}>Create Room</button>       
+                <button type='' className='open_modal_button' onClick={() => this.props.toggleModal()}>Create Room</button>       
               </div>
     
     )
