@@ -993,24 +993,27 @@ bottom: 190px;
 }
 
 .chatNavTitle {
-  font-size: 35px;
+  font-size: 30px;
   padding: 5px 5px 5px 32px;
   margin-top: 3px;
   display: block;
   transition: 0.3s;
   color: #70aeff;
   text-decoration: none;  
-  box-shadow: 0 4px 2px -2px ;
+  box-shadow: 0 4px 2px -2px;
+  font-family: 'Bree Serif', serif;
+  letter-spacing: .5px;
 }
 
 .chatNavLink {
   text-decoration: none;  
+  font-family: 'Anton', sans-serif;
 }
 
 .chatNav button {
   padding: 8px 8px 8px 32px;
   font-size: 25px;
-  color: black;
+  color: #A8A8A8A8;
   display: block;
   margin-top: 5px;
   transition: 0.3s;
@@ -1123,8 +1126,54 @@ bottom: 190px;
   text-align: center;
 }
 
-.close_modal_button {
+.open_modal_button {
+  // position: relative;
+  text-align: center;
+  padding: 0px !important;
+  background-color: #A8A8A8A8;
+  color: $dark_blue !important;
+  font-size: 1.2em;
   margin-top: 10px;
+  height: 45px;
+  width: 200px;;
+  border: 2px solid black;
+  margin-left: 30px;
+  margin-bottom: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.close_modal_button {
+  // position: relative;
+  text-align: center;
+  padding: 0px !important;
+  background-color: #A8A8A8A8;
+  color: $dark_blue !important;
+  font-size: .8em;
+  margin-top: 10px;
+  height: 25px;
+  width: 100px;;
+  border: .5px solid black;
+  margin-left: 30px;
+  margin-bottom: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.send_modal_button {
+  // position: relative;
+  text-align: center;
+  padding: 0px !important;
+  background-color: #58D68D;
+  color: $dark_blue !important;
+  font-size: .8em;
+  margin-top: 10px;
+  height: 25px;
+  width: 100px;;
+  border: .5px solid black;
+  margin-bottom: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .add_to_room_button {

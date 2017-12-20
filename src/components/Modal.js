@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { toggleModal, getAllFriends, getUserInfo } from "./../ducks/reducer";
+import { toggleModal, getAllFriends, getUserInfo, toggleChannelsNav } from "./../ducks/reducer";
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 
 class Modal extends Component {
   constructor(props) {
@@ -39,6 +40,8 @@ class Modal extends Component {
 
   sendRoomNotification(room) {
     axios.post('/created/room', room)
+    this.props.toggleModal()
+    this.props.toggleChannelsNav()
   }
 
   addToInvited(friend) {
@@ -194,7 +197,8 @@ class Modal extends Component {
               </div> 
             </div>
             <div>
-              <button type='' className='' onClick={() => this.sendRoomNotification({
+            <Link to={`/chat/${this.state.roomid}`}>
+              <button type='' className='send_modal_button' onClick={() => this.sendRoomNotification({
                 createdRoom: [...this.state.createdRoomsInfo, {
                 room_name: this.state.roomName,
                 user_id: this.props.user.user_id}],
@@ -202,6 +206,7 @@ class Modal extends Component {
                 room: { roomName: this.state.roomName, roomid: this.state.roomid }
               })}>
               Send Invites</button>
+              </Link>
             <button
               type=""
               className="close_modal_button"
@@ -221,4 +226,4 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps, { toggleModal, getAllFriends, getUserInfo })(Modal);
+export default connect(mapStateToProps, { toggleModal, getAllFriends, getUserInfo, toggleChannelsNav })(Modal);
