@@ -14,6 +14,7 @@ import axios from "axios";
 import Channels from "./Channels";
 import edit from './../assets/edit icon.png';
 import gps from './../assets/gps.svg';
+import { Link } from 'react-router-dom';
 import hmtn from './../assets/thin-0786_basecamp_alps_mountains_cabin-512.png'
 
 class Profile extends Component {
@@ -137,6 +138,7 @@ class Profile extends Component {
   unfriend() {
     axios.put(`/unfriend/${+this.props.match.params.id}`).then(res => {
       this.props.getAllFriends(this.props.user.user_id);
+      alert ('Friend has succesfully been removed');
     });
   }
 
@@ -282,7 +284,7 @@ class Profile extends Component {
               </div>
             </div>
             <div>
-              <button
+              <Link to='/home'><button
                 onClick={() => {
                   this.unfriend();
                 }}
@@ -294,7 +296,7 @@ class Profile extends Component {
                 className="profile_edit unfriend"
               >
                 X
-              </button>
+              </button></Link>
             </div>
           </div>
 

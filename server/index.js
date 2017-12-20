@@ -149,7 +149,7 @@ const addListeners = (io, db) => {
             })
             break;
           case 'server/ chat send message' :
-            console.log(action.payload, 'user: ', socket.handshake.time)
+            // console.log(action.payload, 'user: ', socket.handshake.time)
             const time = socket.handshake.time.slice(0, 21)
             const { message, roomid, userName } = action.payload
             db.save_chat_message([ message, socket.user, roomid, userName, time ]).then( res => {
@@ -204,12 +204,12 @@ app.post('/chat/request', ctrl.createChatRequest);
 
 app.get('/notifications/:user_id', ctrl.getRequest)
 
-app.get('/channels/:firstName', ctrl.getAllChannels)
+// app.get('/channels/:firstName', ctrl.getAllChannels)
 app.get('/public/channels', ctrl.publicChannels)
 
 app.post('/created/room', ctrl.createdRoom)
 
-app.get('/rooms/created/:id', ctrl.getAllCreatedRooms)
+app.get('/rooms/created/:id/:first_name', ctrl.getAllCreatedRooms)
 
 const path = require("path");
 app.get("*", (req, res) => {
