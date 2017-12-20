@@ -223,8 +223,9 @@ table {
   width: 100% !important; }
 
 .homecontainer {
-  overflow: scroll;
+  overflow: hidden;
   background: #fffafa;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -783,10 +784,9 @@ table {
 
 .notificationscontainer {
   display: flex;
-  height: 100%;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  width: 100vw;
   overflow: scroll;
   height: 100%;
   margin: auto; }
