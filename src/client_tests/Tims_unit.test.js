@@ -1,11 +1,11 @@
 const tests = require('./exports')
 
-describe("removing friends from array actually works", () => {
+describe("removing friends from array results in an object", () => {
     test('for object', () => {
         let result = tests.removeFromRoom(6)
         expect(result.constructor).toEqual(Object)
     })
-    test('removed exists in object', () => {
+    test('removed exists in object and is not undefined', () => {
         let result = tests.removeFromRoom(6)
         expect(result.uninvitedFriends).not.toEqual(undefined)
     })
@@ -17,7 +17,7 @@ describe("removing friends from array actually works", () => {
         let result = tests.removeFromRoom(6)
         expect(result.length).not.toEqual(0)
     })
-    test('removed item is an array,', () => {
+    test('removed item results is an array inside the object', () => {
         let result = tests.removeFromRoom(6)
         expect(result.uninvitedFriends.constructor).toEqual(Array)
     })
