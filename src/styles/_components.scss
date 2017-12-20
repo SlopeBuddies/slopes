@@ -47,6 +47,8 @@
 
 //---------------------------------- Search css ----------------------------------//
 .searchContainer {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
   height: 100%;
   overflow: scroll;
   .searchBTN {
@@ -72,15 +74,22 @@
     height: 40px !important;
   }
 }
+.usersBtn {
 
-.usersList button {
-  margin: auto;
   font-size: 1.5em !important;
   background: transparent !important;
-  border-radius: 50% !important;
-  cursor: pointer;  
-  // border: .5px solid black !important;
+  margin: 0px !important;
+  display: flex ;
+  justify-content: center;
+  align-items: flex-end;
 }
+// .usersList button {
+
+//   font-size: 1.5em !important;
+//   background: transparent !important;
+//   border-radius: 50% !important;
+//   cursor: pointer;  
+// }
 // .searchIcon {
 //   margin-right: 50px;
 //   margin-left: 0;
@@ -88,7 +97,7 @@
 //   width: 35px;
 // }
 .searchContainer div {
-  height: 25px;
+  height: 24px;
   margin: auto;
   display: flex !important;
 }
@@ -616,6 +625,8 @@ bottom: 190px;
 .friendscontainer {
   // width: 96% !important;
   margin-right: 1px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
   margin-left: 1px;
   overflow: scroll;
 }
@@ -1068,8 +1079,93 @@ bottom: 190px;
   margin-bottom: 50px;
 }
 
-.create_room_button {
+friendsAvatar img {
+  margin-left: 4px;
+  height: 70px;
+  width: 70px !important;
+}
+.friendsAvatar {
+  // border: .5px solid rgba(5, 5, 224, 0.171);
+  // border-bottom: .25px solid rgba(5, 5, 224, 0.171);
+  border-radius: 5px;
+  margin-bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: .5s ease-in-out;
+  div {
+    display: flex;
+    width: 100%;
+    // justify-content: center;
+    align-items: center;
+    height: 83px !important;
+    // border: solid gray .5px; 
+  }
+}
+.friendsAvatar div {
+  // height: 50px !important;
+  width: 100% !important;
+  display: flex;
+  // justify-content: space-around;
+  // margin-left: 10px;
+}
+// .currentMTNhead section{
+//   margin: auto;
+// }
+.friendsAvatar_chat {
+  border-radius: 5px;
+  margin-bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: .5s ease-in-out;
+  div {
+    margin: auto;
+    width: 100%;
+    // justify-content: space-around;
+    // align-items: center;
+    height: 53px !important;
+  }
+}
+
+.friendmailer_chat img {
+  width: 45px !important;
+}
+.friendsPic_chat {
+  margin-right: 15px;
+  height: 50px !important;
+  width: 50px !important;
+  border-radius: 50%;
+}
+
+.friendsAvatar_chat button {
+  margin: auto;
   cursor: pointer;
+}
+.friendsName_chat {
+  display: flex;
+  align-items: center;
+  font-size: 1.25em;
+  color: $dark_blue;
+  // margin-right: 15px;
+}
+.friendmailer_green_chat {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+.green_add_button_chat {
+  margin-right: 5px;
+  width: 35px;
+  height: 35px;
+}
+.red_add_button_chat {
+  width: 40px;
+  height: 40px;
 }
 
 .create_room_modal {
@@ -1109,6 +1205,8 @@ bottom: 190px;
 }
 
 .friends_modal_list {
+display: flex;
+flex-direction: column;
   height: 70%;
   width: 80%;
   margin-top: 10px;
@@ -1117,6 +1215,9 @@ bottom: 190px;
   box-shadow: 0 0 3px 3px gray inset;
   overflow: scroll;  
   padding: 10px;
+}
+.friends_modal_list div {
+  margin: auto;
 }
 
 .friends_in_room_span {

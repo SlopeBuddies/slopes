@@ -91,7 +91,7 @@ export class Search extends Component {
           <div className='small_text'> {e.first_name}</div>
           {!friendRef.pendingFriendReqs.includes(e.user_id) ? !friendRef.homies.includes(e.user_id) ? 
             <div>
-              <button className='usersList' onClick={() => this.friendRequest(e.user_id)}
+              <button  className='usersBtn' onClick={() => this.friendRequest(e.user_id)}
               > + </button>
             </div>
           : <div><img className="checkmark" src = {checkmark} alt="Already Friends"/></div> : ''}
