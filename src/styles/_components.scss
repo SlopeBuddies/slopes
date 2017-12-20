@@ -517,7 +517,8 @@ align-content: center;
 
 .profile_text_container{
   // height: 80vh;
-  overflow: scroll;
+  // overflow-y: scroll;
+  overflow: hidden;
   margin: auto;
   width: 75%;
   height: 80%;
@@ -613,7 +614,7 @@ bottom: 190px;
   color: $dark_blue;
   font-size: .75em;
   cursor: pointer;  
-  margin-top: 10px;
+  margin-top: 5px;
   text-align: center;
 }
 

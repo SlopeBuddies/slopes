@@ -447,7 +447,7 @@ table {
   text-align: center; }
 
 .profile_text_container {
-  overflow: scroll;
+  overflow: hidden;
   margin: auto;
   width: 75%;
   height: 80%; }
@@ -532,7 +532,7 @@ table {
   color: #3c4163;
   font-size: .75em;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 5px;
   text-align: center; }
 
 .profile_save div {

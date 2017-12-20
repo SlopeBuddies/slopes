@@ -34,6 +34,7 @@ class Profile extends Component {
       this.refs.first.value = this.props.profile.first_name;
       this.refs.last.value = this.props.profile.last_name;
       this.refs.homeMountain.value = this.props.profile.home_mountain;
+      this.refs.insta.value = this.props.profile.insta
       this.setState({
         secureURL: this.props.profile.profile_picture,
         coverURL: this.props.profile.cover_picture
@@ -220,6 +221,7 @@ class Profile extends Component {
             </div>
             <input ref="nickname" type="text" className="profile_input" />
             <input ref="homeMountain" type="text" className="profile_input" />
+            <input ref='insta' type='text' className='profile_input' />
           <button
               type="profilebtn"
               className={
@@ -232,7 +234,8 @@ class Profile extends Component {
                   last: this.refs.last.value,
                   home_mountain: this.refs.homeMountain.value,
                   imgURL: this.state.secureURL,
-                  coverURL: this.state.coverURL
+                  coverURL: this.state.coverURL,
+                  insta: this.refs.insta.value
                 });
                 this.setState({ editable: true });
               }}
@@ -252,6 +255,7 @@ class Profile extends Component {
               </div>
               <h3 className='profile_nickname'>{this.props.profile.nickname} </h3>
               <h3 className='profile_home_mtn'> {this.props.profile.home_mountain}</h3>
+              <h3><a href={this.props.profile.insta} ><i className='fab fa-instagram' ></i></a></h3>
             </div>
 
             <div
