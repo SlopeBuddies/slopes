@@ -26,10 +26,10 @@ export class Nav extends Component {
   
   handleClick(chatNavOpen) {
     this.props.toggleChannelsNav(chatNavOpen)
-    this.props.getAllChannels(this.props.user.first_name)
+    // this.props.getAllChannels(this.props.user.first_name)
     this.props.getAllPublicChannels()
     this.props.getAllFriends(this.props.user.user_id)
-    this.props.getAllCreatedRooms(this.props.user.user_id);    
+    this.props.getAllCreatedRooms(this.props.user.user_id, this.props.user.first_name);    
   }
 
     

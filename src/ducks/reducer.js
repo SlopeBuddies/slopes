@@ -216,10 +216,10 @@ export function toggleModal() {
   }
 }
 
-export function getAllCreatedRooms(user_id) {
+export function getAllCreatedRooms(user_id, first_name) {
   return {
     type: GET_ALL_CREATED_ROOMS,
-    payload: axios.get(`/rooms/created/${user_id}`).then(res => res.data)
+    payload: axios.get(`/rooms/created/${user_id}/${first_name}`).then(res => res.data)
   }
 }
 
@@ -305,7 +305,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {openModal: !state.openModal});
 
     case GET_ALL_CREATED_ROOMS + '_FULFILLED':
-      return Object.assign({}, state, {channels: [...action.payload, ...state.channels]})
+    const ap = action.payload
+      return Object.assign({}, state, {channels: [...action.payload[0], ...action.payload[1]]})
 
       case CHECK_RESORT_INTIAL + '_FULFILLED':
       return Object.assign({}, state, {resort: action.payload})

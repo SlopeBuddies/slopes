@@ -183,7 +183,12 @@ createdRoom: (req, res) => {
 getAllCreatedRooms: (req, res) => {
   const db = req.app.get('db');
 
-  db.get_all_created_rooms(req.params.id).then(rooms => res.status(200).send(rooms))
+  db.get_all_channels([`%${req.params.first_name}%`]).then(channels =>{
+    db.get_all_created_rooms([req.params.id]).then(rooms => {
+      res.status(200).send([channels, rooms])
+    })
+  })
+  
 }
 }
 // insert into request (request_type, pending, request_to, request_from)
