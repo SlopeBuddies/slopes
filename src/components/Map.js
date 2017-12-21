@@ -20,7 +20,7 @@ constructor() {
         isMarkerShown: false,
         markers: [],
         center:{lat: 40.366163199999995, lng: -111.7397428},
-        zoom: 13,
+        zoom: 15,
         userMarkers: [],
         defaultCenter: {}
 
