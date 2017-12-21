@@ -96,7 +96,6 @@ export function checkResort(position) {
 }
 
 export function getProfile(id) {
-  console.log(id);
 
   const profile = axios.get(`/user/${id}`).then(res => {
     return res.data;

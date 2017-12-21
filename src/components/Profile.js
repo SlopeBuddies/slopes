@@ -32,6 +32,7 @@ class Profile extends Component {
   componentDidMount() {
     console.log(this.props.match.params.id);
     this.props.getProfile(this.props.match.params.id).then(() => {
+      console.log(this.props.profile)
       this.refs.nickname.value = this.props.profile.nickname;
       this.refs.first.value = this.props.profile.first_name;
       this.refs.last.value = this.props.profile.last_name;
