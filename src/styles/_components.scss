@@ -1246,7 +1246,13 @@ flex-direction: column;
 }
 
 .friends_in_room_span {
+  font-size: 1em;
   text-align: center;
+}
+
+.room-name {
+  font-size: .9em;
+  font-weight: 500;
 }
 
 .open_modal_button {
