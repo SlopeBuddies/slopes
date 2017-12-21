@@ -126,6 +126,7 @@ export class Friends extends Component {
       });
     }
     return (
+        
       <div className='friendscontainer'>
         <div>{currentMTNfriends}</div>
         <div>{MTNfriends}</div>

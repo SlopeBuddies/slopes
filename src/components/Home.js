@@ -130,7 +130,9 @@ class Home extends Component {
 
               <button
                 className="homecontainerButton"
-                style={this.state.friendsToggle ? { display: "none" } : this.state.searchToggle && this.state.notificationsToggle && this.state.mapToggle ? {marginBottom: '3px'} : null}
+                style={this.state.friendsToggle ? { display: "none" } : 
+                this.state.searchToggle && this.state.notificationsToggle && this.state.mapToggle ? 
+                {marginBottom: '3px'} : null}
                 onClick={() => {
                   this.friendsToggle();
                 }}
@@ -154,7 +156,11 @@ class Home extends Component {
               <button
                 className="homecontainerButton"
                 style={
-                  this.state.notificationsToggle ? { display: "none" } : this.state.friendsToggle && this.state.searchToggle && this.state.notificationsToggle ? {marginBottom: '3px'} : null
+                  this.state.notificationsToggle ? 
+                  { display: "none" } : 
+                  this.state.friendsToggle && this.state.searchToggle && this.state.mapToggle ? 
+                  
+                  {marginBottom: '3px'} : null
                 }
                 // style={this.state.friendsToggle && this.state.searchToggle ? {marginBottom: '3px'} : null}
                 

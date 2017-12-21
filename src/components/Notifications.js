@@ -61,9 +61,9 @@ export class Notifications extends Component {
     return (
       <div className='notificationscontainer'>
       <h1> Chat Requests </h1>
-      <div> {chats}</div> 
+      <div className='requestsdiv'> {chats}</div> 
         <h1> Friend Requests </h1>
-        <div>{requests}</div> 
+        <div className='requestsdiv'>{requests}</div> 
       
       </div>
     );
