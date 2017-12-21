@@ -47,8 +47,6 @@
 
 //---------------------------------- Search css ----------------------------------//
 .searchContainer {
-  margin-bottom: 10px;
-  padding-bottom: 10px;
   height: 100%;
   overflow: scroll;
   .searchBTN {
@@ -266,7 +264,7 @@ align-content: center;
   justify-content: center;
   align-items: center;
   align-content: center;
-  height: 61.5vh;
+  height: 59.5vh;
   flex-direction: column;
   
 }
@@ -651,34 +649,44 @@ bottom: 25%;
 }
 //---------------------------------- FRIENDS ----------------------------------//
 .friendscontainer {
-  // width: 96% !important;
+  height: calc(100% - 42.7px);
+  position: relative !important;
   margin-right: 1px;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
   margin-left: 1px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .buds {
-  // border: .5px solid #B0E2FF;
-  
+  height: 90px;
   box-shadow: 2.5px 1.5px 4px 1.5px #B0E2FF;
 }
 
 .skiin {
-  // border: .5px solid #FFDAB9 !important;
+  height: 90px;
   box-shadow: 2.5px 1.5px 4px 1.5px #FFDAB9 !important;
 }
 
 .lazy {
-  // border: .5px solid rgb(43, 52, 58, 0.678);
+  height: 90px;
   box-shadow: 2.5px 1.5px 4px 1.5px rgba(43, 52, 58, 0.678);
 }
-.friendscontainer div {
-  margin: auto;
+
+// .friendscontainer div div {
+//   position: relative;
+//   background: green !important
+// }
+
+// .friendsbutton {
+//   height: 55px;
+// }
+.friendscontainer div{
+  // margin: auto;
   margin-bottom: 6px;
+  margin-left: 4px !important;
   width: 98% !important;
-  height: 100% !important;
+  // height: 100% !important;
   color: $dark_blue;
+  overflow: scroll;
 }
 .friendsAvatar img {
   margin-left: 4px;
@@ -945,14 +953,12 @@ bottom: 25%;
 //---------------------------------- notifications css ----------------------------------//
 .notificationscontainer {
   display: flex;
-  // height: 95vh;
-  // justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100vw;
   overflow: scroll;
   height: 100%;
-  margin: auto;
+  // margin: auto;
 }
 
 .notificationscontainer h1 {
@@ -961,7 +967,22 @@ bottom: 25%;
   margin-top: 10px;
   color: $dark_blue;
 }
+.requestsdiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
 
+.requestsdiv {
+
+}
+
+.requestsdiv div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-around !important;
+}
 .notificationscontainer div {
   margin: auto;
 }
@@ -976,7 +997,6 @@ bottom: 25%;
   justify-content: space-around;
   align-items: center;
   padding-top: 10px;
-  padding-left: 20px;
 }
 
 .snotificationschat button {
@@ -990,10 +1010,10 @@ bottom: 25%;
 .snotificationsrequest {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  height: 100%;
+  justify-content: center;
   align-items: center;
   padding-top: 10px;
-  padding-left: 20px;
 }
 
 .accept_deny_buttons {

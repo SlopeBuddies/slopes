@@ -79,8 +79,6 @@ table {
   color: #70aeff; }
 
 .searchContainer {
-  margin-bottom: 10px;
-  padding-bottom: 10px;
   height: 100%;
   overflow: scroll; }
   .searchContainer .searchBTN {
@@ -232,7 +230,7 @@ table {
   justify-content: center;
   align-items: center;
   align-content: center;
-  height: 61.5vh;
+  height: 59.5vh;
   flex-direction: column; }
 
 .home {
@@ -563,27 +561,31 @@ table {
   text-align: center; }
 
 .friendscontainer {
+  height: calc(100% - 42.7px);
+  position: relative !important;
   margin-right: 1px;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
   margin-left: 1px;
-  overflow: scroll; }
+  overflow-y: scroll;
+  overflow-x: hidden; }
 
 .buds {
+  height: 90px;
   box-shadow: 2.5px 1.5px 4px 1.5px #B0E2FF; }
 
 .skiin {
+  height: 90px;
   box-shadow: 2.5px 1.5px 4px 1.5px #FFDAB9 !important; }
 
 .lazy {
+  height: 90px;
   box-shadow: 2.5px 1.5px 4px 1.5px rgba(43, 52, 58, 0.678); }
 
 .friendscontainer div {
-  margin: auto;
   margin-bottom: 6px;
+  margin-left: 4px !important;
   width: 98% !important;
-  height: 100% !important;
-  color: #3c4163; }
+  color: #3c4163;
+  overflow: scroll; }
 
 .friendsAvatar img {
   margin-left: 4px;
@@ -788,14 +790,24 @@ table {
   flex-direction: column;
   width: 100vw;
   overflow: scroll;
-  height: 100%;
-  margin: auto; }
+  height: 100%; }
 
 .notificationscontainer h1 {
   font-size: 2em;
   font-weight: 400;
   margin-top: 10px;
   color: #3c4163; }
+
+.requestsdiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }
+
+.requestsdiv div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-around !important; }
 
 .notificationscontainer div {
   margin: auto; }
@@ -808,8 +820,7 @@ table {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-top: 10px;
-  padding-left: 20px; }
+  padding-top: 10px; }
 
 .snotificationschat button {
   margin: auto;
@@ -821,10 +832,10 @@ table {
 .snotificationsrequest {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  height: 100%;
+  justify-content: center;
   align-items: center;
-  padding-top: 10px;
-  padding-left: 20px; }
+  padding-top: 10px; }
 
 .friend_accept_button {
   width: 20px !important; }
