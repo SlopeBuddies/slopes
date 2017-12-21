@@ -146,18 +146,6 @@ align-items: center;
 align-content: center;
 }
 
-// .usersList div button {
-//   // margin-left: 10px !important;
-//   // height: 100% !important;
-//   width: 1em;
-//   margin: auto;
-// }
-// .usersList img {
-//   margin-right: 15px;
-//   height: 50px;
-//   width: 50px;
-// }
-
 //styles users img
 .searchIMG {
   margin-left: 10px;
@@ -184,8 +172,14 @@ align-content: center;
   grid-template-rows: repeat(8, 12.5%);
 }
 
-.home-notification-alert{
-  background: red;
+.home-notification-alert {
+  font-weight: 600;
+  color: rgba(235, 103, 103, 0.884);
+  position: absolute;
+  right: 13.5%;
+  background: rgb(88, 107, 150);
+  width: 29px;
+  height: 29px;
   border-radius: 50%;
 }
 
@@ -251,8 +245,6 @@ align-content: center;
 }
 
 .homecontainer div {
-  // display: flex;
-  // justify-content: center;
   width: 100% !important;
 }
 .homecontainer {
@@ -260,7 +252,6 @@ align-content: center;
   background: #fffafa;
   width: 100%;
   @include flex;
-  // height: calc(100vh - 332px);
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -274,7 +265,6 @@ align-content: center;
   position: fixed;
 }
 .homecontainer button {
-  // margin: auto !important;
   outline: none;
   border: none;
   color: #3c4163;
@@ -304,7 +294,6 @@ align-content: center;
     color: #3c4163;
     border-radius: 5px;
     background: #70aeff;
-    // margin-bottom: 30px;
     height: 50px;
     width: 100% !important;
     font-size: 1.5em;
@@ -350,11 +339,9 @@ align-content: center;
 }
 
 .chatbtnImg {
-  // height: 60px;
   padding-top: 10px;
   height: 50px;
   width: 55px;
-  // padding-top: 5px;
 }
 
 //---------------------------------- Login css ----------------------------------//
@@ -382,7 +369,6 @@ align-content: center;
 .login_title {
   font-family: $title_font;
   color: $dark_blue;
-  // color: $light_blue;
   font-size: 3em;
 }
 
@@ -393,17 +379,6 @@ align-content: center;
   width: auto;
   margin-top: 70px;
 }
-
-// .loginBox {
-//   @include flex;
-//   border-radius: 8px;
-//   height: 60px;
-//   width: 80%;
-//   // background: gray;
-//   position: absolute;
-//   bottom: 20px;
-//   opacity: .75;
-// }
 
 .login_button {
   font-size: 25px;
@@ -444,7 +419,6 @@ align-content: center;
   margin-top: 8px !important;
   border-radius: 5px;
   padding: 15px;
-  // padding:13px 20px 30px 20px;
   box-shadow: 1px 1px 3px 2px rgba(128, 128, 128, 0.548);
 }
 
@@ -460,7 +434,6 @@ align-content: center;
   overflow: hidden;
   @include flex(center, center);
   height: calc(100vh - 145px);
-  // height: 70vh;
   flex-direction: column;
   background-color: #fffafa;
   color: $dark_blue;
@@ -473,7 +446,6 @@ align-content: center;
 }
 
 .profile_image {
-  // padding-top: 15px;
   margin-top: 65px;
   height: 175px;
   width: 175px;
@@ -487,8 +459,6 @@ align-content: center;
   top: 0;
   left: 0;
   right: 0;
-  // margin-left: auto;
-  // margin-right: auto;
   height: 282px;
 }
 
@@ -518,14 +488,11 @@ align-content: center;
   height: 30px !important;
   background: rgba(141, 170, 212, .4);
   @include flex;  
-  // opacity: .6;
   text-align: center;
 }
 
 
 .profile_text_container{
-  // height: 80vh;
-  // overflow-y: scroll;
   overflow: hidden;
   margin: auto;
   width: 75%;
@@ -590,8 +557,8 @@ bottom: 25%;
 
 .spinning {
   position: absolute;
-  left: 60px;
-  bottom: 161px;
+  left: 15%;
+  bottom: 25%;
   animation: spin .75s linear infinite
 }
 
@@ -609,9 +576,6 @@ bottom: 25%;
   top: 20%;
   right: 15.5%;
 }
-// .profile-edit:hover {
-//   height: 40px;
-// }
 
 .profile_disabled {
   display: none;
@@ -621,9 +585,6 @@ bottom: 25%;
   grid-template-columns: 20% 20% 20% 20% 20%;
 }
 .hmtn {
-  // position: absolute;
-  // bottom: 32.5%;
-  // left: 23.5%;
   margin-right: 13px;
   padding-top: 10px;
   width: 25px;
@@ -672,20 +633,10 @@ bottom: 25%;
   box-shadow: 2.5px 1.5px 4px 1.5px rgba(43, 52, 58, 0.678);
 }
 
-// .friendscontainer div div {
-//   position: relative;
-//   background: green !important
-// }
-
-// .friendsbutton {
-//   height: 55px;
-// }
 .friendscontainer div{
-  // margin: auto;
   margin-bottom: 6px;
   margin-left: 4px !important;
   width: 98% !important;
-  // height: 100% !important;
   color: $dark_blue;
   overflow: scroll;
 }
@@ -695,8 +646,6 @@ bottom: 25%;
   width: 70px !important;
 }
 .friendsAvatar {
-  // border: .5px solid rgba(5, 5, 224, 0.171);
-  // border-bottom: .25px solid rgba(5, 5, 224, 0.171);
   border-radius: 5px;
   margin-bottom: 15px;
   width: 100%;
@@ -707,22 +656,16 @@ bottom: 25%;
   div {
     display: flex;
     width: 100%;
-    // justify-content: center;
     align-items: center;
     height: 83px !important;
-    // border: solid gray .5px; 
   }
 }
 .friendsAvatar div {
-  // height: 50px !important;
   width: 100% !important;
   display: flex;
-  // justify-content: space-around;
-  // margin-left: 10px;
+
 }
-// .currentMTNhead section{
-//   margin: auto;
-// }
+
 
 .friendmailer img {
   width: 45px !important;

@@ -159,7 +159,13 @@ table {
   grid-template-rows: repeat(8, 12.5%); }
 
 .home-notification-alert {
-  background: red;
+  font-weight: 600;
+  color: rgba(235, 103, 103, 0.884);
+  position: absolute;
+  right: 13.5%;
+  background: #586b96;
+  width: 29px;
+  height: 29px;
   border-radius: 50%; }
 
 .home_profile_image {
@@ -510,8 +516,8 @@ table {
 
 .spinning {
   position: absolute;
-  left: 60px;
-  bottom: 161px;
+  left: 15%;
+  bottom: 25%;
   animation: spin .75s linear infinite; }
 
 @keyframes spin {
