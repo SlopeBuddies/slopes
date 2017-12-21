@@ -173,6 +173,7 @@ align-content: center;
 }
 
 .home-notification-alert {
+  font-size: .9em;
   font-weight: 600;
   color: rgba(235, 103, 103, 0.884);
   position: absolute;
@@ -430,6 +431,12 @@ align-content: center;
   font-size: 1em;
   grid-column: 2 / 5;
 }
+
+.no-profile_home_mtn {
+  font-size: .5em;
+  grid-column: 2 / 5;
+  color: lightgray;
+}
 .profile_container {
   overflow: hidden;
   @include flex(center, center);
@@ -573,8 +580,8 @@ bottom: 25%;
   border-radius: 5px;
   font-size: .5em;
   position: absolute;
-  top: 20%;
-  right: 15.5%;
+  top: 18.5%;
+  right: 17%;
 }
 
 .profile_disabled {
@@ -896,26 +903,44 @@ bottom: 25%;
 
 //---------------------------------- notifications css ----------------------------------//
 .notificationscontainer {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   width: 100vw;
   overflow: scroll;
   height: 100%;
   // margin: auto;
 }
-
+.notificationscontainer div {
+  width: 75%;
+}
+.deny-req-pic {
+  height: 31px;
+  width: 31px;
+}
+.accept-req-pic {
+  height: 28px;
+  width: 28px !important;
+}
 .notificationscontainer h1 {
-  font-size: 2em;
+  width: 50%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: inline-block;
+  margin-left: 25%;
+  margin-bottom: 4px;
+  box-shadow: 0 8px 5px -5px $dark_blue;
+  text-align: center;
+  font-size: 1.25em;
   font-weight: 400;
-  margin-top: 10px;
+  // margin-top: 10px;
+  // margin-bottom: 3px;
   color: $dark_blue;
 }
+
 .requestsdiv {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  padding-bottom: 4px;
 }
 
 .requestsdiv {
@@ -932,10 +957,12 @@ bottom: 25%;
 }
 
 .small_text {
+
   color: $dark_blue;
 }
 
 .snotificationschat {
+  width: 75%;
   margin: auto;
   display: flex;
   justify-content: space-around;
@@ -1112,15 +1139,15 @@ friendsAvatar img {
 //   margin: auto;
 // }
 .friendsAvatar_chat {
+  font-size: .85em;
   border-radius: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 53px !important;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: .5s ease-in-out;
   div {
-    margin: auto;
     width: 100%;
     // justify-content: space-around;
     // align-items: center;
