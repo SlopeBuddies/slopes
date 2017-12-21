@@ -456,6 +456,7 @@ align-content: center;
 
 .profile_home_mtn {
   font-size: 1em;
+  grid-column: 2 / 5;
 }
 .profile_container {
   overflow: hidden;
@@ -618,8 +619,8 @@ bottom: 25%;
   display: none;
 }
 .hmtn_div {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
 }
 .hmtn {
   // position: absolute;
