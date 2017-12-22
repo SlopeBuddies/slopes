@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { toggleModal, getAllFriends, getUserInfo, toggleChannelsNav } from "./../ducks/reducer";
+import { toggleModal, getAllFriends, getUserInfo, toggleChannelsNav, setRoomName } from "./../ducks/reducer";
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 import add from '../assets/Check1_Green.png';
@@ -44,6 +44,7 @@ class Modal extends Component {
     axios.post('/created/room', room)
     this.props.toggleModal()
     this.props.toggleChannelsNav()
+    this.props.setRoomName(room.room.roomName)
   }
 
   addToInvited(friend) {
@@ -230,4 +231,4 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps, { toggleModal, getAllFriends, getUserInfo, toggleChannelsNav })(Modal);
+export default connect(mapStateToProps, { toggleModal, getAllFriends, getUserInfo, toggleChannelsNav, setRoomName })(Modal);
