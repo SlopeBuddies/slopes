@@ -159,7 +159,14 @@ table {
   grid-template-rows: repeat(8, 12.5%); }
 
 .home-notification-alert {
-  background: red;
+  font-size: .9em;
+  font-weight: 600;
+  color: rgba(235, 103, 103, 0.884);
+  position: absolute;
+  right: 13.5%;
+  background: #586b96;
+  width: 29px;
+  height: 29px;
   border-radius: 50%; }
 
 .home_profile_image {
@@ -385,7 +392,13 @@ table {
   font-size: .65em; }
 
 .profile_home_mtn {
-  font-size: 1em; }
+  font-size: 1em;
+  grid-column: 2 / 5; }
+
+.no-profile_home_mtn {
+  font-size: .5em;
+  grid-column: 2 / 5;
+  color: lightgray; }
 
 .profile_container {
   overflow: hidden;
@@ -494,8 +507,8 @@ table {
   border-radius: 50%;
   position: absolute;
   height: 24px;
-  left: 18%;
-  bottom: 25%; }
+  left: 17.25%;
+  bottom: 24.5%; }
 
 .profile_edit {
   border: none;
@@ -503,14 +516,14 @@ table {
   font-size: 1em;
   cursor: pointer;
   position: absolute;
-  bottom: 25%;
-  right: 18%;
+  bottom: 24.75%;
+  right: 17.5%;
   margin: auto; }
 
 .spinning {
   position: absolute;
-  left: 60px;
-  bottom: 161px;
+  left: 15%;
+  bottom: 25%;
   animation: spin .75s linear infinite; }
 
 @keyframes spin {
@@ -526,15 +539,15 @@ table {
   border-radius: 5px;
   font-size: .5em;
   position: absolute;
-  top: 20%;
-  right: 15.5%; }
+  top: 18.5%;
+  right: 17%; }
 
 .profile_disabled {
   display: none; }
 
 .hmtn_div {
-  display: flex;
-  align-items: center; }
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%; }
 
 .hmtn {
   margin-right: 13px;
@@ -785,24 +798,40 @@ table {
   background: #fffafa; }
 
 .notificationscontainer {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   width: 100vw;
   overflow: scroll;
   height: 100%; }
 
+.notificationscontainer div {
+  width: 75%; }
+
+.deny-req-pic {
+  height: 31px;
+  width: 31px; }
+
+.accept-req-pic {
+  height: 28px;
+  width: 28px !important; }
+
 .notificationscontainer h1 {
-  font-size: 2em;
+  width: 50%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: inline-block;
+  margin-left: 25%;
+  margin-bottom: 4px;
+  box-shadow: 0 8px 5px -5px #3c4163;
+  text-align: center;
+  font-size: 1.25em;
   font-weight: 400;
-  margin-top: 10px;
   color: #3c4163; }
 
 .requestsdiv {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center; }
+  align-items: center;
+  padding-bottom: 4px; }
 
 .requestsdiv div {
   display: flex !important;
@@ -816,6 +845,7 @@ table {
   color: #3c4163; }
 
 .snotificationschat {
+  width: 75%;
   margin: auto;
   display: flex;
   justify-content: space-around;
@@ -967,15 +997,15 @@ friendsAvatar img {
   display: flex; }
 
 .friendsAvatar_chat {
+  font-size: .85em;
   border-radius: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 53px !important;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: .5s ease-in-out; }
   .friendsAvatar_chat div {
-    margin: auto;
     width: 100%;
     height: 53px !important; }
 
@@ -1055,7 +1085,12 @@ friendsAvatar img {
   margin: auto; }
 
 .friends_in_room_span {
+  font-size: 1em;
   text-align: center; }
+
+.room-name {
+  font-size: .9em;
+  font-weight: 500; }
 
 .open_modal_button {
   text-align: center;

@@ -195,7 +195,10 @@ class Modal extends Component {
             {displayFriends}
             
               {/* <span className=''>Room: </span>  */}
-              <span className='friends_in_room_span'>Friends in Room '{this.state.roomName}': </span>
+              <span className='friends_in_room_span'>Friends in Room: 
+              <p className='room-name'>
+              {this.state.roomName.split('').map(e => e.toUpperCase('')).join('')}
+              </p> </span>
                
              
               {invitedFriends}

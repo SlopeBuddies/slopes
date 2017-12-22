@@ -32,6 +32,7 @@ class Profile extends Component {
   componentDidMount() {
     console.log(this.props.match.params.id);
     this.props.getProfile(this.props.match.params.id).then(() => {
+      console.log(this.props.profile)
       this.refs.nickname.value = this.props.profile.nickname;
       this.refs.first.value = this.props.profile.first_name;
       this.refs.last.value = this.props.profile.last_name;
@@ -257,7 +258,9 @@ class Profile extends Component {
                 <h3> {this.props.profile.last_name}</h3>
               </div>
               <h3 className='profile_nickname'>{this.props.profile.nickname} </h3>
-              <div className='hmtn_div'><img className='hmtn' src={hmtn} /> <h3 className='profile_home_mtn'> {this.props.profile.home_mountain}</h3></div>
+              <div className='hmtn_div'><img className='hmtn' src={hmtn} /> {this.props.profile.home_mountain ?  <h3 className='profile_home_mtn'> {this.props.profile.home_mountain}</h3>
+              : <h3 className='no-profile_home_mtn'> This user has no Home Mountain </h3> }
+              </div>
               <h3><a href={this.props.profile.insta} ><i className='fab fa-instagram' ></i></a></h3>
             </div>
 
