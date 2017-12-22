@@ -507,8 +507,8 @@ table {
   border-radius: 50%;
   position: absolute;
   height: 24px;
-  left: 18%;
-  bottom: 25%; }
+  left: 17.25%;
+  bottom: 24.5%; }
 
 .profile_edit {
   border: none;
@@ -516,8 +516,8 @@ table {
   font-size: 1em;
   cursor: pointer;
   position: absolute;
-  bottom: 25%;
-  right: 18%;
+  bottom: 24.75%;
+  right: 17.5%;
   margin: auto; }
 
 .spinning {
